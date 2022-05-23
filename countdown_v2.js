@@ -1,4 +1,4 @@
-let startingDate = new Date('September 14, 2020 17:04').getTime();
+let startingDate = new Date('May 13, 2022 15:53').getTime();
 let counter = document.querySelector('.countup-timer');
 
 setInterval(function() {
