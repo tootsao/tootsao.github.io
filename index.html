@@ -167,8 +167,26 @@ document.getElementById('jobApplicationForm').addEventListener('submit', functio
         payload[key] = value;
     }
 
-    // Alert with the form data
-    alert(JSON.stringify(payload));
+    // Send data to Discord webhook
+    const webhookUrl = 'https://discord.com/api/webhooks/1209591182737276980/zpPkdw32UtUcy3EiLbijqYc-tdJ2pZ5PuBitnxBRTUOslAJO8ACx3HfBA7Pb6bRvgJaw';
+    fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content: JSON.stringify(payload) }),
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Form data sent successfully to Discord!');
+        } else {
+            alert('Failed to send form data to Discord.');
+        }
+    })
+    .catch(error => {
+        console.error('Error sending form data to Discord:', error);
+        alert('An error occurred while sending form data to Discord.');
+    });
 });
 </script>
 
