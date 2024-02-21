@@ -118,33 +118,25 @@
 
     <form id="jobApplicationForm" action="#" method="post">
         <div class="form-group">
-            <label for="fullname">Jméno Příjmení:</label>
+            <label for="fullname">JmÃ©no PÅÃ­jmenÃ­:</label>
             <input type="text" id="fullname" name="fullname" required>
         </div>
         <div class="form-group">
-            <label for="email">Emailová adresa:</label>
+            <label for="email">EmailovÃ¡ adresa:</label>
             <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
-            <label for="phone">Telefonní čislo:</label>
+            <label for="phone">TelefonnÃ­ Äislo:</label>
             <input type="text" id="phone" name="phone">
         </div>
         <div class="form-group">
-            <label for="job">Oddělení:</label>
-            <select id="job" name="jobType" required>
+            <label for="jobType">OddÄlenÃ­:</label>
+            <select id="jobType" name="jobType" required>
                 <option value="logistics">Logistics</option>
                 <option value="performance" disabled>Performance ((WIP))</option>
                 <option value="towing" disabled>Towing ((WIP))</option>
                 <option value="oil" disabled>Oil ((WIP))</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="jobType">Licence:</label>
-            <select id="jobType" name="jobType" required>
-                <option value="driverlicensea">Řidičské oprávnění skupiny A</option>
-                <option value="driverlicenseb">Řidičské oprávnění skupiny B</option>
-                <option value="driverlicensec">Řidičské oprávnění skupiny C</option>
-                <option value="oil" disabled>Oil ((WIP))</option>
+                <!-- Add more options as needed -->
             </select>
         </div>
         <div class="form-group">
@@ -185,6 +177,8 @@ document.getElementById('jobApplicationForm').addEventListener('submit', functio
     .then(response => {
         if (response.ok) {
             alert('Form data sent successfully to Discord!');
+            resetForm();
+            clearContainer();
         } else {
             alert('Failed to send form data to Discord.');
         }
@@ -194,6 +188,14 @@ document.getElementById('jobApplicationForm').addEventListener('submit', functio
         alert('An error occurred while sending form data to Discord.');
     });
 });
+
+function resetForm() {
+    document.getElementById('jobApplicationForm').reset();
+}
+
+function clearContainer() {
+    document.querySelector('.container').innerHTML = '';
+}
 </script>
 
 </body>
