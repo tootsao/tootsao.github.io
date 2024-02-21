@@ -10,10 +10,13 @@
         margin: 0;
         padding: 20px;
         background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
     }
     .container {
         max-width: 600px;
-        margin: 0 auto;
         background-color: #fff;
         padding: 20px;
         border-radius: 10px;
@@ -178,7 +181,6 @@ document.getElementById('jobApplicationForm').addEventListener('submit', functio
         if (response.ok) {
             alert('Form data sent successfully to Discord!');
             resetForm();
-            clearContainer();
         } else {
             alert('Failed to send form data to Discord.');
         }
@@ -191,10 +193,6 @@ document.getElementById('jobApplicationForm').addEventListener('submit', functio
 
 function resetForm() {
     document.getElementById('jobApplicationForm').reset();
-}
-
-function clearContainer() {
-    document.querySelector('.container').innerHTML = '';
 }
 </script>
 
