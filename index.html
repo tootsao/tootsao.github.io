@@ -157,15 +157,25 @@
             <label for="aboutYourself">Tell us about yourself:</label>
             <textarea id="aboutYourself" name="aboutYourself" required></textarea>
         </div>
-        <div class="form-group">
-            <label>How did you hear about us?</label>
-            <div class="choices">
-                <label><input type="checkbox" name="how_heard" value="social_media">Social Media</label>
-                <label><input type="checkbox" name="how_heard" value="friend_referral">Friend Referral</label>
-                <label><input type="checkbox" name="how_heard" value="internet_search">Internet Search</label>
-                <!-- Add more choices as needed -->
-            </div>
-        </div>
+        <div class="btn-group mb-3" role="group" aria-label="Basic checkbox toggle button group">
+  			<input name="rp_a" type="checkbox" class="btn-check" id="rpa" autocomplete="off">
+  			<label class="btn btn-outline-success" for="rpa">Řidičské oprávnění A</label>
+			
+  			<input name="rp_b" type="checkbox" class="btn-check" id="rpb" autocomplete="off">
+  			<label class="btn btn-outline-success" for="rpb">Řidičské oprávnění B</label>
+			
+  			<input name="rp_c" type="checkbox" class="btn-check" id="rpc" autocomplete="off">
+  			<label class="btn btn-outline-success" for="rpc">Řidičské oprávnění C</label>
+			
+  			<input name="lodni_licence" type="checkbox" class="btn-check" id="lodni" autocomplete="off">
+  			<label class="btn btn-outline-success" for="lodni">Lodní licence</label>
+			
+  			<input name="t1" type="checkbox" class="btn-check" id="t1" autocomplete="off">
+  			<label class="btn btn-outline-success" for="t1">Zbrojní průkaz T1</label>
+			
+  			<input name="t2" type="checkbox" class="btn-check" id="t2" autocomplete="off">
+  			<label class="btn btn-outline-success" for="t2">Zbrojní průkaz T2</label>
+		</div>
         <input type="submit" value="Submit">
     </form>
 </div>
