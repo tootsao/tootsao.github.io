@@ -141,7 +141,7 @@ document.getElementById("applicationForm").addEventListener("submit", function(e
     var formData = new FormData(this);
     var webhookData = {};
     formData.forEach(function(value, key) {
-        if (webhookData[value] = "on") {
+        if (key.startsWith("license")) {
             // Using emojis directly
             webhookData[key] = value ? "✅" : "❌";
         } else {
