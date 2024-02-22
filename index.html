@@ -149,10 +149,10 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    content: "New application submission:",
                     embeds: [{
                         title: "New Application",
                         description: "A new application has been submitted.",
+                        color: "32b88d",
                         fields: Object.entries(webhookData).map(([key, value]) => ({
                             name: key,
                             value: value,
