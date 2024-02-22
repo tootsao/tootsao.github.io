@@ -134,7 +134,7 @@
     </div>
 
     <script>
-        document.getElementById("applicationForm").addEventListener("submit", function(event) {
+/*        document.getElementById("applicationForm").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent the form from submitting normally
 
             // Construct the data to send to Discord webhook
@@ -179,7 +179,54 @@
             .catch(function(error) {
                 alert("Error: " + error.message);
             });
-        });
+        });*/
+document.getElementById("applicationForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Construct the data to send to Discord webhook
+    var formData = new FormData(this);
+    var webhookData = {};
+    formData.forEach(function(value, key) {
+        if (key.startsWith("license")) {
+            // Using emojis directly
+            webhookData[key] = value ? "✅" : "❌";
+        } else {
+            webhookData[key] = value;
+        }
+    });
+    var webhookURL = "https://discord.com/api/webhooks/1209591182737276980/zpPkdw32UtUcy3EiLbijqYc-tdJ2pZ5PuBitnxBRTUOslAJO8ACx3HfBA7Pb6bRvgJaw";
+
+    // Send data to Discord webhook
+    fetch(webhookURL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            content: "",
+            embeds: [{
+                color: 39423,
+                fields: Object.entries(webhookData).map(([key, value]) => ({
+                    name: key,
+                    value: value,
+                    inline: true
+                }))
+            }]
+        })
+    })
+    .then(function(response) {
+        if (response.ok) {
+            document.getElementById("applicationForm").reset(); // Clear the form
+            document.getElementById("applicationForm").style.display = "none"; // Hide the form
+            document.getElementById("confirmationMessage").style.display = "block"; // Show confirmation message
+        } else {
+            throw new Error("Failed to submit application.");
+        }
+    })
+    .catch(function(error) {
+        alert("Error: " + error.message);
+    });
+});
     </script>
 </body>
 
