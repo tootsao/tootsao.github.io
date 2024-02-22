@@ -128,6 +128,9 @@
             </div>
             <button type="submit" class="btn btn-success">Odeslat přihlášku</button>
         </form>
+        <div id="confirmationMessage" class="confirmation-message" style="display: none;">
+            Thank you for submitting!
+        </div>
     </div>
 
     <script>
@@ -162,8 +165,9 @@
             })
             .then(function(response) {
                 if (response.ok) {
-                    alert("Your application has been submitted successfully.");
                     document.getElementById("applicationForm").reset(); // Clear the form
+                    document.getElementById("applicationForm").style.display = "none"; // Hide the form
+                    document.getElementById("confirmationMessage").style.display = "block"; // Show confirmation message
                 } else {
                     throw new Error("Failed to submit application.");
                 }
