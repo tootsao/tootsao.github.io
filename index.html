@@ -111,25 +111,13 @@
     }
     .choices {
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
     }
     .choices label {
         display: inline-block;
         margin-bottom: 5px;
         color: #666;
-    }
-    .choices input[type="radio"] {
-        display: none;
-    }
-    .choices input[type="radio"] + label {
-        padding: 10px 20px;
-        background-color: #eee;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .choices input[type="radio"]:checked + label {
-        background-color: #4CAF50;
-        color: white;
+        margin-right: 10px;
     }
 </style>
 </head>
@@ -152,7 +140,7 @@
             <input type="text" id="phone" name="phone">
         </div>
         <div class="form-group">
-            <label for="jobType">OddÄlenÃ­:</label>
+            <label for="jobType">OddÄ›lenÃ­:</label>
             <select id="jobType" name="jobType" required>
                 <option value="logistics">Logistics</option>
                 <option value="performance" disabled>Performance ((WIP))</option>
@@ -168,11 +156,11 @@
         <div class="form-group">
             <label>How did you hear about us?</label>
             <div class="choices">
-                <input type="radio" id="radio1" name="how_heard[]" value="social_media">
+                <input type="radio" id="radio1" name="how_heard" value="social_media">
                 <label for="radio1">Social Media</label>
-                <input type="radio" id="radio2" name="how_heard[]" value="friend_referral">
+                <input type="radio" id="radio2" name="how_heard" value="friend_referral">
                 <label for="radio2">Friend Referral</label>
-                <input type="radio" id="radio3" name="how_heard[]" value="internet_search">
+                <input type="radio" id="radio3" name="how_heard" value="internet_search">
                 <label for="radio3">Internet Search</label>
                 <!-- Add more choices as needed -->
             </div>
@@ -182,6 +170,18 @@
 </div>
 
 <script>
+// Function to allow selecting multiple radio buttons
+document.querySelectorAll('.choices input[type="radio"]').forEach(function(radio) {
+    radio.addEventListener('click', function() {
+        if (this.getAttribute('data-previously-checked') === 'true') {
+            this.checked = false;
+            this.removeAttribute('data-previously-checked');
+        } else {
+            this.setAttribute('data-previously-checked', 'true');
+        }
+    });
+});
+
 document.getElementById('jobApplicationForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -190,13 +190,20 @@ document.getElementById('jobApplicationForm').addEventListener('submit', functio
     const payload = {};
 
     for (const [key, value] of formData.entries()) {
-        payload[key] = value;
+        if (payload[key]) {
+            if (!Array.isArray(payload[key])) {
+                payload[key] = [payload[key]];
+            }
+            payload[key].push(value);
+        } else {
+            payload[key] = value;
+        }
     }
 
     // Format the data for Discord
     let discordMessage = '**New Job Application**\n';
     for (const [key, value] of Object.entries(payload)) {
-        discordMessage += `**${key.replace(/([A-Z])/g, ' $1').trim()}:** ${value}\n`;
+        discordMessage += `**${key.replace(/([A-Z])/g, ' $1').trim()}:** ${Array.isArray(value) ? value.join(', ') : value}\n`;
     }
 
     // Send data to Discord webhook
