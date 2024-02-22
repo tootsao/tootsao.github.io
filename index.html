@@ -132,6 +132,10 @@
             <input type="text" id="fullname" name="fullname" required>
         </div>
         <div class="form-group">
+            <label for="birthday">Datum narozenÃ­:</label>
+            <input type="date" id="birthday" name="birthday" required>
+        </div>
+        <div class="form-group">
             <label for="email">EmailovÃ¡ adresa:</label>
             <input type="email" id="email" name="email" required>
         </div>
@@ -156,12 +160,9 @@
         <div class="form-group">
             <label>How did you hear about us?</label>
             <div class="choices">
-                <input type="radio" id="radio1" name="how_heard" value="social_media">
-                <label for="radio1">Social Media</label>
-                <input type="radio" id="radio2" name="how_heard" value="friend_referral">
-                <label for="radio2">Friend Referral</label>
-                <input type="radio" id="radio3" name="how_heard" value="internet_search">
-                <label for="radio3">Internet Search</label>
+                <label><input type="checkbox" name="how_heard" value="social_media">Social Media</label>
+                <label><input type="checkbox" name="how_heard" value="friend_referral">Friend Referral</label>
+                <label><input type="checkbox" name="how_heard" value="internet_search">Internet Search</label>
                 <!-- Add more choices as needed -->
             </div>
         </div>
@@ -170,18 +171,6 @@
 </div>
 
 <script>
-// Function to allow selecting multiple radio buttons
-document.querySelectorAll('.choices input[type="radio"]').forEach(function(radio) {
-    radio.addEventListener('click', function() {
-        if (this.getAttribute('data-previously-checked') === 'true') {
-            this.checked = false;
-            this.removeAttribute('data-previously-checked');
-        } else {
-            this.setAttribute('data-previously-checked', 'true');
-        }
-    });
-});
-
 document.getElementById('jobApplicationForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
