@@ -39,16 +39,6 @@
             width: auto; /* Maintain aspect ratio */
             margin-right: 10px; /* Adjust spacing between logo and text */
         }
-
-        /* Add style for line */
-        .line {
-            border-top: 2px solid #ccc;
-            position: absolute;
-            width: calc(100% + 60px); /* Extend line beyond container */
-            left: -30px; /* Position line outside container */
-            top: 50%; /* Position line vertically in the middle */
-            z-index: 0; /* Ensure line appears behind title and form */
-        }
         
         .form-control {
             border-radius: 8px;
@@ -84,9 +74,7 @@
 
 <body>
     <div class="container">
-        <div class="line"></div>
-        <h1><img src="images/logo.png" alt="Company Logo">☁ Heaven Corp. ☁</h1>
-        <div class="line" style="top: calc(100% + 20px);"></div>
+        <h1><img src="images/logo.png" alt="Heaven Corp."></h1>
         <form id="applicationForm">
             <div class="mb-3">
                 <label for="name" class="form-label">Jméno Příjmení:</label>
