@@ -139,6 +139,14 @@
 
     <script>
 document.getElementById("applicationForm").addEventListener("submit", function(event) {
+    var positionSelect = document.getElementById("position");
+    
+    if (positionSelect.value === "") {
+        alert("Please select a department.");
+        event.preventDefault(); // Prevent form submission
+        return;
+    }
+
     event.preventDefault(); // Prevent the form from submitting normally
 
     // Construct the data to send to Discord webhook
