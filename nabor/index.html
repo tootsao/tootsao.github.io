@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heaven Corp.</title>
-    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="icon" type="image/png" href="images/../logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -75,7 +75,7 @@
 
 <body>
     <div class="container">
-        <h1><img src="images/logo.png" alt="Heaven Corp."></h1>
+        <h1><img src="images/../logo.png" alt="Heaven Corp."></h1>
         <form id="applicationForm">
             <div class="mb-3">
                 <label for="name" class="form-label">Jméno Příjmení:</label>
@@ -142,7 +142,7 @@ document.getElementById("applicationForm").addEventListener("submit", function(e
     var positionSelect = document.getElementById("position");
     
     if (positionSelect.value === "- Vyber si oddělení -") {
-        alert("Please select a department.");
+        alert("Prosím vyber si oddělení.");
         event.preventDefault(); // Prevent form submission
         return;
     }
@@ -192,7 +192,7 @@ document.getElementById("applicationForm").addEventListener("submit", function(e
             document.getElementById("applicationForm").style.display = "none"; // Hide the form
             document.getElementById("confirmationMessage").style.display = "block"; // Show confirmation message
         } else {
-            throw new Error("Failed to submit application.");
+            throw new Error("Odeslání přihlášky se nezdařilo.");
         }
     })
     .catch(function(error) {
