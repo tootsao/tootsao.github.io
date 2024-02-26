@@ -141,7 +141,7 @@
 document.getElementById("applicationForm").addEventListener("submit", function(event) {
     var positionSelect = document.getElementById("position");
     
-    if (positionSelect.value === "") {
+    if (positionSelect.value === "- Vyber si oddělení -") {
         alert("Please select a department.");
         event.preventDefault(); // Prevent form submission
         return;
