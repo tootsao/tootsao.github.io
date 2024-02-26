@@ -153,14 +153,11 @@ document.getElementById("applicationForm").addEventListener("submit", function(e
     for (var i = 0; i < formElements.length; i++) {
         var element = formElements[i];
         if (element.name) {
-            webhookData[element.name] = element.value || "N/A";
-        }
-    }
-    
-    // Customize checkbox values to use emojis
-    for (var key in webhookData) {
-        if (key.startsWith("license")) {
-            webhookData[key] = webhookData[key] ? "✅" : "❌";
+            if (element.type === "checkbox") {
+                webhookData[element.name] = element.checked ? "✅" : "❌";
+            } else {
+                webhookData[element.name] = element.value || "N/A";
+            }
         }
     }
     
