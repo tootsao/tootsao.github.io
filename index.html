@@ -147,14 +147,23 @@ document.getElementById("applicationForm").addEventListener("submit", function(e
     // Construct the data to send to Discord webhook
     var formData = new FormData(this);
     var webhookData = {};
-    formData.forEach(function(value, key) {
-        if (key.startsWith("license")) {
-            // Using emojis directly
-            webhookData[key] = value ? "✅" : "❌";
-        } else {
-            webhookData[key] = value;
+    
+    // Add all form fields to webhookData
+    var formElements = this.elements;
+    for (var i = 0; i < formElements.length; i++) {
+        var element = formElements[i];
+        if (element.name) {
+            webhookData[element.name] = element.value || "N/A";
         }
-    });
+    }
+    
+    // Customize checkbox values to use emojis
+    for (var key in webhookData) {
+        if (key.startsWith("license")) {
+            webhookData[key] = webhookData[key] ? "✅" : "❌";
+        }
+    }
+    
     var webhookURL = "https://discord.com/api/webhooks/1209591182737276980/zpPkdw32UtUcy3EiLbijqYc-tdJ2pZ5PuBitnxBRTUOslAJO8ACx3HfBA7Pb6bRvgJaw";
 
     // Send data to Discord webhook
@@ -188,7 +197,7 @@ document.getElementById("applicationForm").addEventListener("submit", function(e
         alert("Error: " + error.message);
     });
 });
-    </script>
+</script>
 </body>
 
 </html>
