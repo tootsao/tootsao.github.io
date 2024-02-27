@@ -46,10 +46,20 @@
         .department h3 {
             color: #0099ff;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
         }
 
         .department p {
             color: #666;
+        }
+
+        .department .manager {
+            font-weight: bold;
+        }
+
+        .department .coordinator {
+            color: #009933;
         }
 
         @media(max-width: 768px) {
@@ -66,26 +76,26 @@
         <h1><img src="images/logo.png" alt="Heaven Corp."></h1>
         <h2>Hierarchy of Heaven Corp.</h2>
         <div class="department">
-            <h3>CEO</h3>
-            <p>John Doe</p>
+            <h3><i class="fas fa-user-tie"></i> CEO</h3>
+            <p class="manager">John Doe</p>
         </div>
         <div class="department">
-            <h3>Board of Directors</h3>
+            <h3><i class="fas fa-users"></i> Board of Directors</h3>
             <p>Emily Smith</p>
             <p>Michael Johnson</p>
             <p>David Williams</p>
         </div>
         <div class="department">
-            <h3>Logistics Division</h3>
-            <p>Head of Logistics: Sarah Brown</p>
-            <p>Logistics Manager: James Wilson</p>
-            <p>Logistics Coordinator: Emma Taylor</p>
-        </div>
-        <div class="department">
-            <h3>HR & Administration</h3>
+            <h3><i class="fas fa-briefcase"></i> HR & Administration</h3>
             <p>HR Director: Olivia Davis</p>
             <p>HR Manager: Daniel Martinez</p>
             <p>Administrative Assistant: Sophia Lee</p>
+        </div>
+        <div class="department">
+            <h3><i class="fas fa-truck"></i> Logistics Division</h3>
+            <p class="manager">Head of Logistics: Sarah Brown</p>
+            <p class="coordinator">Logistics Manager: James Wilson</p>
+            <p>Logistics Coordinator: Emma Taylor</p>
         </div>
     </div>
 </body>
