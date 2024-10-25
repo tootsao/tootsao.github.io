@@ -1,134 +1,707 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>727 Labs - Domů</title>
+    <title>727 Labs - Ceník</title>
 
     <!-- Styles -->
     <link href="assets/css/core.min.css" rel="stylesheet">
     <link href="assets/css/thesaas.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-
+    
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="https://i.imgur.com/n1mzclY.png">
     <link rel="icon" href="https://i.imgur.com/n1mzclY.png">
   </head>
+      
 
   <body>
-    <!-- Header -->
-    <header class="header header-inverse pb-0 h-fullscreen">
-      <canvas class="constellation"></canvas>
-      
-      <div class="container">
-        <div class="row h-full">
-          <div class="col-12 text-center align-self-center">
-            <img class="rounded shadow-2 img-setup" src="https://i.imgur.com/n1mzclY.png" alt="..." width="250" height="250">
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- END Header -->
-
-
-
-
     <!-- Main container -->
     <main class="main-content">
-
-      <!--
-      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-      | Zakladni informace
-      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-      !-->
-
-      <section class="section overflow-hidden py-120 " id="info" style="background-color: #202020">
-        <div class="container-wide">
-          <div class="row">
-
-
-            <div class="offset-1 col-10 col-lg-6 offset-lg-1 text-center text-lg-left">
-              <div class="row gap-y">
-
-                <div class="col-12 col-md-6">
-                  <i class="fa fa-truck fs-25 mb-3" style="color:#E04747"></i>
-                  <h6 class="text-uppercase mb-3" style="color:#FFFFFF">Kamionová doprava</h6>
-                  <p class="fs-14" style="color:#FFFFFF">Naše flotila zahrnuje moderní, pravidelně servisované tahače, které zaručují bezpečný a efektivní převoz nákladů.</p>
-                </div>
-
-
-                <div class="col-12 col-md-6">
-                  <i class="fa fa-wrench fs-25 mb-3" style="color:#E04747"></i>
-                  <h6 class="text-uppercase mb-3" style="color:#FFFFFF">Autodílna</h6>
-                  <p class="fs-14" style="color:#FFFFFF">Poskytujeme profesionální opravy a úpravy vozidel všech značek. Od běžných servisních prohlídek až po složité opravy motorů – u nás se vaše vozidlo dostane do špičkového stavu. Ceník služeb naleznete <a href="cenik.html" style="color:#E04747"><strong><u>zde</u></strong></a>.</p>
-                </div>
-
-
-                <div class="col-12 col-md-6">
-                  <i class="fa fa-road fs-25 mb-3" style="color:#E04747"></i>
-                  <h6 class="text-uppercase mb-3" style="color:#FFFFFF">Odtahová služba</h6>
-                  <p class="fs-14" style="color:#FFFFFF">Nabízíme rychlou a spolehlivou odtahovou službu 24/7 prostřednictvím naší <a href="https://ratt.cz/MIZE" target="_blank" style="color:#E04747"><strong><u>aplikace</u></strong></a>. Ať už potřebujete odtáhnout nepojízdné vozidlo nebo havarovaný automobil, jsme tu pro vás kdykoliv a kdekoliv.</p>
-                </div>
-
-
-                <div class="col-12 col-md-6">
-                  <i class="fa fa-th fs-25 mb-3" style="color:#E04747"></i>
-                  <h6 class="text-uppercase mb-3" style="color:#FFFFFF">a mnoho dalsiho</h6>
-                  <p class="fs-14" style="color:#FFFFFF">Dále máme v plánu spoustu různých věcí, máte se na co těšit. :)</p>
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <div class="col-lg-5 hidden-md-down align-self-center">
-              <img src="https://i.imgur.com/3puJsTw.jpeg" alt="..." data-aos="slide-left" data-aos-duration="1500">
-            </div>
-
-
-          </div>
-        </div>
-      </section>
-
-      <!--
-      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-      | Zarazka
-      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-      !-->
-      <section class="section section-inverse py-40" style="background-color: #191919; border-color: #191919">
+      <section class="section" style="background-color:#191919">
         <div class="container">
-          <div class="row gap-y align-items-center text-center text-md-left">
-            <div class="col-12 col-md-9">
-              <h4 class="fw-300 mb-0" style="color:#FFFFFF">Nabíráme nové zaměstnance, na pozice <a style="color:#E04747"><strong>Řidič kamionu</strong></a>, <s style="color:#FFFFFF"><a style="color:#E04747"><strong>Rozvozce materiálu</strong></a></s>, <s style="color:#FFFFFF"><a style="color:#E04747"><strong>Mechanik</strong></a></s> a <s style="color:#FFFFFF"><a style="color:#E04747"><strong>Techink</strong></a></s>. V případě zájmu nás můžete kontaktovat skrze formulář.</h4>
-            </div>
-
-            <div class="col-12 col-md-3 text-center text-md-right">
-              <a class="btn btn-xl btn-danger" style="background-color:rgba(185, 59, 83, 0); border-color:#E04747" target="_blank" href="formular.html">Podat formulář</a>
-            </div>
-          </div>
+          
+          <!-- Základní servisní služba -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Základní servisní služba</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Oprava vozidla</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">10 000 Kč + Cena za díly</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Výměna kola</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">2 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Přebarvení vozidla</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">20 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Výměna světel</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">15 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Přidání/odebrání zatmavení skel</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">15 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Namontování/odmontování SPZ</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">5 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Karoserie -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Karoserie</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Originální karoserie</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">32 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Odlehčená karoserie</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">90 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zpevněná karoserie</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">155 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Typ kol -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Typ kol</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Originální kola</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">35 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zenden <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">44 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Shadow <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">42 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Mega <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">58 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Ronal Turbo <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">72 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Wires <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">69 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Hamann Edition Race <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">65 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Seikel <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">38 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Cutter <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">57 500 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Advan Racing <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">48 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Vette <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">68 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Rays Volk Racing <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">61 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">DUB Big Chips <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">80 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Borbet <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">72 700 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">BBS <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">76 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Fifteen52 <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">55 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">AMG1 <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">100 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">BFGoodrich <a href="" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">43 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Šířka předních/zadních pneu -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Šířka předních/zadních pneu</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Originální pneu</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">22 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Velmi úzká pneu</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">22 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Úzká pneu</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">24 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Běžná pneu</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">28 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Široká pneu</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">37 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Velmi široká pneu</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">52 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Řídící jednotka -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Řídící jednotka</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Tovární nastavení</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">15 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Úprava ECU - výkon</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">46 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Úprava ECU - spotřeba</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">25 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Omezovač -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Omezovač</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Tovární nastavení</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">15 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Žádný omezovač</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">41 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Omezovač na 70 km/h</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">24 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Omezovač na 90 km/h</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">26 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Omezovač na 120 km/h</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">28 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Omezovač na 180 km/h</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">30 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Omezovač na 250 km/h</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">35 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Motor -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Motor</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Originální motor</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">38 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zlepšený rozvod paliva</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">55 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Motor s kompresorem</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">125 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Motor s turbem</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">170 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Motor s twin-turbem</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">382 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-exclamation-triangle" style="color:#E32D2D"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Zámek otáčení -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Zámek otáčení</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Standardní zámek otáčení</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">28 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zámek otáčení -4</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">40 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zámek otáčení -8</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">70 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zámek otáčení +4</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">40 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zámek otáčení +8</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">70 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Spoiler -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Spoiler</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Žádný spoiler</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">38 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Spoiler Alien F <a href="https://i.imgur.com/4dXPCMI.png" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">32 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Spoiler Alien J <a href="https://i.imgur.com/9pgZDpG.png" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">32 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Spoiler Alien E <a href="https://i.imgur.com/EXNfr5C.png" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">32 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Spoiler Alien S <a href="https://i.imgur.com/riUKhm5.png" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">32 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Spoiler Alien T <a href="https://i.imgur.com/XwXPOLB.png" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">32 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Spoiler Alien U <a href="https://i.imgur.com/7zHLu7l.png" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">32 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Spoiler X-Flow F <a href="https://i.imgur.com/Kt1DH4S.png" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">32 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Spoiler X-Flow J <a href="https://i.imgur.com/iKaWNDF.png" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">32 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Spoiler X-Flow E <a href="https://i.imgur.com/UKJ0LXu.png" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">32 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Spoiler X-Flow S <a href="https://i.imgur.com/mLDT1hS.png" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">32 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Spoiler X-Flow T <a href="https://i.imgur.com/G5dY74I.png" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">32 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Spoiler X-Flow U <a href="https://i.imgur.com/kdUoZbQ.png" target="_blank"><i class="fa fa-eye" style="color:#2A85DB"></i></a></td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">32 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Brzdy -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Brzdy</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Originální brzdy</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">20 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Silnější brzdy</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">85 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Seřízení pro drift</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">60 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zesílení předních brzd T1</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">120 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zesílení předních brzd T2</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">260 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zesílení zadních brzd T1</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">120 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zesílení zadních brzd T2</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">260 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Diferenciál -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Diferenciál</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Originální diferenciál</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">34 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zavařený diferenciál</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">20 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-exclamation-triangle" style="color:#E32D2D"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Samosvorný diferenciál 1-WAY</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">74 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Samosvorný diferenciál 1.5-WAY</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">74 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Samosvorný diferenciál 2-WAY</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">74 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Geometrie -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Geometrie</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Tovární nastavení</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">11 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Seřízení geometrie T1</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">17 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Seřízení geometrie T2</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">25 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Rozložení hmotnosti -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Rozložení hmotnosti</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Originální těžiště</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">30 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Odlehčená přední část</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">35 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zatížená zadní část</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">30 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Odlehčená zadní část</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">35 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Zatížená přední část</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">30 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Pásy -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Pásy</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Běžné tříbodové pásy</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">16 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Sportovní čtyřbodové pásy</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">28 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Závodní šestibodové pásy</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">42 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Ochranné prvky -->
+          <table class="table table-borderless table-dark" style="background-color:#202020">
+            <thead>
+              <tr style="background-color:#202020">
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Ochranné prvky</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Cena</h5></th>
+                <th class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><h5 style="color:#FFFFFF">Způsobilost k provozu</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Žádné ochranné prvky</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">16 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-minus" style="color:#808080"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Základní bezp. polo-rám (ocel)</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">28 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Základní bezp. rám (ocel)</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">42 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-exclamation-triangle" style="color:#E32D2D"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Bezp. polo-rám (chrom-molybden)</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">28 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-check" style="color:#62D126"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Bezp. rám (ocel)</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">42 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-exclamation-triangle" style="color:#E32D2D"></i></td>
+              </tr>
+              <tr style="background-color:#202020">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Bezp. rám (chrom-molybden)</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">28 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-exclamation-triangle" style="color:#E32D2D"></i></td>
+              </tr>
+              <tr style="background-color:#252525">
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">Závodní bezp. rám (chrom-molybden)</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00">42 000 Kč</td>
+                <td class="text-center" style="color:#FFFFFF; border-color:#FFFFFF00"><i class="fa fa-exclamation-triangle" style="color:#E32D2D"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <a class="btn btn-xl btn-danger col-md-12" style="background-color:rgba(185, 59, 83, 0); border-color:#E04747" href="index.html">Zpět</a>
+          
         </div>
       </section>
-      
 
-      <!--
-      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-      | Setup
-      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-      !-->
-
-      <section class="section" style="background-color: #202020">
-        <div class="container">
-
-          <div class="row gap-y align-items-center mb-90">
-            <div class="col-12 col-md-4 text-center hidden-sm-down">
-                <img class="rounded shadow-2 img-setup" src="https://i.imgur.com/HZTim2E.png" alt="...">
-            </div>
-
-            <div class="col-12 col-md-5 offset-md-1 text-center text-md-left">
-              <h3 style="color:#FFFFFF">Naše aplikace <a style="color:#E04747">727 Software</a> je nyní k dispozici ke stažení. Naskenujte QR kód nebo vyhledejte <a style="color:#757575" target="_blank" href="https://ratt.cz/MIZE"><u>ratt.cz/MIZE</u></a>.</h3>
-            </div>
-          </div>
-        </div>
-      </section>
 
     </main>
     <!-- END Main container -->
