@@ -49,3 +49,32 @@ table {
   table-layout: fixed;
   border-collapse: collapse;
 }
+
+.icon-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  top: -190;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #FFFFFF;
+  padding: 5px;
+  z-index: 1;
+}
+
+.tooltip img {
+  width: 300px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.icon-container:hover .tooltip {
+  display: block;
+}
