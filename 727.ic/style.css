@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800|Dosis:300,600");
+
+body {
+  background-color: #191919;
+  font-family: "Open Sans", sans-serif;
+  color: #ffffff;
+  padding: 50px;
+}
+
+th {
+  padding: 15px;
+  text-align: center;
+  font-size: 20px;
+}
+
+td {
+  padding: 15px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #202020;
+}
+tr:nth-child(odd) {
+  background-color: #252525;
+}
+
+.icon-red {
+  color: #e32d2d;
+}
+
+.icon-green {
+  color: #62d126;
+}
+
+.icon-grey {
+  color: #808080;
+}
+
+.icon-blue {
+  color: #2a85db;
+}
+
+table {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 50px;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
