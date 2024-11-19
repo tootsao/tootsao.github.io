@@ -1,53 +1,238 @@
-<html>
+<!DOCTYPE html>
+<html lang="cs">
   <head>
-    <link href="style.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://i.imgur.com/n1mzclY.png" />
+    <title>727 Software</title>
     <script
       src="https://kit.fontawesome.com/e37490e1d7.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="icon" href="https://i.imgur.com/n1mzclY.png" />
-    <title>727 Labs</title>
+    <style>
+      /* Global reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+        line-height: 1.8;
+        font-size: 16px;
+        overflow-x: hidden;
+      }
+
+      /* Navigation Bar */
+      nav {
+        background-color: #e04747;
+        padding: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 0 20px;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.3s ease-in-out;
+      }
+
+      nav a:hover {
+        color: #ffe600;
+      }
+
+      /* About Section */
+      .about-section {
+        text-align: center;
+        padding: 80px 20px;
+        margin-top: 20px;
+      }
+
+      .about-section h2 {
+        font-size: 2.8rem;
+        color: #e04747;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .about-section p {
+        font-size: 1.2rem;
+        color: #666;
+        max-width: 800px;
+        margin: 0 auto 20px;
+        line-height: 1.7;
+      }
+
+      /* Services Section */
+      .services-section {
+        padding: 20px 20px 80px 20px;
+        text-align: center;
+        background-color: #f9f9f9;
+        margin-top: 20px;
+      }
+
+      .services-section h3 {
+        font-size: 2.5rem;
+        color: #e04747;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .service-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .service-item {
+        position: relative; /* Enable positioning for child elements */
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+
+      .service-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .service-item h4 {
+        font-size: 1.8rem;
+        color: #e04747;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      .service-item p {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      .logo {
+        height: 50px; /* Adjust height as needed */
+        width: auto; /* Ensures the aspect ratio is maintained */
+        display: block;
+      }
+      .btn {
+        position: absolute; /* Position relative to the service item */
+        bottom: 20px; /* Spacing from the bottom */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center adjustment */
+        padding: 15px 40px; /* Larger padding for width */
+        background-color: #e04747;
+        color: #fff;
+        border: none;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        width: 80%; /* Wider button */
+        text-align: center; /* Ensure text is centered */
+      }
+
+      .btn:hover {
+        background-color: #c03535;
+      }
+    </style>
   </head>
   <body>
-    <section class="title">
-      <img
-        class="logo"
-        src="https://cdn.glitch.global/c785cf9c-b2a3-4f7b-a90d-e6b1ef416fc4/logo.png?v=1731438888324"
-      />
+    <!-- Navigation Bar -->
+    <nav>
+      <div class="nav-container">
+        <a href="#">
+          <img
+            src="https://i.imgur.com/dSeUHGe.png"
+            alt="727 Labs Logo"
+            class="logo"
+          />
+        </a>
+        <ul>
+          <li><a href="login.html">Personál</a></li>
+          <li>
+            <a href="https://discord.gg/NEWFpTvEpu" target="_blank"
+              >Aplikace <i class="fa-solid fa-link"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <h2>O nás</h2>
+      <p>
+        727 Labs je firma, která nabízí širokou škálu kvalitních služeb. Naším
+        závazkem je zajistit bezpečnost a spokojenost našich zákazníků
+        poskytováním spolehlivých, efektivních a na míru šitých řešení.
+        Spojujeme odbornost, technologie a péči o zákazníky, abychom vždy
+        dosáhli nejlepších výsledků. Váš <b>727 Labs</b>.
+      </p>
     </section>
-    <div class="sekce-container">
-      <a href="index.html">
-        <div class="sekce-card">
-          <div class="centered">
-            <i class="fa fa-sitemap big"></i>
-            <h1>O nás</h1>
-          </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+      <h3>Naše služby</h3>
+      <div class="service-list">
+        <div class="service-item">
+          <h4><i class="fa-solid fa-truck"></i> Kamionová doprava</h4>
+          <p>
+            Spolehlivé a efektivní přepravní služby pro firmy a jednotlivce,
+            zajišťující včasnou dodávku s důrazem na bezpečnost.
+          </p>
         </div>
-      </a>
-      <a href="cenik.html">
-        <div class="sekce-card">
-          <div class="centered">
-            <i class="fa fa-wrench big"></i>
-            <h1>Autodílna</h1>
-          </div>
+        <div class="service-item">
+          <h4><i class="fa-solid fa-wrench"></i> Autodílna</h4>
+          <p>
+            Odborné opravy a úpravy vozidel, které zajistí optimální výkon a
+            dlouhou životnost vašich vozidel.
+          </p>
+          <button class="btn" onclick="window.location.href = 'cenik.html';">
+            <i class="fa-solid fa-hand-holding-dollar"></i> Ceník
+          </button>
         </div>
-      </a>
-      <a href="index.html">
-        <div class="sekce-card">
-          <div class="centered">
-            <i class="fa fa-car-burst big"></i>
-            <h1>Odtahová služba</h1>
-          </div>
+        <div class="service-item">
+          <h4><i class="fa-solid fa-car-burst"></i> Odtahová služba</h4>
+          <p>
+            Odtahová služba 24/7 s důrazem na bezpečnost a rychlost, abyste
+            nikdy nezůstali na silnici.
+          </p>
         </div>
-      </a>
-      <a href="index.html">
-        <div class="sekce-card">
-          <div class="centered">
-            <i class="fa fa-briefcase big"></i>
-            <h1>Kariéra</h1>
-          </div>
+        <div class="service-item">
+          <h4><i class="fa-solid fa-bolt"></i> Údržba elektrických vedení</h4>
+          <p>
+            Komplexní služby pro opravy a údržbu elektrických vedení, včetně
+            havarijních oprav, zajišťující bezpečný a spolehlivý provoz.
+          </p>
         </div>
-      </a>
-    </div>
+      </div>
+    </section>
   </body>
 </html>
