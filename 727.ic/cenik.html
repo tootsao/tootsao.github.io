@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://i.imgur.com/n1mzclY.png" />
+    <title>727 Software - Kalkulačka</title>
+    <script
+      src="https://kit.fontawesome.com/e37490e1d7.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+      }
+
+      .tables-container {
+        width: 100%; /* Tables container takes 75% of the width */
+      }
+
+      table {
+        width: 100%;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+        font-size: 1rem;
+      }
+
+      th {
+        background-color: #f2f2f2;
+        font-size: 1.1rem;
+      }
+
+      td {
+        font-size: 1rem;
+      }
+
+      .group-header {
+        text-align: center;
+        background-color: #e04747;
+        color: white;
+        padding: 10px;
+        font-size: 1.2rem;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      .checkbox-column {
+        width: 10%;
+        text-align: center;
+      }
+
+      .service-col,
+      .price-col {
+        width: 33%;
+      }
+
+      .icon-red {
+        color: #e04747;
+      }
+      .button-container {
+      margin-bottom: 20px;
+      width: 100%;
+      text-align: left;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="tables-container">
+      <!-- Základní servisní služba table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Základní servisní služba</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Oprava vozidla</td>
+            <td class="price-col">10 000 Kč + Cena za díly</td>
+          </tr>
+          <tr>
+            <td class="service-col">Výměna kola</td>
+            <td class="price-col">2 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Přebarvení vozidla</td>
+            <td class="price-col">15 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Výměna světel</td>
+            <td class="price-col">10 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Přidání/odebrání zatmavení skel</td>
+            <td class="price-col">15 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Vystavení protokolu</td>
+            <td class="price-col">5 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Karoserie table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Karoserie</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Originální karoserie</td>
+            <td class="price-col">30 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Odlehčená karoserie</td>
+            <td class="price-col">100 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Zpevněná karoserie</td>
+            <td class="price-col">160 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Typ kol table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Typ kol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Originální kola</td>
+            <td class="price-col">35 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Zenden</td>
+            <td class="price-col">44 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Shadow</td>
+            <td class="price-col">42 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Mega</td>
+            <td class="price-col">58 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Ronal Turbo</td>
+            <td class="price-col">72 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Wires</td>
+            <td class="price-col">69 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Hamann Edition Race</td>
+            <td class="price-col">65 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Seikel</td>
+            <td class="price-col">38 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Cutter</td>
+            <td class="price-col">57 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Advan Racing</td>
+            <td class="price-col">48 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Vette</td>
+            <td class="price-col">68 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Rays Volk Racing</td>
+            <td class="price-col">61 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">DUB Big Chips</td>
+            <td class="price-col">80 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Borbet</td>
+            <td class="price-col">73 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">BBS</td>
+            <td class="price-col">76 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Fifteen52</td>
+            <td class="price-col">55 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">AMG1</td>
+            <td class="price-col">100 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">BFGoodrich</td>
+            <td class="price-col">43 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Šířka předních/zadních pneu table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">
+              Šířka předních/zadních pneu
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Originální pneu</td>
+            <td class="price-col">22 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Velmi úzká pneu</td>
+            <td class="price-col">22 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Úzká pneu</td>
+            <td class="price-col">24 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Běžná pneu</td>
+            <td class="price-col">28 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Široká pneu</td>
+            <td class="price-col">37 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Velmi široká pneu</td>
+            <td class="price-col">52 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Řídící jednotka table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Řídící jednotka</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Tovární nastavení</td>
+            <td class="price-col">15 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Úprava ECU - výkon</td>
+            <td class="price-col">50 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Úprava ECU - spotřeba</td>
+            <td class="price-col">25 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Omezovač table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Omezovač</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Tovární nastavení</td>
+            <td class="price-col">15 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Žádný omezovač</td>
+            <td class="price-col">45 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Omezovač na 70 km/h</td>
+            <td class="price-col">30 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Omezovač na 90 km/h</td>
+            <td class="price-col">30 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Omezovač na 120 km/h</td>
+            <td class="price-col">30 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Omezovač na 180 km/h</td>
+            <td class="price-col">30 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Omezovač na 250 km/h</td>
+            <td class="price-col">40 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Motor table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Motor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Originální motor</td>
+            <td class="price-col">40 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Zlepšený rozvod paliva</td>
+            <td class="price-col">70 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Motor s kompresorem</td>
+            <td class="price-col">150 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Motor s turbem</td>
+            <td class="price-col">200 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">
+              Motor s twin-turbem
+              <i class="fa fa-exclamation-triangle icon-red"></i>
+            </td>
+
+            <td class="price-col">420 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Zámek otáčení table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Zámek otáčení</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Standardní zámek otáčení</td>
+            <td class="price-col">30 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Snížený zámek otáčení -4</td>
+            <td class="price-col">40 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Snížený zámek otáčení -8</td>
+            <td class="price-col">70 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Zvýšený zámek otáčení +4</td>
+            <td class="price-col">40 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Zvýšený zámek otáčení +8</td>
+            <td class="price-col">70 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Spoiler table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Spoiler</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Žádný spoiler</td>
+            <td class="price-col">15 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Všechny druhy spolierů</td>
+            <td class="price-col">40 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Brzdy table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Brzdy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Originální brzdy</td>
+            <td class="price-col">20 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Silnější brzdy</td>
+            <td class="price-col">90 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Seřízení pro drift</td>
+            <td class="price-col">70 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Zesílení předních brzd T1</td>
+            <td class="price-col">150 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Zesílení předních brzd T2</td>
+            <td class="price-col">300 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Zesílení zadních brzd T1</td>
+            <td class="price-col">150 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Zesílení zadních brzd T2</td>
+            <td class="price-col">300 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Diferenciál table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Diferenciál</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Originální diferenciál</td>
+            <td class="price-col">40 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">
+              Zavařený diferenciál
+              <i class="fa fa-exclamation-triangle icon-red"></i>
+            </td>
+
+            <td class="price-col">30 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Samosvorný diferenciál 1-WAY</td>
+            <td class="price-col">80 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Samosvorný diferenciál 1.5-WAY</td>
+            <td class="price-col">80 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Samosvorný diferenciál 2-WAY</td>
+            <td class="price-col">80 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Geometrie table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Geometrie</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Tovární nastavení</td>
+            <td class="price-col">10 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Seřízení geometrie T1</td>
+            <td class="price-col">20 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Seřízení geometrie T2</td>
+            <td class="price-col">30 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Rozložení hmotnosti table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Rozložení hmotnosti</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Originální těžiště</td>
+            <td class="price-col">30 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Odlehčená přední část</td>
+            <td class="price-col">50 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Zatížená zadní část</td>
+            <td class="price-col">40 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Odlehčená zadní část</td>
+            <td class="price-col">50 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Zatížená přední část</td>
+            <td class="price-col">40 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pásy table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Pásy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Běžné tříbodové pásy</td>
+            <td class="price-col">20 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Sportovní čtyřbodové pásy</td>
+            <td class="price-col">40 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Závodní šestibodové pásy</td>
+            <td class="price-col">60 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Ochranné prvky table -->
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2" class="group-header">Ochranné prvky</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service-col">Žádné ochranné prvky</td>
+            <td class="price-col">30 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Základní bezp. polo-rám (ocel)</td>
+            <td class="price-col">70 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">
+              Základní bezp. rám (ocel)
+              <i class="fa fa-exclamation-triangle icon-red"></i>
+            </td>
+
+            <td class="price-col">120 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">Bezp. polo-rám (chrom-molybden)</td>
+            <td class="price-col">200 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">
+              Bezp. rám (ocel)
+              <i class="fa fa-exclamation-triangle icon-red"></i>
+            </td>
+
+            <td class="price-col">250 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">
+              Bezp. rám (chrom-molybden)
+              <i class="fa fa-exclamation-triangle icon-red"></i>
+            </td>
+
+            <td class="price-col">500 000 Kč</td>
+          </tr>
+          <tr>
+            <td class="service-col">
+              Závodní bezp. rám (chrom-molybden)
+              <i class="fa fa-exclamation-triangle icon-red"></i>
+            </td>
+
+            <td class="price-col">900 000 Kč</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script></script>
+  </body>
+</html>
