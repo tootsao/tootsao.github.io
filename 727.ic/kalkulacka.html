@@ -131,6 +131,9 @@
       .icon-red {
         color: #e04747;
       }
+      profit-color {
+        color: #1a88e7;
+      }
     </style>
   </head>
   <body>
@@ -145,7 +148,7 @@
         <tbody>
           <tr>
             <td class="service-col">Oprava vozidla</td>
-            <td class="price-col">10 000 Kč + Cena za díly</td>
+            <td class="price-col">10 000 Kč + Cena za díly <span class"profit-color">5 000 Kč</p></td>
             <td class="checkbox-col">
               <input
                 data-label="Oprava vozidla"
@@ -534,6 +537,13 @@
                 data-group="sirkakol"
                 onclick="handleCheckbox(this)"
               />
+              <input
+                data-label="Originální pneu"
+                type="checkbox"
+                value="22000"
+                data-group="sirkakol2"
+                onclick="handleCheckbox(this)"
+              />
             </td>
           </tr>
           <tr>
@@ -544,6 +554,13 @@
                 data-label="Velmi úzká pneu"
                 type="checkbox"
                 data-group="sirkakol"
+                value="22000"
+                onclick="handleCheckbox(this)"
+              />
+              <input
+                data-label="Velmi úzká pneu"
+                type="checkbox"
+                data-group="sirkakol2"
                 value="22000"
                 onclick="handleCheckbox(this)"
               />
@@ -560,6 +577,13 @@
                 value="24000"
                 onclick="handleCheckbox(this)"
               />
+              <input
+                data-label="Úzká pneu"
+                type="checkbox"
+                data-group="sirkakol2"
+                value="24000"
+                onclick="handleCheckbox(this)"
+              />
             </td>
           </tr>
           <tr>
@@ -570,6 +594,13 @@
                 data-label="Běžná pneu"
                 type="checkbox"
                 data-group="sirkakol"
+                value="28000"
+                onclick="handleCheckbox(this)"
+              />
+              <input
+                data-label="Běžná pneu"
+                type="checkbox"
+                data-group="sirkakol2"
                 value="28000"
                 onclick="handleCheckbox(this)"
               />
@@ -586,6 +617,13 @@
                 value="37000"
                 onclick="handleCheckbox(this)"
               />
+              <input
+                data-label="Široká pneu"
+                type="checkbox"
+                data-group="sirkakol2"
+                value="37000"
+                onclick="handleCheckbox(this)"
+              />
             </td>
           </tr>
           <tr>
@@ -596,6 +634,13 @@
                 data-label="Velmi široká pneu"
                 type="checkbox"
                 data-group="sirkakol"
+                value="52000"
+                onclick="handleCheckbox(this)"
+              />
+              <input
+                data-label="Velmi široká pneu"
+                type="checkbox"
+                data-group="sirkakol2"
                 value="52000"
                 onclick="handleCheckbox(this)"
               />
@@ -1459,10 +1504,39 @@
           }
         });
 
-        // Format total with spaces and append "Kč" and extra text if applicable
-        document.getElementById("total").textContent = `${total.toLocaleString(
-          "cs-CZ"
-        )} Kč`;
+        // Animate the total price display
+        animateTotal(total);
+      }
+
+      function animateTotal(targetTotal) {
+        const totalElement = document.getElementById("total");
+        const currentTotal = parseInt(
+          totalElement.textContent.replace(" Kč", "").replace(/\s/g, ""),
+          10
+        );
+        const duration = 1000; // Duration of animation in milliseconds
+        const steps = 60; // Number of steps to complete the animation
+        const stepDuration = duration / steps; // Time per step
+        const stepAmount = (targetTotal - currentTotal) / steps; // Amount to increment per step
+
+        let step = 0;
+
+        function updatePrice() {
+          if (step < steps) {
+            step++;
+            const newTotal = currentTotal + stepAmount * step;
+            totalElement.textContent = `${Math.round(newTotal).toLocaleString(
+              "cs-CZ"
+            )} Kč`;
+            requestAnimationFrame(updatePrice); // Request the next frame
+          } else {
+            totalElement.textContent = `${targetTotal.toLocaleString(
+              "cs-CZ"
+            )} Kč`;
+          }
+        }
+
+        updatePrice(); // Start the animation
       }
 
       function resetSelections() {
@@ -1489,7 +1563,7 @@
           // Join the selected items in a string and display them
           alert("Vybrané položky: " + selectedItems.join(", "));
         }
-        resetSelections()
+        resetSelections();
       }
     </script>
   </body>
