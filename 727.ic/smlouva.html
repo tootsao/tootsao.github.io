@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>727 Software - Smlouva</title>
+    <link rel="icon" href="https://i.imgur.com/n1mzclY.png" />
+    <script
+      src="https://kit.fontawesome.com/e37490e1d7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 80%;
+        max-width: 1200px;
+      }
+
+      .preview {
+        flex: 1;
+        margin-right: 20px;
+        padding: 20px;
+        background-color: white;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        height: 400px;
+      }
+
+      .inputs {
+        flex: 1;
+        padding: 20px;
+        background-color: white;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .inputs input,
+      .inputs select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      .inputs button {
+        padding: 10px 20px;
+        background-color: #e04747;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+
+      .inputs button:hover {
+        background-color: #c03636;
+      }
+
+      .preview h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .preview p {
+        font-size: 1em;
+        color: #666;
+      }
+
+      .inputs .buttons {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="preview">
+        <h2 id="titlePreview">
+          727 Labs | [doplňte jméno zaměstnance] | Zaměstnanec
+        </h2>
+        <pre id="textPreview">
+Mezi firmou 727 Labs, se sídlem na adrese Julius Thruway North 5626, zastoupenou [doplňte jméno zástupce firmy] (dále také jen „zaměstnavatel“),
+a zaměstnancem [doplňte jméno zaměstnance] (dále také jen „zaměstnanec“), narozeným [doplňte datum narození],
+uzavíráme tuto pracovní smlouvu.
+
+1. Pracovní pozice
+   Zaměstnanec bude pracovat na pozici "[doplňte pozici]".
+
+2. Pracovní doba a místo výkonu práce
+   Zaměstnanec bude pracovat na flexibilní pracovní době, která se bude přizpůsobovat aktuálním zakázkám.
+   Místo výkonu práce je po celém San Andreas, v závislosti na přidělených úkolech.
+
+3. Mzda
+   Mzda je závislá na konkrétní zakázce. Zaměstnanec dále obdrží každý týden prémii ve výši 50 % z týdenního zisku, pokud tento zisk přesáhne 200 000 Kč.
+
+4. Výhody a povinnosti
+   Zaměstnanec má k dispozici firemní vozy k zapůjčení. Každé vozidlo musí po použití vrátit na určené parkovací místo, natankované a v opraveném stavu.
+   Náklady na palivo pro výkon práce jsou zaměstnanci propláceny.
+
+5. Zkušební doba
+   Zkušební doba trvá 3 dny po nástupu nebo do dosažení týdenního zisku vyššího než 100 000 Kč.
+
+6. Doba trvání smlouvy
+   Tato smlouva je uzavřena na dobu neurčitou.
+
+7. Ukončení pracovního poměru
+   Smlouva je uzavřena bez výpovědní lhůty; pracovní poměr může být ukončen okamžitě kteroukoli ze stran.
+
+8. Pokuty
+   Zaměstnanci mohou být uděleny pokuty za porušení určitých pravidel a podmínek, které jsou uvedeny v firemní aplikaci.
+   Tyto podmínky budou pravidelně aktualizovány a zaměstnanec je povinen je dodržovat.
+
+9. Závěrečná ustanovení
+   Tato smlouva je vyhotovena ve dvou kopiích, z nichž jednu obdrží zaměstnanec a druhou zaměstnavatel.</pre
+        >
+      </div>
+
+      <div class="inputs">
+        <div>
+          <label for="input1">Zástupce firmy:</label>
+          <input
+            type="text"
+            id="input1"
+            placeholder="doplňte jméno zástupce firmy"
+          />
+
+          <label for="input2">Jméno zaměstnance:</label>
+          <input
+            type="text"
+            id="input2"
+            placeholder="doplňte jméno zaměstnance"
+          />
+
+          <label for="input3">Datum narození:</label>
+          <input type="date" id="input3" placeholder="dd.mm.rrrr" />
+
+          <label for="input4">Pozice:</label>
+          <select id="input4">
+            <option value="Zaměstnanec">Zaměstnanec</option>
+            <option value="Mechanik">Mechanik</option>
+            <option value="Technik">Technik</option>
+          </select>
+        </div>
+
+        <div class="buttons">
+          <button id="copyButton">
+            <i class="fa-regular fa-clipboard"></i> Kopírovat obsah
+          </button>
+          <button id="copyTitleButton">
+            <i class="fa-regular fa-clipboard"></i> Kopírovat nadpis
+          </button>
+          <button id="resetButton">
+            <i class="fa fa-xmark"></i> Resetovat
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Get elements
+      const input1 = document.getElementById("input1");
+      const input2 = document.getElementById("input2");
+      const input3 = document.getElementById("input3");
+      const input4 = document.getElementById("input4");
+      const textPreview = document.getElementById("textPreview");
+      const titlePreview = document.getElementById("titlePreview");
+      const copyButton = document.getElementById("copyButton");
+      const copyTitleButton = document.getElementById("copyTitleButton");
+      const resetButton = document.getElementById("resetButton");
+
+      // Initial text to reset to
+      const initialText = `Mezi firmou 727 Labs, se sídlem na adrese Julius Thruway North 5626, zastoupenou [doplňte jméno zástupce firmy] (dále také jen „zaměstnavatel“),
+a zaměstnancem [doplňte jméno zaměstnance] (dále také jen „zaměstnanec“), narozeným [doplňte datum narození],
+uzavíráme tuto pracovní smlouvu.
+
+1. Pracovní pozice
+   Zaměstnanec bude pracovat na pozici "[doplňte pozici]".
+
+2. Pracovní doba a místo výkonu práce
+   Zaměstnanec bude pracovat na flexibilní pracovní době, která se bude přizpůsobovat aktuálním zakázkám.
+   Místo výkonu práce je po celém San Andreas, v závislosti na přidělených úkolech.
+
+3. Mzda
+   Mzda je závislá na konkrétní zakázce. Zaměstnanec dále obdrží každý týden prémii ve výši 50 % z týdenního zisku, pokud tento zisk přesáhne 200 000 Kč.
+
+4. Výhody a povinnosti
+   Zaměstnanec má k dispozici firemní vozy k zapůjčení. Každé vozidlo musí po použití vrátit na určené parkovací místo, natankované a v opraveném stavu.
+   Náklady na palivo pro výkon práce jsou zaměstnanci propláceny.
+
+5. Zkušební doba
+   Zkušební doba trvá 3 dny po nástupu nebo do dosažení týdenního zisku vyššího než 100 000 Kč.
+
+6. Doba trvání smlouvy
+   Tato smlouva je uzavřena na dobu neurčitou.
+
+7. Ukončení pracovního poměru
+   Smlouva je uzavřena bez výpovědní lhůty; pracovní poměr může být ukončen okamžitě kteroukoli ze stran.
+
+8. Pokuty
+   Zaměstnanci mohou být uděleny pokuty za porušení určitých pravidel a podmínek, které jsou uvedeny v firemní aplikaci.
+   Tyto podmínky budou pravidelně aktualizovány a zaměstnanec je povinen je dodržovat.
+
+9. Závěrečná ustanovení
+   Tato smlouva je vyhotovena ve dvou kopiích, z nichž jednu obdrží zaměstnanec a druhou zaměstnavatel.`;
+
+      // Function to update the preview
+      function updatePreview() {
+        const name = input2.value || "[doplňte jméno zaměstnance]";
+        const position = input4.value || "[doplňte pozici]";
+        const date = input3.value
+          ? new Date(input3.value).toLocaleDateString("cs-CZ")
+          : "[doplňte datum narození]";
+        const representative = input1.value || "[doplňte jméno zástupce firmy]";
+
+        // Update text preview with dynamic values
+        titlePreview.textContent = `727 Labs | ${name} | ${position}`;
+        textPreview.textContent = `Mezi firmou 727 Labs, se sídlem na adrese Julius Thruway North 5626, zastoupenou ${representative} (dále také jen „zaměstnavatel“),
+a zaměstnancem ${name} (dále také jen „zaměstnanec“), narozeným ${date},
+uzavíráme tuto pracovní smlouvu.
+
+1. Pracovní pozice
+   Zaměstnanec bude pracovat na pozici "${position}".
+
+2. Pracovní doba a místo výkonu práce
+   Zaměstnanec bude pracovat na flexibilní pracovní době, která se bude přizpůsobovat aktuálním zakázkám.
+   Místo výkonu práce je po celém San Andreas, v závislosti na přidělených úkolech.
+
+3. Mzda
+   Mzda je závislá na konkrétní zakázce. Zaměstnanec dále obdrží každý týden prémii ve výši 50 % z týdenního zisku, pokud tento zisk přesáhne 200 000 Kč.
+
+4. Výhody a povinnosti
+   Zaměstnanec má k dispozici firemní vozy k zapůjčení. Každé vozidlo musí po použití vrátit na určené parkovací místo, natankované a v opraveném stavu.
+   Náklady na palivo pro výkon práce jsou zaměstnanci propláceny.
+
+5. Zkušební doba
+   Zkušební doba trvá 3 dny po nástupu nebo do dosažení týdenního zisku vyššího než 100 000 Kč.
+
+6. Doba trvání smlouvy
+   Tato smlouva je uzavřena na dobu neurčitou.
+
+7. Ukončení pracovního poměru
+   Smlouva je uzavřena bez výpovědní lhůty; pracovní poměr může být ukončen okamžitě kteroukoli ze stran.
+
+8. Pokuty
+   Zaměstnanci mohou být uděleny pokuty za porušení určitých pravidel a podmínek, které jsou uvedeny v firemní aplikaci.
+   Tyto podmínky budou pravidelně aktualizovány a zaměstnanec je povinen je dodržovat.
+
+9. Závěrečná ustanovení
+   Tato smlouva je vyhotovena ve dvou kopiích, z nichž jednu obdrží zaměstnanec a druhou zaměstnavatel.`;
+      }
+
+      // Copy to clipboard
+      copyButton.addEventListener("click", () => {
+        const range = document.createRange();
+        range.selectNode(textPreview);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+      });
+
+      // Copy title to clipboard
+      copyTitleButton.addEventListener("click", () => {
+        const range = document.createRange();
+        range.selectNode(titlePreview);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+      });
+
+      // Reset inputs and preview
+      resetButton.addEventListener("click", () => {
+        input1.value = "";
+        input2.value = "";
+        input3.value = "";
+        input4.value = "Zaměstnanec";
+        textPreview.textContent = initialText; // Reset to the original text
+        titlePreview.textContent =
+          "727 Labs | [doplňte jméno zaměstnance] | Zaměstnanec"; // Reset title
+      });
+
+      // Add event listeners to update the preview
+      input1.addEventListener("input", updatePreview);
+      input2.addEventListener("input", updatePreview);
+      input3.addEventListener("input", updatePreview);
+      input4.addEventListener("change", updatePreview);
+    </script>
+  </body>
+</html>
