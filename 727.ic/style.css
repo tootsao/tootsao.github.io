@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h4 {
+    color: #e04747 !important; /* Updated primary color */
+}
+
+hr {
+    border-top: 1px solid #e04747; /* Updated primary color */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.custom-navbar {
+    background-color: #ffffff;
+    border-bottom: 3px solid #e04747; /* Updated primary color */
+    top: 0;
+    position: sticky;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #e04747 !important;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand .logo {
+    width: 40px; /* Adjust the size of the logo */
+    height: auto;
+    margin-right: 10px; /* Space between logo and text */
+}
+
+.nav-link {
+    color: #e04747 !important; /* Updated primary color */
+}
+
+.header {
+    position: relative;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+.header h1,
+.header p {
+    color: #212529;
+}
+
+.header .btn-primary {
+    margin-top: 20px;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.image-container {
+    position: absolute;
+    bottom: -15px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.header-image {
+    width: 100%;
+    height: auto;
+    opacity: 0.5;
+}
+
+.btn-primary {
+    background-color: #e04747; /* Updated primary color */
+    border-color: #e04747; /* Updated primary color */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #b93a3a; /* Darker shade of primary color */
+    transform: translateY(-3px);
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.bg-light {
+    background-color: #ffffff !important;
+}
+
+#onas ul {
+    padding: 0;
+    list-style: none;
+}
+
+#onas li {
+    margin-bottom: 1.5rem;
+}
+
+#onas li i {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    margin-right: 1rem;
+    color: #e04747; /* Updated primary color */
+    text-align: center;
+}
+
+.kariera-box {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#kariera .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#kariera .col-md-4 {
+    display: flex;
+    flex-direction: column;
+}
+
+#kariera .service-box {
+    flex: 1;
+}
+
+.kariera-box h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #e04747;
+}
+
+.kariera-box:hover {
+    transform: translateY(-10px);
+}
+
+.kariera-box img:hover {
+    transform: scale(1.1);
+}
+
+#contact, #about {
+    background-color: #ebebeb !important;
+}
+
+#typed-text-container {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    color: #e04747;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#typed-text {
+    display: inline-block;
+    border-right: 3px solid #e04747; /* Cursor effect */
+    padding-right: 5px;
+    animation: typing 2s steps(30) 1, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+#logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 150px; /* Smaller size of the logo */
+    filter: brightness(0) saturate(100%) invert(31%) sepia(92%) saturate(1848%) hue-rotate(349deg) brightness(101%) contrast(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.custom-navbar #logo {
+    max-height: 30px; /* Smaller size to fit the navbar */
+    width: auto;
+}
+
+.gps {
+    width: 500px; /* Full width of the parent */
+    height: 500px; /* Full height of the parent */
+}
+
+.gps-red {
+    color: #e04747;
+}
+
+.gps-orange {
+    color: #ff8a00;
+}
