@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="cs"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="css/bazar.css">
+    <script src="https://kit.fontawesome.com/e37490e1d7.js" crossorigin="anonymous"></script>
+    <title>727 Labs</title>
+</head>
+
+<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
+        <a class="navbar-brand" href="#"><div class="navbar-brand">
+            <img src="img/logo.png" alt="727 Labs Logo" id="logo">
+        </div></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html#domu">Domů</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#onas">O nás</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#kariera">Kariéra</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#kontakt">Kontakt</a></li>
+                <li class="nav-item"><button type="button" class="btn btn-danger">Autobazar</button></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <header id="domu" class="header">
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="text-center aos-init aos-animate" data-aos="fade-up">
+                <div id="logo-container">
+                    <img src="img/logo.png" alt="727 Labs Logo" id="logo">
+                </div>
+                <p class="lead"><div id="typed-text-container">
+                    <span id="typed-text"></span>
+                </div>
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section id="vozidlo" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center aos-init" data-aos="fade-up">Katalog</h2>
+            <p data-aos="fade-up" class="text-center aos-init">Přehled dostupných vozidel ke koupi.</p>
+            <div class="row text-center justify-content-center mt-4 d-flex">
+                <div class="col-md-4 d-flex flex-column aos-init" data-aos="fade-up">
+                    <div class="vozidlo-box align-items-stretch">
+                        <h4><i class="fa-solid fa-car-side"></i> 2015 Mercedes-Benz SL500</h4>
+                        <br>
+                        <img src="img/1a.png" class="d-block w-100" alt="...">
+                        <br>
+                        <h5>2 500 000 Kč</h5>
+                        <a class="btn btn-link" data-toggle="modal" data-target="#exampleModal" data-znacka="Mercedes-Benz" data-model="SL500" data-rok="2015" data-spz="ALA BAMA" data-vin="12769" data-tachometr="2552" data-img1="img/1a.png" data-img2="img/1b.png" data-img3="img/1c.png" data-protokol="img/1d.png" data-cena="2 500 000">Více informací</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel">YYYY Značka Model</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src=" " id="img1" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src=" " id="img2" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src=" " id="img3" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Předchozí</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Další</span>
+                    </a>
+                </div>
+                <br>
+                <p id="znacka-text"><b>Tovární značka:</b> Značka</p>
+                <p id="model-text"><b>Model:</b> Model</p>
+                <p id="rok-text"><b>Rok výroby:</b> YYYY</p>
+                <p id="spz-text"><b>Státní Poznávácí Značka:</b> XXX XXXX</p>
+                <p id="vin-text"><b>Identifikační číslo vozidla (VIN):</b> 0000</p>
+                <p id="tachometr-text"><b>Stav tachometru:</b> 0 km</p>
+                <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Protokol</a>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <img src=" " id="protokol" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span class="badge badge-warning">Cena</span> <h3 id="cena-text">XXX XXX Kč</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <section id="onas" class="py-5 text-center bg-light">
+        <div class="container">
+            <h4 data-aos="fade-up" class="aos-init"><i class="fa-solid fa-business-time"></i> Domluvíme si schůzku</h2>
+            <p data-aos="fade-up" class="aos-init">Kontaktujte nás telefonicky, skrze post.ic nebo pomocí formuláře a domluvte si termín, který vám bude vyhovovat.</p>
+            <h4 data-aos="fade-up" class="aos-init"><i class="fa-solid fa-comment-dollar"></i> Ohodnotíme vaše vozidlo</h2>
+            <p data-aos="fade-up" class="aos-init">Vaše auto pečlivě zhodnotíme a nabídneme vám férovou výkupní cenu. Cena se odvíjí od provedených úprav, VIN čísla, SPZ, značky a modelu vozidla. Jednoduchý a transparentní proces je naší prioritou.</p>
+            <h4 data-aos="fade-up" class="aos-init"><i class="fa-solid fa-wallet"></i> Rychlá výplata za výkup</h2>
+            <p data-aos="fade-up" class="aos-init">Za vaše auto zaplatíme ihned a bez zbytečných průtahů. Peníze budete mít rychle k dispozici.</p>
+            <p data-aos="fade-up" class="aos-init"><i class="fa-solid fa-money-bill"></i> <b>Hotově</b> nebo na <i class="fa-solid fa-credit-card"></i> <b>Bankovní úcet</b></p>
+            <h4 data-aos="fade-up" class="aos-init"><i class="fa-solid fa-hand-sparkles"></i> Renovujeme a vracíme do života</h2>
+            <p data-aos="fade-up" class="aos-init">Renovujeme vozy tak, aby vypadaly a fungovaly jako nové. Díky našemu autobazaru mohou najít šťastného nového majitele, který ocení jejich kvality.</p>
+            <p data-aos="fade-up" class="aos-init">Koupě vozidla zahrnuje <i class="fa-solid fa-suitcase-medical"></i> <b>povinnou výbavu</b>, <i class="fa-solid fa-square-poll-horizontal"></i> <b>protokol o provedených úpravách</b> a <i class="fa-solid fa-road-barrier"></i> <b>elektronické mýtné</b>, aby byl váš nový vůz plně připraven na cesty.</p>
+        </div>
+    </section>
+
+    <section id="kontakt" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center aos-init aos-animate" data-aos="fade-up">Kontaktujte Nás</h2>
+            <p data-aos="fade-up" class="aos-init text-center">Do formuláře níže prosím vyplňte své kontaktní údaje a informace o vozidle, které chcete nabídnout k výkupu. Po obdržení vaší poptávky vás bude kontaktovat náš zaměstnanec, aby s vámi domluvil termín schůzky a projednal podrobnosti.</p>
+            <p data-aos="fade-up" class="aos-init text-center"><i class="fa-solid fa-phone"></i> 200 000</p>
+            <p data-aos="fade-up" class="aos-init text-center"><i class="fa-solid fa-envelope"></i> vickie.cox@post.ic</p>
+            <form id="orderForm" class="mt-4 aos-init aos-animate" data-aos="fade-up">
+                <div class="form-group">
+                    <label for="name"><h4><i class="fa-solid fa-signature"></i> Jméno a Příjmení</h4></label>
+                    <input type="text" class="form-control" id="name" placeholder="Vyplňte vaše celé jméno" required="">
+                </div>
+                <div class="form-group">
+                    <label for="email"><h4><i class="fa-solid fa-at"></i> Email</h4></label>
+                    <input type="email" class="form-control" id="email" placeholder="Vyplňte váš email ve formátu jméno.příjmení@post.ic" required="">
+                </div>
+                <div class="form-group">
+                    <label for="phone"><h4><i class="fa-solid fa-phone"></i> Telefonní číslo</h4></label>
+                    <input type="phone" class="form-control" id="phone" placeholder="Vyplňte vaše telefonní číslo" required="">
+                </div>
+                <div class="form-group">
+                    <label for="offer"><h4><i class="fa-solid fa-envelope-open-text"></i> Nabídka</h4></label>
+                    <textarea class="form-control" id="offer" rows="4" placeholder="Vyplňte vaši nabídku výkupu." required=""></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Odeslat</button>
+            </form>
+        </div>
+
+        <div aria-live="polite" aria-atomic="true" style="position: relative;">
+            <div style="position: absolute; top: 0; right: 0;">
+                <div id="orderSuccessToast" class="toast" data-delay="5000">
+                    <div class="toast-header">
+                        <strong class="mr-auto">Úspěch</strong>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="toast-body">
+                        Objednávka byla úspěšně odeslána.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="px-lg-5 my-5">
+            <p class="text-muted text-center">Provozovatel webové stránky je 727 Labs, IČ 727.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.3.4/dist/aos.js"></script>
+    <script src="js/bazar.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+</body></html>

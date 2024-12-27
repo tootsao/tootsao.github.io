@@ -52,3 +52,35 @@ document.querySelectorAll('.nav-link').forEach(link => {
         });
     });
 });
+
+$('#exampleModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget)
+    var znacka = button.data('znacka')
+    var model = button.data('model')
+    var rok = button.data('rok')
+    var spz = button.data('spz')
+    var vin = button.data('vin')
+    var tachometr = button.data('tachometr')
+    var img1 = button.data('img1')
+    var img2 = button.data('img2')
+    var img3 = button.data('img3')
+    var protokol = button.data('protokol')
+    var cena = button.data('cena')
+    var modal = $(this)
+    modal.find('.modal-title').text(rok + " " + znacka + " " + model)
+    modal.find('.modal-body p#znacka-text').html("<b>Tovární značka:</b> " + znacka)
+    modal.find('.modal-body p#model-text').html("<b>Model:</b> " + model)
+    modal.find('.modal-body p#rok-text').html("<b>Rok výroby:</b> " + rok)
+    modal.find('.modal-body p#spz-text').html("<b>Státní Poznávácí Značka:</b> " + spz)
+    modal.find('.modal-body p#vin-text').html("<b>Identifikační číslo vozidla (VIN):</b> " + vin)
+    modal.find('.modal-body p#tachometr-text').html("<b>Stav tachometru:</b> " + tachometr + " km")
+    modal.find('.modal-body img#img1').attr("src", img1)
+    modal.find('.modal-body img#img2').attr("src", img2)
+    modal.find('.modal-body img#img3').attr("src", img3)
+    modal.find('.modal-body img#protokol').attr("src", protokol)
+    modal.find('.modal-footer h3').html(cena + " Kč")
+})
+
+$('#exampleModal').on('hide.bs.modal', function () {
+    $('#collapseExample').collapse('hide');
+});
