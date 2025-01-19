@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hladový Vlk</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles-objednavka.css">
+  <script src="https://kit.fontawesome.com/e37490e1d7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container my-5">
+    <h1 class="text-center text-danger mb-4">Hladový Vlk</h1>
+
+    <!-- Table Layout -->
+    <h2 class="mb-3">Výběr stolu</h2>
+    <div id="table-layout" class="d-flex flex-wrap justify-content-center gap-4">
+      <button class="circle-table" data-table="Table 1">1</button>
+      <button class="circle-table" data-table="Table 2">2</button>
+      <button class="circle-table" data-table="Table 3">3</button>
+      <button class="circle-table" data-table="Table 4">4</button>
+      <button class="circle-table" data-table="Table 5">5</button>
+      <button class="circle-table" data-table="Table 6">6</button>
+      <button class="circle-table" data-table="Table 7">7</button>
+      <button class="circle-table" data-table="Table 8">8</button>
+      <button class="circle-table" data-table="Table 9">9</button>
+      <button class="circle-table" data-table="Table 10">10</button>
+    </div>
+
+    <!-- Menu Section -->
+    <h2 class="mt-4">Menu</h2>
+    <div id="menu" class="accordion" id="menuAccordion">
+      
+      <!-- Food Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="foodHeading">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#foodSection" aria-expanded="true" aria-controls="foodSection">
+            Jídelní listek
+          </button>
+        </h2>
+        <div id="foodSection" class="accordion-collapse collapse show" aria-labelledby="foodHeading" data-bs-parent="#menuAccordion">
+          <div class="accordion-body">
+            <!-- Drinks Section -->
+            <h5 class="mt-3">Hlavní chody</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="pizza" data-name="Pizza" data-price="200">
+              <label class="form-check-label" for="pizza">Lasagne - 160 Kč</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="pasta" data-name="Pasta" data-price="120">
+              <label class="form-check-label" for="pasta">Špagety - 180 Kč</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="pizza" data-name="Pizza" data-price="200">
+                <label class="form-check-label" for="pizza">Těstoviny s omáčkou - 180 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="pasta" data-name="Pasta" data-price="120">
+                <label class="form-check-label" for="pasta">Hovězí guláš - 140 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="pizza" data-name="Pizza" data-price="200">
+                <label class="form-check-label" for="pizza">Zvěřinový guláš - 260 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="pasta" data-name="Pasta" data-price="120">
+                <label class="form-check-label" for="pasta">Krvavý steak - 300 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="pizza" data-name="Pizza" data-price="200">
+                <label class="form-check-label" for="pizza">Středně propečený steak - 320 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="pasta" data-name="Pasta" data-price="120">
+                <label class="form-check-label" for="pasta">Propečený steak - 340 Kč</label>
+              </div>
+
+            <!-- Drinks Section -->
+            <h5 class="mt-3">Rychlé občerstvení</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="burger" data-name="Burger" data-price="150">
+              <label class="form-check-label" for="burger">Sendvič - 70 Kč</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="fries" data-name="Fries" data-price="70">
+              <label class="form-check-label" for="fries">Taco - 140 Kč</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="burger" data-name="Burger" data-price="150">
+                <label class="form-check-label" for="burger">Hamburger - 100 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="fries" data-name="Fries" data-price="70">
+                <label class="form-check-label" for="fries">Párek v rohlíku - 40 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="burger" data-name="Burger" data-price="150">
+                <label class="form-check-label" for="burger">Hranolky - 60 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="fries" data-name="Fries" data-price="70">
+                <label class="form-check-label" for="fries">Burrito - 150 Kč</label>
+              </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="fries" data-name="Fries" data-price="70">
+                <label class="form-check-label" for="fries">Gyros - 90 Kč</label>
+            </div>
+
+            <!-- Drinks Section -->
+            <h5 class="mt-3">Dezerty a sladkosti</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="sushi" data-name="Sushi" data-price="300">
+              <label class="form-check-label" for="sushi">Donut - 30 Kč</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="noodles" data-name="Noodles" data-price="150">
+              <label class="form-check-label" for="noodles">Sušenka - 28 Kč</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="noodles" data-name="Noodles" data-price="150">
+                <label class="form-check-label" for="noodles">Lívanec - 60 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="noodles" data-name="Noodles" data-price="150">
+                <label class="form-check-label" for="noodles">Tiramisu - 80 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="noodles" data-name="Noodles" data-price="150">
+                <label class="form-check-label" for="noodles">Zmrzlinový pohár - 70 Kč</label>
+              </div>
+
+            <!-- Drinks Section -->
+            <h5 class="mt-3">Asijská kuchyně</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="jarnizavitky" data-name="Jarní závitky" data-price="300">
+              <label class="form-check-label" for="jarnizavitky">Jarní závitky - 100 Kč</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="kungpao" data-name="Kung Pao" data-price="150">
+              <label class="form-check-label" for="kungpao">Kung Pao - 200 Kč</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="jarnizavitky" data-name="Jarní závitky" data-price="300">
+                <label class="form-check-label" for="jarnizavitky">Rýžové nudle - 100 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="kungpao" data-name="Kung Pao" data-price="150">
+                <label class="form-check-label" for="kungpao">Sushi - 250 Kč</label>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drinks Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="drinksHeading">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#drinksSection" aria-expanded="false" aria-controls="drinksSection">
+            Nápojový lístek
+          </button>
+        </h2>
+        <div id="drinksSection" class="accordion-collapse collapse" aria-labelledby="drinksHeading" data-bs-parent="#menuAccordion">
+          <div class="accordion-body">
+            <h5>Alkoholické nápoje</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="beer" data-name="Beer" data-price="80">
+              <label class="form-check-label" for="beer">Beer - $80</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="wine" data-name="Wine" data-price="120">
+              <label class="form-check-label" for="wine">Wine - $120</label>
+            </div>
+            <h5 class="mt-3">Nealkoholické nápoje</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="cola" data-name="Cola" data-price="50">
+              <label class="form-check-label" for="cola">Cola - $50</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="water" data-name="Water" data-price="30">
+              <label class="form-check-label" for="water">Water - $30</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mixed Drinks Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="mixedDrinksHeading">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mixedDrinksSection" aria-expanded="false" aria-controls="mixedDrinksSection">
+            Míchané nápoje
+          </button>
+        </h2>
+        <div id="mixedDrinksSection" class="accordion-collapse collapse" aria-labelledby="mixedDrinksHeading" data-bs-parent="#menuAccordion">
+          <div class="accordion-body">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="margarita" data-name="Margarita" data-price="180">
+              <label class="form-check-label" for="margarita">Tropical Breeze - $180</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="mojito" data-name="Mojito" data-price="160">
+              <label class="form-check-label" for="mojito">Citrus Twist - $160</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="mojito" data-name="Mojito" data-price="160">
+                <label class="form-check-label" for="mojito">Whisky Sour Spritz - $160</label>
+              </div>
+              <div class="form-check">
+                <button type="button" class="btn btn-secondary btn-sm" id="increase-mojito"><i class="fa-solid fa-plus"></i></button>
+                <span id="mojito-count"> 0 </span>
+                <button type="button" class="btn btn-secondary btn-sm" id="decrease-mojito"><i class="fa-solid fa-minus"></i></button>
+                <label class="form-check-label" for="mojito">Sunset Vermut <span class="badge text-bg-success">1000 Kč</span></label>
+              </div>              
+              <div class="form-check">
+                <button type="button" class="btn btn-secondary btn-sm" id="increase-mojito"><i class="fa-solid fa-plus"></i></button>
+                <span id="mojito-count"> 0 </span>
+                <button type="button" class="btn btn-secondary btn-sm" id="decrease-mojito"><i class="fa-solid fa-minus"></i></button>
+                <label class="form-check-label" for="mojito">Classic Cuba Libre <span class="badge text-bg-success">1000 Kč</span></label>
+              </div>  
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="mojito" data-name="Mojito" data-price="160">
+                <label class="form-check-label" for="mojito">Fire Shot - 1000 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="mojito" data-name="Mojito" data-price="160">
+                <label class="form-check-label" for="mojito">Berry Red Delight - 1000 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="mojito" data-name="Mojito" data-price="160">
+                <label class="form-check-label" for="mojito">Exotic Fusion - 1000 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="mojito" data-name="Mojito" data-price="160">
+                <label class="form-check-label" for="mojito">Golden Sunrise - 1000 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="mojito" data-name="Mojito" data-price="160">
+                <label class="form-check-label" for="mojito">Gentleman’s Choice - 1000 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="mojito" data-name="Mojito" data-price="160">
+                <label class="form-check-label" for="mojito">Mystic Mojito - 1000 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="mojito" data-name="Mojito" data-price="160">
+                <label class="form-check-label" for="mojito">Vermouth Royale - 1000 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="mojito" data-name="Mojito" data-price="160">
+                <label class="form-check-label" for="mojito">Amber Bliss - 1000 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="mojito" data-name="Mojito" data-price="160">
+                <label class="form-check-label" for="mojito">Frozen Sunset - 1000 Kč</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="mojito" data-name="Mojito" data-price="160">
+                <label class="form-check-label" for="mojito">Irish Delight - 1000 Kč</label>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex justify-content-between mt-4">
+      <button id="calculate" class="btn btn-danger">Vypočítat celkem</button>
+      <button id="clear" class="btn btn-secondary">Smazat</button>
+    </div>
+
+    <!-- Summary -->
+    <h2 class="mt-5">Order Summary</h2>
+    <div id="summary" class="border p-3 rounded bg-light">
+      <p><strong>Table:</strong> <span id="selected-table">None</span></p>
+      <p><strong>Items:</strong> <span id="selected-items">None</span></p>
+      <p><strong>Total Price:</strong> $<span id="total-price">0</span></p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script-objednavka.js"></script>
+</body>
+</html>
