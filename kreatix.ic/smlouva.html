@@ -64,7 +64,7 @@
 
       .inputs button {
         padding: 10px 20px;
-        background-color: #e04747;
+        background-color: #ff2727;
         color: white;
         border: none;
         border-radius: 4px;
@@ -73,7 +73,7 @@
       }
 
       .inputs button:hover {
-        background-color: #c03636;
+        background-color: #7a1919;
       }
 
       .preview h2 {
@@ -96,46 +96,42 @@
   <body>
     <div class="container">
       <div class="preview">
-        <h2 id="titlePreview">
-          727 Labs | [doplňte jméno zaměstnance] | Zaměstnanec
-        </h2>
-        <pre id="textPreview">
-Mezi firmou 727 Labs, se sídlem na adrese Julius Thruway North 5626, zastoupenou [doplňte jméno zástupce firmy] (dále také jen „zaměstnavatel“),
-a zaměstnancem [doplňte jméno zaměstnance] (dále také jen „zaměstnanec“), narozeným [doplňte datum narození],
-uzavíráme tuto pracovní smlouvu.
-
+        <h2 id="titlePreview">Kreatix Logistic | [doplňte jméno zaměstnance] | Zaměstnanec</h2>
+        <pre id="textPreview">Mezi firmou Kreatix Logistic, se sídlem na adrese Rodeo 4934, zastoupenou [doplňte jméno zástupce firmy] (dále také jen „zaměstnavatel“),
+a zaměstnancem [doplňte jméno zaměstnance] (dále také jen „zaměstnanec“), uzavíráme tuto pracovní smlouvu.
+          
 1. Pracovní pozice
-   Zaměstnanec bude pracovat na pozici "[doplňte pozici]".
-
+   Zaměstnanec bude pracovat na pozici "rozvozce povinné výbavy, elektrikář, řidič kamionu, strážce objektu, doručování zásilek".
+          
 2. Pracovní doba a místo výkonu práce
    Zaměstnanec bude pracovat na flexibilní pracovní době, která se bude přizpůsobovat aktuálním zakázkám.
    Místo výkonu práce je po celém San Andreas, v závislosti na přidělených úkolech.
-
+          
 3. Mzda
-   Mzda je závislá na konkrétní zakázce. Zaměstnanec dále obdrží každý týden prémii ve výši 50 % z týdenního zisku, pokud tento zisk přesáhne 200 000 Kč.
-
+   Mzda je závislá na konkrétní zakázce. Zaměstnanec dále obdrží každý 14. a 30. den prémii ve výši 30 % z týdenního zisku, pokud tento zisk přesáhne 200 000 Kč.
+          
 4. Výhody a povinnosti
    Zaměstnanec má k dispozici firemní vozy k zapůjčení. Každé vozidlo musí po použití vrátit na určené parkovací místo, natankované a v opraveném stavu.
    Náklady na palivo pro výkon práce jsou zaměstnanci propláceny.
-
+          
 5. Zkušební doba
-   Zkušební doba trvá do dosažení týdenního zisku vyššího než 100 000 Kč.
-   Pokud zaměstnanec nedokončí zkušební dobu z důvodů na straně zaměstnance, bude pracovní poměr okamžitě ukončen.
-
+   Zkušební doba trvá do dosažení týdenního zisku vyššího než 200 000 Kč.
+   Pokud zaměstnanec nedokončí zkušební dobu do čtrnácti dnů z důvodů na straně zaměstnance, bude pracovní poměr okamžitě ukončen.
+          
 6. Doba trvání smlouvy
    Tato smlouva je uzavřena na dobu neurčitou.
-
+          
 7. Ukončení pracovního poměru
-   Smlouva je uzavřena bez výpovědní lhůty; pracovní poměr může být ukončen okamžitě kteroukoli ze stran.
-
+   Smlouva je uzavřena bez výpovědní lhůty. Pracovní poměr může být ukončen okamžitě kteroukoli ze stran.
+   Pokud pracovní poměr bude ukončen, zaměstnanec ztrácí nárok na prémie.
+          
 8. Pokuty
    Zaměstnanci mohou být uděleny pokuty za porušení určitých pravidel a podmínek, které jsou uvedeny v firemní aplikaci. Tyto podmínky budou pravidelně aktualizovány a zaměstnanec je povinen je dodržovat.
    Pokuty jsou splatné ve lhůtě, která bude uvedena spolu s výší pokuty v firemní aplikaci. Pokud zaměstnanec neuhradí pokutu ve stanovené lhůtě, vyhrazuje si zaměstnavatel právo vymáhat tuto pokutu soudní cestou.
    Náklady spojené s vymáháním pokuty budou přičteny k celkové částce, kterou je zaměstnanec povinen uhradit.
-
+          
 9. Závěrečná ustanovení
-   Tato smlouva je vyhotovena ve dvou kopiích, z nichž jednu obdrží zaměstnanec a druhou zaměstnavatel.</pre
-        >
+    Tato smlouva je vyhotovena ve dvou kopiích, z nichž jednu obdrží zaměstnanec a druhou zaměstnavatel.</pre>
       </div>
 
       <div class="inputs">
@@ -153,16 +149,6 @@ uzavíráme tuto pracovní smlouvu.
             id="input2"
             placeholder="doplňte jméno zaměstnance"
           />
-
-          <label for="input3">Datum narození:</label>
-          <input type="date" id="input3" placeholder="dd.mm.rrrr" />
-
-          <label for="input4">Pozice:</label>
-          <select id="input4">
-            <option value="Zaměstnanec">Zaměstnanec</option>
-            <option value="Mechanik">Mechanik</option>
-            <option value="Technik">Technik</option>
-          </select>
         </div>
 
         <div class="buttons">
@@ -183,8 +169,6 @@ uzavíráme tuto pracovní smlouvu.
       // Get elements
       const input1 = document.getElementById("input1");
       const input2 = document.getElementById("input2");
-      const input3 = document.getElementById("input3");
-      const input4 = document.getElementById("input4");
       const textPreview = document.getElementById("textPreview");
       const titlePreview = document.getElementById("titlePreview");
       const copyButton = document.getElementById("copyButton");
@@ -192,33 +176,33 @@ uzavíráme tuto pracovní smlouvu.
       const resetButton = document.getElementById("resetButton");
 
       // Initial text to reset to
-      const initialText = `Mezi firmou 727 Labs, se sídlem na adrese Julius Thruway North 5626, zastoupenou [doplňte jméno zástupce firmy] (dále také jen „zaměstnavatel“),
-a zaměstnancem [doplňte jméno zaměstnance] (dále také jen „zaměstnanec“), narozeným [doplňte datum narození],
-uzavíráme tuto pracovní smlouvu.
+      const initialText = `Mezi firmou Kreatix Logistic, se sídlem na adrese Rodeo 4934, zastoupenou [doplňte jméno zástupce firmy] (dále také jen „zaměstnavatel“),
+a zaměstnancem [doplňte jméno zaměstnance] (dále také jen „zaměstnanec“), uzavíráme tuto pracovní smlouvu.
 
 1. Pracovní pozice
-   Zaměstnanec bude pracovat na pozici "[doplňte pozici]".
+   Zaměstnanec bude pracovat na pozici "rozvozce povinné výbavy, elektrikář, řidič kamionu, strážce objektu, doručování zásilek".
 
 2. Pracovní doba a místo výkonu práce
    Zaměstnanec bude pracovat na flexibilní pracovní době, která se bude přizpůsobovat aktuálním zakázkám.
    Místo výkonu práce je po celém San Andreas, v závislosti na přidělených úkolech.
 
 3. Mzda
-   Mzda je závislá na konkrétní zakázce. Zaměstnanec dále obdrží každý týden prémii ve výši 50 % z týdenního zisku, pokud tento zisk přesáhne 200 000 Kč.
+   Mzda je závislá na konkrétní zakázce. Zaměstnanec dále obdrží každý 14. a 30. den prémii ve výši 30 % z týdenního zisku, pokud tento zisk přesáhne 200 000 Kč.
 
 4. Výhody a povinnosti
    Zaměstnanec má k dispozici firemní vozy k zapůjčení. Každé vozidlo musí po použití vrátit na určené parkovací místo, natankované a v opraveném stavu.
    Náklady na palivo pro výkon práce jsou zaměstnanci propláceny.
 
 5. Zkušební doba
-   Zkušební doba trvá do dosažení týdenního zisku vyššího než 100 000 Kč.
-   Pokud zaměstnanec nedokončí zkušební dobu z důvodů na straně zaměstnance, bude pracovní poměr okamžitě ukončen.
+   Zkušební doba trvá do dosažení týdenního zisku vyššího než 200 000 Kč.
+   Pokud zaměstnanec nedokončí zkušební dobu do čtrnácti dnů z důvodů na straně zaměstnance, bude pracovní poměr okamžitě ukončen.
 
 6. Doba trvání smlouvy
    Tato smlouva je uzavřena na dobu neurčitou.
 
 7. Ukončení pracovního poměru
-   Smlouva je uzavřena bez výpovědní lhůty; pracovní poměr může být ukončen okamžitě kteroukoli ze stran.
+   Smlouva je uzavřena bez výpovědní lhůty. Pracovní poměr může být ukončen okamžitě kteroukoli ze stran.
+   Pokud pracovní poměr bude ukončen, zaměstnanec ztrácí nárok na prémie.
 
 8. Pokuty
    Zaměstnanci mohou být uděleny pokuty za porušení určitých pravidel a podmínek, které jsou uvedeny v firemní aplikaci. Tyto podmínky budou pravidelně aktualizovány a zaměstnanec je povinen je dodržovat.
@@ -231,41 +215,37 @@ uzavíráme tuto pracovní smlouvu.
       // Function to update the preview
       function updatePreview() {
         const name = input2.value || "[doplňte jméno zaměstnance]";
-        const position = input4.value || "[doplňte pozici]";
-        const date = input3.value
-          ? new Date(input3.value).toLocaleDateString("cs-CZ")
-          : "[doplňte datum narození]";
         const representative = input1.value || "[doplňte jméno zástupce firmy]";
 
         // Update text preview with dynamic values
-        titlePreview.textContent = `727 Labs | ${name} | ${position}`;
-        textPreview.textContent = `Mezi firmou 727 Labs, se sídlem na adrese Julius Thruway North 5626, zastoupenou ${representative} (dále také jen „zaměstnavatel“),
-a zaměstnancem ${name} (dále také jen „zaměstnanec“), narozeným ${date},
-uzavíráme tuto pracovní smlouvu.
+        titlePreview.textContent = `Kreatix Logistic | ${name} | Zaměstnanec`;
+        textPreview.textContent = `Mezi firmou Kreatix Logistic, se sídlem na adrese Rodeo 4934, zastoupenou ${representative} (dále také jen „zaměstnavatel“),
+a zaměstnancem ${name} (dále také jen „zaměstnanec“), uzavíráme tuto pracovní smlouvu.
 
 1. Pracovní pozice
-   Zaměstnanec bude pracovat na pozici "${position}".
+   Zaměstnanec bude pracovat na pozici "rozvozce povinné výbavy, elektrikář, řidič kamionu, strážce objektu, doručování zásilek".
 
 2. Pracovní doba a místo výkonu práce
    Zaměstnanec bude pracovat na flexibilní pracovní době, která se bude přizpůsobovat aktuálním zakázkám.
    Místo výkonu práce je po celém San Andreas, v závislosti na přidělených úkolech.
 
 3. Mzda
-   Mzda je závislá na konkrétní zakázce. Zaměstnanec dále obdrží každý týden prémii ve výši 50 % z týdenního zisku, pokud tento zisk přesáhne 200 000 Kč.
+   Mzda je závislá na konkrétní zakázce. Zaměstnanec dále obdrží každý 14. a 30. den prémii ve výši 30 % z týdenního zisku, pokud tento zisk přesáhne 200 000 Kč.
 
 4. Výhody a povinnosti
    Zaměstnanec má k dispozici firemní vozy k zapůjčení. Každé vozidlo musí po použití vrátit na určené parkovací místo, natankované a v opraveném stavu.
    Náklady na palivo pro výkon práce jsou zaměstnanci propláceny.
 
 5. Zkušební doba
-   Zkušební doba trvá do dosažení týdenního zisku vyššího než 100 000 Kč.
-   Pokud zaměstnanec nedokončí zkušební dobu z důvodů na straně zaměstnance, bude pracovní poměr okamžitě ukončen.
+   Zkušební doba trvá do dosažení týdenního zisku vyššího než 200 000 Kč.
+   Pokud zaměstnanec nedokončí zkušební dobu do čtrnácti dnů z důvodů na straně zaměstnance, bude pracovní poměr okamžitě ukončen.
 
 6. Doba trvání smlouvy
    Tato smlouva je uzavřena na dobu neurčitou.
 
 7. Ukončení pracovního poměru
-   Smlouva je uzavřena bez výpovědní lhůty; pracovní poměr může být ukončen okamžitě kteroukoli ze stran.
+   Smlouva je uzavřena bez výpovědní lhůty. Pracovní poměr může být ukončen okamžitě kteroukoli ze stran.
+   Pokud pracovní poměr bude ukončen, zaměstnanec ztrácí nárok na prémie.
 
 8. Pokuty
    Zaměstnanci mohou být uděleny pokuty za porušení určitých pravidel a podmínek, které jsou uvedeny v firemní aplikaci. Tyto podmínky budou pravidelně aktualizovány a zaměstnanec je povinen je dodržovat.
@@ -298,18 +278,13 @@ uzavíráme tuto pracovní smlouvu.
       resetButton.addEventListener("click", () => {
         input1.value = "";
         input2.value = "";
-        input3.value = "";
-        input4.value = "Zaměstnanec";
         textPreview.textContent = initialText; // Reset to the original text
-        titlePreview.textContent =
-          "727 Labs | [doplňte jméno zaměstnance] | Zaměstnanec"; // Reset title
+        titlePreview.textContent = "Kreatix Logistic | [doplňte jméno zaměstnance] | Zaměstnanec"; 
       });
 
       // Add event listeners to update the preview
       input1.addEventListener("input", updatePreview);
       input2.addEventListener("input", updatePreview);
-      input3.addEventListener("input", updatePreview);
-      input4.addEventListener("change", updatePreview);
     </script>
   </body>
 </html>
