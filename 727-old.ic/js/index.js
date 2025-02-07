@@ -1,12 +1,9 @@
 const texts = [
-    "Vytváříme weby, které zaujmou a prodávají.",
-    "Pomáháme firmám růst prostřednictvím silné online přítomnosti.",
-    "Profesionální weby, které odrážejí vaši jedinečnost.",
-    "Získejte online přítomnost, která vás dostane na vrchol.",
-    "Navrhujeme digitální řešení, která spojují funkčnost a design.",
-    "Tvoříme weby s důrazem na detail a uživatelskou přívětivost.",
-    "Inovativní design a technologie pro váš úspěch na internetu.",
-    "Moderní weby, které vašim zákazníkům usnadní život."
+    "Údržba elektrických vedení.",
+    "Kamionová doprava.",
+    "Odtahová služba.",
+    "Rozvoz balíčků.",
+    "Oprava a tuning vozidel."
 ];
 
 let currentText = 0;
