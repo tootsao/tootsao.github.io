@@ -2,3 +2,9 @@
     width: 500px; /* Full width of the parent */
     height: 500px; /* Full height of the parent */
 }
+
+.carousel {
+    max-width: 800px; /* Adjust the width as needed */
+    margin: auto;
+    overflow: hidden;
+  }
