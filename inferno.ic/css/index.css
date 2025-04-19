@@ -11,20 +11,19 @@ body {
 
 h1,
 h2,
-h4,
-h6 {
-    color: #006c6c !important; /* Updated primary color */
+h4 {
+    color: #ffffff !important; /* Updated primary color */
 }
 
 hr {
-    border-top: 1px solid #006c6c; /* Updated primary color */
+    border-top: 1px solid #ffffff; /* Updated primary color */
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
 .custom-navbar {
-    background-color: #ffffff;
-    border-bottom: 3px solid #006c6c; /* Updated primary color */
+    background-color: #3E3E3E;
+    border-bottom: 3px solid #3E3E3E; /* Updated primary color */
     top: 0;
     position: sticky;
     width: 100%;
@@ -35,7 +34,7 @@ hr {
 .navbar-brand {
     font-weight: bold;
     font-size: 1.5rem;
-    color: #006c6c !important;
+    color: #ffffff !important;
     display: flex;
     align-items: center;
 }
@@ -47,13 +46,13 @@ hr {
 }
 
 .nav-link {
-    color: #006c6c !important; /* Updated primary color */
+    color: #ffffff !important; /* Updated primary color */
 }
 
 .header {
     position: relative;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: #2E2E2E;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,13 +96,13 @@ hr {
 }
 
 .btn-primary {
-    background-color: #006c6c; /* Updated primary color */
-    border-color: #006c6c; /* Updated primary color */
+    background-color: #ffffff; /* Updated primary color */
+    border-color: #ffffff; /* Updated primary color */
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: #006c6c; /* Darker shade of primary color */
+    background-color: #ffffff; /* Darker shade of primary color */
     transform: translateY(-3px);
 }
 
@@ -112,7 +111,7 @@ hr {
 }
 
 .bg-light {
-    background-color: #ffffff !important;
+    background-color: #2E2E2E !important;
 }
 
 #onas ul {
@@ -129,12 +128,16 @@ hr {
     width: 24px;
     height: 24px;
     margin-right: 1rem;
-    color: #006c6c; /* Updated primary color */
+    color: #ffffff; /* Updated primary color */
     text-align: center;
 }
 
+#onas p {
+    color: #ffffff;
+}
+
 .kariera-box {
-    background-color: #f8f9fa;
+    background-color: #3E3E3E;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 30px;
@@ -159,7 +162,7 @@ hr {
 .kariera-box h4 {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #006c6c;
+    color: #ffffff;
 }
 
 .kariera-box:hover {
@@ -170,6 +173,14 @@ hr {
     transform: scale(1.1);
 }
 
+.kariera-box p {
+    color: #ffffff;
+}
+
+.kariera-box h5 {
+    color: #ffffff;
+}
+
 #contact, #about {
     background-color: #ebebeb !important;
 }
@@ -177,7 +188,7 @@ hr {
 #typed-text-container {
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
-    color: #006c6c;
+    color: #ffffff;
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
@@ -185,7 +196,7 @@ hr {
 
 #typed-text {
     display: inline-block;
-    border-right: 3px solid #006c6c     ; /* Cursor effect */
+    border-right: 3px solid #ffffff; /* Cursor effect */
     padding-right: 5px;
     animation: typing 2s steps(30) 1, blink 0.75s step-end infinite;
 }
@@ -240,4 +251,8 @@ hr {
 
 .gps-blue {
     color: #4a6fe3;
+}
+
+.aaa {
+    background-color: #3E3E3E;
 }
