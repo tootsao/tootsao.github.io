@@ -1,4 +1,4 @@
-const texts = [
+/* const texts = [
     "Vytváříme weby, které zaujmou a prodávají.",
     "Pomáháme firmám růst prostřednictvím silné online přítomnosti.",
     "Profesionální weby, které odrážejí vaši jedinečnost.",
@@ -54,4 +54,31 @@ document.querySelectorAll('.nav-link').forEach(link => {
             behavior: 'smooth'
         });
     });
-});
+}); */
+
+// Simulovaná databáze uživatelů (ID kód + heslo + jméno)
+const users = [
+  { id: "vcox", password: "4206988", name: "Vickie Cox" },
+  { id: "5678", password: "ahoj2024", name: "Petra Malá" },
+  { id: "4321", password: "heslo123", name: "Jana Dvořáková" }
+];
+
+function login(event) {
+  event.preventDefault();
+
+  const inputId = document.getElementById("Username").value;
+  const inputPassword = document.getElementById("Password").value;
+
+  // Najdi uživatele
+  const user = users.find(u => u.id === inputId && u.password === inputPassword);
+
+  if (user) {
+    // Uložíme info do localStorage pro další práci
+    localStorage.setItem("loggedUser", JSON.stringify(user));
+
+    alert("Vítejte, " + user.name + "!");
+    window.location.href = "dashboard.html"; // přesměrování na interní stránku
+  } else {
+    alert("Nesprávný kód nebo heslo.");
+  }
+}

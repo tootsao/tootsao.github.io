@@ -21,10 +21,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link active" href="index.html">Domů</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Domů</a></li>
                 <li class="nav-item"><a class="nav-link" href="kariera.html">Kariéra</a></li>
-                <li class="nav-item"><a class="nav-link" href="spoluprace.html">Spolupráce</a></li>
-                <!-- <li class="nav-item"><button onclick="window.location.href = 'bazar.html';" type="button" class="btn btn-danger" href="bazar.html">Autobazar</button></li> -->
+                <li class="nav-item"><button onclick="window.location.href = 'smena.html';" type="button" class="btn" style="background-color: #006c6c; color: white;" href="smena.html">Směna</button></li>
             </ul>
         </div>
     </nav>
@@ -44,22 +43,44 @@
         </div>
     </header>
 
-    <main class="form-signin w-100 m-auto py-5">
-        <form>
-          <h1 class="h3 mb-3 fw-normal text-center">Přihlásit se</h1>
-      
-          <div class="form-floating">
-            <label for="floatingInput">Identifikační kód</label>
-            <input type="email" class="form-control" id="floatingInput" placeholder="Zadejte čtyřmístný kód">
-          </div>
-          <div class="form-floating">
-            <label for="floatingPassword">Heslo</label>
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Zadejte Heslo">
-          </div>
-          <br>
-          <button class="btn btn-primary w-100 py-2" type="submit">Potvrdit</button>
-        </form>
-      </main>
+    <script>
+        const user = JSON.parse(localStorage.getItem("loggedUser"));
+        if (!user) {
+          window.location.href = "login.html"; // pokud není přihlášený, vrať na login
+        } else {
+          document.addEventListener("DOMContentLoaded", () => {
+            // document.getElementById("welcome").textContent = user.name + "(@" + user.username + ")";
+            document.getElementById("typed-text").textContent = "Vítejte zpět, " + user.name + "!";
+          });
+        }
+      </script>
+
+    <section id="main" class="py-5 text-center bg-light">
+        <div class="container">
+            <h2 data-aos="fade-up" class="aos-init" >Přehled směn</h2>
+            <p data-aos="fade-up" class="aos-init">Přehled všech dostupných směn v našich projektech.</p>
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1" ><img src="img/hladovyvlk.png" alt="Hladový vlk Logo" class="img-fluid mb-3" width="35" height="35"> Hladový vlk</h5>
+                    <small>Příští event ??.??.2025</small>
+                  </div>
+                  <p class="mb-1">Rezervace směn, plánované akce, benefity</p>
+                  <small>hladovyvlk.ic</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1"><img src="img/infernoarena.png" alt="Hladový vlk Logo" class="img-fluid mb-3" width="35" height="35"> Inferno Arena</h5>
+                    <small class="text-muted">Příští event ??.??.2025</small>
+                  </div>
+                  <p class="mb-1">Rezervace směn, plánované akce, benefity, catering</p>
+                  <small class="text-muted">?????.ic</small>
+                </a>
+              </div>
+            
+        </div>
+    </section>
     
     <footer>
         <div class="px-lg-5 my-5">
@@ -71,7 +92,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.3.4/dist/aos.js"></script>
-    <script src="js/index2.js"></script>
+    <script src="js/index.js"></script>
     <script>
         AOS.init();
     </script>
