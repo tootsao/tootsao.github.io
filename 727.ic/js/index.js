@@ -76,9 +76,11 @@ function login(event) {
     // Uložíme info do localStorage pro další práci
     localStorage.setItem("loggedUser", JSON.stringify(user));
 
-    alert("Vítejte, " + user.name + "!");
     window.location.href = "dashboard.html"; // přesměrování na interní stránku
   } else {
-    alert("Nesprávný kód nebo heslo.");
+    document.getElementById("wrongpass").textContent = "Zadali jste špatné uživatelské jméno nebo heslo.";
+    setTimeout(() => {
+      document.getElementById("wrongpass").textContent = ""; // skryjeme zprávu po 3 sekundách
+    }, 5000);
   }
 }
