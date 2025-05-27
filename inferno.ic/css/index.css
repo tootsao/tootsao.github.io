@@ -7,28 +7,29 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+    background-color: #131313;
 }
 
 h1,
 h2,
 h4 {
-    color: #ffffff !important; /* Updated primary color */
+    color: #ffffff !important;
 }
 
 hr {
-    border-top: 1px solid #ffffff; /* Updated primary color */
+    border-top: 1px solid #ffffff;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
 .custom-navbar {
-    background-color: #3E3E3E;
-    border-bottom: 3px solid #3E3E3E; /* Updated primary color */
+    background-color: rgb(24, 24, 24);
+    border-bottom: 3px solid #0e0e0e;
     top: 0;
     position: sticky;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
 }
 
 .navbar-brand {
@@ -40,19 +41,19 @@ hr {
 }
 
 .navbar-brand .logo {
-    width: 40px; /* Adjust the size of the logo */
+    width: 40px;
     height: auto;
-    margin-right: 10px; /* Space between logo and text */
+    margin-right: 10px;
 }
 
 .nav-link {
-    color: #ffffff !important; /* Updated primary color */
+    color: #ffffff !important;
 }
 
 .header {
     position: relative;
     height: 100vh;
-    background-color: #2E2E2E;
+    background-color: #131313;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,13 +97,13 @@ hr {
 }
 
 .btn-primary {
-    background-color: #ffffff; /* Updated primary color */
-    border-color: #ffffff; /* Updated primary color */
+    background-color: #ffffff;
+    border-color: #ffffff;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: #ffffff; /* Darker shade of primary color */
+    background-color: #ffffff;
     transform: translateY(-3px);
 }
 
@@ -111,7 +112,7 @@ hr {
 }
 
 .bg-light {
-    background-color: #2E2E2E !important;
+    background-color: #131313 !important;
 }
 
 #onas ul {
@@ -128,7 +129,7 @@ hr {
     width: 24px;
     height: 24px;
     margin-right: 1rem;
-    color: #ffffff; /* Updated primary color */
+    color: #ffffff;
     text-align: center;
 }
 
@@ -136,8 +137,12 @@ hr {
     color: #ffffff;
 }
 
+#kontakt p {
+    color: #ffffff;
+}
+
 .kariera-box {
-    background-color: #3E3E3E;
+    background-color: #181818;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 30px;
@@ -196,7 +201,7 @@ hr {
 
 #typed-text {
     display: inline-block;
-    border-right: 3px solid #ffffff; /* Cursor effect */
+    border-right: 3px solid #ffffff;
     padding-right: 5px;
     animation: typing 2s steps(30) 1, blink 0.75s step-end infinite;
 }
@@ -227,18 +232,18 @@ hr {
 #logo {
     max-width: 100%;
     height: auto;
-    max-height: 150px; /* Smaller size of the logo */
+    max-height: 150px;
     transition: transform 0.3s ease-in-out;
 }
 
 .custom-navbar #logo {
-    max-height: 30px; /* Smaller size to fit the navbar */
+    max-height: 30px;
     width: auto;
 }
 
 .gps {
-    width: 500px; /* Full width of the parent */
-    height: 500px; /* Full height of the parent */
+    width: 500px;
+    height: 500px;
 }
 
 .gps-red {
@@ -254,5 +259,5 @@ hr {
 }
 
 .aaa {
-    background-color: #3E3E3E;
+    background-color: #0e0e0e;
 }
