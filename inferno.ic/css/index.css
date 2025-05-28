@@ -23,13 +23,13 @@ hr {
 }
 
 .custom-navbar {
-    background-color: rgb(24, 24, 24);
+    background-color: #181818;
     border-bottom: 3px solid #0e0e0e;
     top: 0;
     position: sticky;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+    box-shadow: 0 2px 4px #00000000;
 }
 
 .navbar-brand {
@@ -58,6 +58,11 @@ hr {
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-image: url('../img/banner.png'); /* cesta k obrázku */
+    background-size: contain;
+    background-position: center; /* vycentruje obrázek */
+    background-repeat: no-repeat; /* nezopakuje se */
+    color: white; /* barva textu uvnitř headeru */
 }
 
 .container {
@@ -260,4 +265,54 @@ hr {
 
 .aaa {
     background-color: #0e0e0e;
+}
+
+.dropdown-menu {
+  background-color: #191919 !important;
+  border: none;
+}
+
+.dropdown-menu .dropdown-item {
+  color: #fff;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #232323;
+  color: #ffffff; /* nebo jiná tvoje firemní barva */
+}
+  
+.bottom-box {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #181818;
+  padding: 20px 40px;
+  border-radius: 5px;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-weight: bold;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 sloupce */
+  grid-gap: 15px;
+  text-align: center;
+}
+
+.bottom-box p,
+.bottom-box button {
+  margin: 0;
+  color: #ffffff;
+}
+
+.background {
+  background-color: #181818;
+}
+
+.zapas-box {
+  background-color: #0e0e0e;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  transition: transform 0.3s;
 }
