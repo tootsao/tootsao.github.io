@@ -54,28 +54,83 @@
                 <footer>© 2025 Inferno Arena. Všechna práva vyhrazena.<br>Provozovatel webové stránky je 727 Labs.</footer>
             </main>
 
-            <div class="modal" id="modal" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;z-index:100;">
-                <div style="background: linear-gradient(145deg, #1a1a1a, #0f0f12); padding:2rem; border-radius:16px; max-width:420px; width:90%; text-align:center; box-shadow: 0 8px 24px rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.05); position:relative;">
-                    <h3 style="font-family:Montserrat;  font-size:1.75rem;  margin-bottom:1.5rem; background: linear-gradient(90deg, #ff6b3f, #E04747, #ffb347); background-clip: text; -webkit-background-clip: text; color: transparent; animation: flicker 1s infinite alternate;">Koupit vstupenku</h3>
-                    <div class="ticket-card"
-                        style="margin:1rem 0; padding:1rem; border-radius:12px; background:rgba(255,255,255,0.03); display:flex;justify-content:space-between;align-items:center;">
-                        <span>Standard</span>
-                        <button style="width:40%; padding:12px 0; border-radius:12px; border:2px solid #fff; background:transparent; color:#fff; font-weight:700; font-size:1rem; cursor:pointer;" onclick="selectTicket('Standard')">10 000 Kč</button>
-                    </div>
+            <div class="modal" id="ticketModal" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;z-index:100;background:rgba(0,0,0,0.85);">
+  <div style="background:linear-gradient(145deg,#1a1a1a,#0f0f12); padding:2rem; border-radius:16px; max-width:650px; width:95%; color:#fff; position:relative; box-shadow:0 8px 32px rgba(0,0,0,0.7); border:1px solid rgba(255,255,255,0.08);">
 
-                    <div class="ticket-card" style="margin:1rem 0; padding:1rem; border-radius:12px; background:rgba(6,132,206,0.15); display:flex;justify-content:space-between;align-items:center;">
-                        <span>VIP</span>
-                        <button style="width:40%; padding:12px 0; border-radius:12px; border:2px solid #fff; background:transparent; color:#fff; font-weight:700; font-size:1rem; cursor:pointer;" onclick="selectTicket('VIP')">20 000 Kč</button>
-                    </div>
+    <!-- Krok 1: výběr eventu -->
+    <div id="step1">
+      <h3 style="margin-bottom:1.5rem; font-size:1.6rem; font-family:Montserrat; font-weight:800; text-align:center;
+                 background:linear-gradient(90deg,#ff6b3f,#E04747,#ffb347); -webkit-background-clip:text; color:transparent;">
+        Koupit vstupenky
+      </h3>
+      
+      <!-- Event 1 -->
+      <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.05); padding:1rem 1.2rem; margin-bottom:1rem; border-radius:12px; transition:0.2s;" 
+           onmouseover="this.style.background='rgba(255,255,255,0.1)'" 
+           onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+        <div>
+          <div style="font-weight:700; font-size:1.1rem;">První sezóna - 5.10.2025</div>
+          <div style="color:#bbb; font-size:0.95rem;">Otevíráme brány Inferna. Noc plná adrenalinu a soubojů, které zapíšou první kapitolu historie.</div>
+        </div>
+        <button onclick="selectEvent('První sezóna')" 
+                style="background:#E04747; color:#fff; border:none; border-radius:8px; padding:0.6rem 1.4rem; font-weight:700; cursor:pointer; transition:0.2s;">
+          Koupit
+        </button>
+      </div>
 
-                    <div class="ticket-card" style="margin:1rem 0; padding:1rem; border-radius:12px; background:rgba(8,226,44,0.15); display:flex;justify-content:space-between;align-items:center;">
-                        <span>Backstage</span>
-                        <button style="width:40%; padding:12px 0; border-radius:12px; border:2px solid #fff; background:transparent; color:#fff; font-weight:700; font-size:1rem; cursor:pointer;" onclick="selectTicket('Backstage')">40 000 Kč</button>
-                    </div>
+      <!-- Event 2 -->
+      <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.05); padding:1rem 1.2rem; border-radius:12px; transition:0.2s;" 
+           onmouseover="this.style.background='rgba(255,255,255,0.1)'" 
+           onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+        <div>
+          <div style="font-weight:700; font-size:1.1rem;">Druhý tanec - TBA</div>
+          <div style="color:#bbb; font-size:0.95rem;">Ticho před bouří. Další show přijde brzy, která překoná veškerá očekávání.</div>
+        </div>
+        <button disabled
+          style="background:#555; color:#ccc; border:none; border-radius:8px; padding:0.6rem 1.4rem; font-weight:700; cursor:not-allowed; transition:0.2s;">
+    Koupit
+  </button>
+      </div>
+    </div>
 
-                    <div onclick="closeModal()" style="margin-top:1.5rem; padding:1rem; cursor:pointer; display:flex; justify-content:center; color:var(--muted); font-size:2.5rem; line-height:1;">⤫</div>
-                </div>
-            </div>
+    <!-- Krok 2: výběr vstupenek -->
+    <div id="step2" style="display:none;">
+      <h3 id="eventName" style="margin-bottom:1.5rem; font-size:1.5rem; font-family:Montserrat; font-weight:800; text-align:center;
+                 background:linear-gradient(90deg,#ff6b3f,#E04747,#ffb347); -webkit-background-clip:text; color:transparent;"></h3>
+
+      <div style="margin-bottom:1.2rem; text-align:center;">
+        <label style="margin-right:10px;">Standard ― 10 000 Kč</label>
+        <select id="standardCount" onchange="updateTotal()" style="padding:6px 12px; border-radius:6px; background:#1f1f1f; color:#fff; border:1px solid #444;">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom:1.2rem; text-align:center;">
+        <label style="margin-right:10px;">Backstage ― 30 000 Kč</label>
+        <select id="backstageCount" onchange="updateTotal()" style="padding:6px 12px; border-radius:6px; background:#1f1f1f; color:#fff; border:1px solid #444;">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <p style="text-align:center; font-size:1.2rem; font-weight:700;">Celkem: <span id="totalPrice">0</span> Kč</p>
+
+      <div style="text-align:center; margin-top:1.5rem;">
+        <button style="background:#E04747; color:#fff; border:none; border-radius:10px; padding:0.8rem 1.6rem; font-weight:bold; font-size:1rem; cursor:pointer; transition:0.2s;">
+          Pokračovat do košíku
+        </button>
+      </div>
+    </div>
+
+    <!-- Zavřít -->
+    <div onclick="closeModal()" style="position:absolute; top:12px; right:16px; cursor:pointer; font-size:1.6rem; color:#bbb;">⤫</div>
+  </div>
+</div>
             
             <script src="script.js"></script>
         </body>
