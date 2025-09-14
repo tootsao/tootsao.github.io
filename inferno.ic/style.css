@@ -73,3 +73,63 @@ section p.muted{font-size:1rem; color:var(--muted);}
   75% { opacity:0.95; transform:scale(1.01) rotate(-0.5deg); }
   100% { opacity:1; transform:scale(1) rotate(0deg); }
 }
+
+.playoff-bracket {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.round {
+  flex: 1;
+  max-width: 250px;
+  margin: 0 1rem;
+}
+
+.round h3 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: #E04747;
+  margin-bottom: 1rem;
+}
+
+.matchup {
+  background: rgba(255,255,255,0.05);
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.team {
+  padding: 0.5rem 0.8rem;
+  margin: 0.2rem 0;
+  background: rgba(255,255,255,0.1);
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 700;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.team:hover {
+  background: #E04747;
+  cursor: pointer;
+}
+
+.team-info {
+  background: rgba(255,255,255,0.1);
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: #ccc;
+  text-align: left;
+}
+
+.team-info p {
+  margin: 2px 0;
+}
