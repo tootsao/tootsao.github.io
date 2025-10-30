@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inferno Arena — Aktuality</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo"><div class="mark"><img src="img/logo.png" alt="Inferno Arena logo" style="width:100%;height:100%;object-fit:contain;display:block;background:none;"/></div></div>
+      <nav>
+        <ul>
+          <li><a href="./index.html">O nás</a></li>
+          <li><a href="./aktuality.html" class="active">Aktuality</a></li>
+          <li><a href="./zapasy.html">Zápasy</a></li>
+          <li><a href="./galerie.html">Galerie</a></li>
+          <li><a href="./kontakt.html">Kontakt</a></li>
+          <li><button class="btn btn-primary" onclick="openModal()">Vstupenky</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="position:relative;z-index:20">
+    <section class="hero">
+      <div class="hero-left">
+        <span class="eyebrow">NOVINKY — INFERNO ARENA</span>
+        <h1>Aktuality<br><span style="color:var(--accent)">Zůstaň v obraze</span></h1>
+        <p class="lead">Sleduj nejnovější zprávy, nábor zápasníků a oznámení o galavečerech přímo z arény.</p>
+      </div>
+    </section>
+
+    <!-- SEKCE AKTUALITY -->
+    <section id="news" style="padding:80px 20px; max-width:1000px; margin:0 auto;">
+      <h2 style="font-family:Montserrat; font-weight:900; font-size:2.8rem; margin-bottom:40px; text-align:center;">Nejnovější zprávy</h2>
+
+      <!-- Článek 1 -->
+      <article style="background:rgba(255,255,255,0.03); padding:28px; border-radius:16px; margin-bottom:40px; box-shadow:0 8px 20px rgba(0,0,0,0.3);">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <span style="font-size:0.9rem; color:#bbb;">🗓️ 30. října 2025</span>
+          <h3 style="font-family:Montserrat; font-weight:800; color:#fff; font-size:1.8rem;">Inferno Arena hledá zápasníky a staff</h3>
+          <p style="font-size:1.1rem; color:#ccc; line-height:1.8;">
+            Připravujeme další galavečer, který posune hranice adrenalinu a zábavy. 
+            Hledáme **nové zápasníky všech váhových kategorií** i **členy týmu (staff)**, kteří se chtějí stát součástí našeho světa ohně a odvahy.  
+            Pokud máš chuť být v centru dění — ať už v ringu, nebo za scénou — je teď ten správný čas.
+          </p>
+
+          <div style="background:rgba(255,69,71,0.05); border-radius:12px; padding:16px; margin-top:10px;">
+            <p style="margin:0; color:#fff;">
+              📩 Zájemci mohou kontaktovat organizátory na e-mailu <a href="mailto:management@727.ic" style="color:#E04747; text-decoration:none;">management@727.ic</a>  
+              nebo se přihlásit osobně v sídle Inferno Areny v Las Venturas.
+            </p>
+          </div>
+
+          <div style="margin-top:16px; text-align:right; font-size:0.9rem; color:#777;">Autor: Inferno Team</div>
+        </div>
+      </article>
+
+      <!-- Místo pro další články -->
+      <div style="text-align:center; color:#777;">Další aktuality budou brzy přidány...</div>
+    </section>
+
+    <footer>© 2025 Inferno Arena. Všechna práva vyhrazena.<br>Provozovatel webové stránky je 727 Labs.</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
