@@ -44,11 +44,11 @@
       <div class="blocks" id="blocks" aria-live="polite">
         <div>
           <div class="label">Nadpis</div>
-          <div id="smlouvaBlock" class="block" role="region" aria-label="Text smlouvy">Inferno Arena - [doplňte jméno zápasníka]</div>
+          <div id="nadpisBlock" class="block" role="region" aria-label="Text smlouvy">Inferno Arena - [doplňte jméno zápasníka]</div>
         </div>
         <div>
           <div class="label">Obsah</div>
-          <div id="obsahBlock" class="block" role="region" aria-label="Text obsahu">Zde se načte obsah (nebo ho můžeš přepsat přes ?obsah=...)</div>
+          <div id="smlouvaBlock" class="block" role="region" aria-label="Text obsahu">Zde se načte obsah (nebo ho můžeš přepsat přes ?obsah=...)</div>
         </div>
       </div>
 
@@ -61,7 +61,6 @@
   const copySml = document.getElementById('copySml');
   const copyObs = document.getElementById('copyObs');
   const smlBlock = document.getElementById('smlouvaBlock');
-  const obsBlock = document.getElementById('obsahBlock');
   const status = document.getElementById('status');
 
   async function copyText(text) {
@@ -91,20 +90,10 @@
     copySml.disabled = false;
   });
 
-  copyObs.addEventListener('click', async (e) => {
-    e.stopPropagation();
-    copyObs.disabled = true;
-    status.textContent = 'Kopíruji obsah…';
-    const ok = await copyText(obsBlock.textContent.trim());
-    status.textContent = ok ? 'Hotovo — obsah zkopírován do schránky.' : 'Kopírování selhalo — označ text a stiskni Ctrl/Cmd+C.';
-    copyObs.disabled = false;
-  });
-
   // 1) Načtení z URL parametrů (má prioritu)
   (function loadFromQuery(){
     const p = new URLSearchParams(location.search);
-    const s = p.get('smlouva');  // text nadpisu/smlouvy
-    const o = p.get('obsah');    // text obsahu
+    const s = p.get('smlouva');  // text smlouvy
     const logoText = p.get('logo');
 
     if (s) smlBlock.textContent = decodeURIComponent(s.replace(/\+/g,' '));
@@ -115,7 +104,6 @@
   // 2) Pokud URL parametry nic nedodaly, načti soubory (bez koncového lomítka!)
   async function maybeFetchFiles() {
     const hadSml = smlBlock.textContent.trim() && smlBlock.textContent.indexOf('Inferno Arena - [doplňte') === -1 ? true : false;
-    const hadObs = obsBlock.textContent.trim() && obsBlock.textContent.indexOf('Zde se načte obsah') === -1 ? true : false;
 
     try {
       if (!hadSml) {
@@ -124,14 +112,6 @@
       }
     } catch (e) {
       // ponech status, ať to neruší UX
-    }
-    try {
-      if (!hadObs) {
-        const r2 = await fetch('./smlouvy/obsah.txt'); // volitelný soubor
-        if (r2.ok) obsBlock.textContent = await r2.text();
-      }
-    } catch (e) {
-      // tiché selhání – obsah lze dodat parametrem
     }
   }
   maybeFetchFiles();
