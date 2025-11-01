@@ -4,6 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Inferno Arena — Smlouva pro zápasníky</title>
+<link rel="icon" href="./img/logo.png"/>
 <style>
   :root{--accent:#e04747; --bg:#0f1720; --card:#0b1220; --muted:#9fb0c8}
   *{box-sizing:border-box}
@@ -16,7 +17,6 @@
   .sub{color:var(--muted); margin-top:4px; font-size:13px}
   .actions{display:flex; gap:12px; margin-top:16px; flex-wrap:wrap}
   button.primary{background:var(--accent); color:#fff; border:none; padding:12px 16px; border-radius:10px; font-weight:700; cursor:pointer; font-size:15px; min-width:180px}
-  button.ghost{background:transparent; color:#dfe9fb; border:1px solid rgba(255,255,255,0.06); padding:10px 14px; border-radius:10px; cursor:pointer}
   .blocks{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:18px}
   .block{background:#071627; border-radius:10px; padding:12px; min-height:120px; overflow:auto; font-size:13px; color:#dbe7f5; white-space:pre-wrap}
   .label{font-size:12px; color:var(--muted); margin-bottom:6px}
@@ -29,7 +29,9 @@
   <div class="wrap">
     <div class="card" id="card">
       <header>
-        <div class="logo" id="logo"><img src="img/logo.png" alt="Inferno Arena logo" style="width:100%;height:100%;object-fit:contain;display:block;background:none;"/></div>
+        <div class="logo" id="logo">
+          <img src="img/logo.png" alt="Inferno Arena logo" style="width:100%;height:100%;object-fit:contain;display:block;background:none;"/>
+        </div>
         <div>
           <h1>Inferno Arena — Smlouva pro zápasníky</h1>
           <div class="sub">Klikni na příslušné tlačítko níže pro zkopírování textu do schránky.</div>
@@ -44,7 +46,7 @@
       <div class="blocks" id="blocks" aria-live="polite">
         <div>
           <div class="label">Nadpis</div>
-          <div id="nadpisBlock" class="block" role="region" aria-label="Text smlouvy">Inferno Arena - [doplňte jméno zápasníka]</div>
+          <div id="nadpisBlock" class="block" role="region" aria-label="Text nadpisu">Inferno Arena - [doplňte jméno zápasníka]</div>
         </div>
         <div>
           <div class="label">Obsah</div>
@@ -52,16 +54,17 @@
         </div>
       </div>
 
-      <div class="status" id="status"> </div>
+      <div class="status" id="status"></div>
       <div class="small" style="margin-top:8px">© 2025 Inferno Arena. Všechna práva vyhrazena. Provozovatel webové stránky je 727 Labs.</div>
     </div>
   </div>
 
 <script>
-  const copySml = document.getElementById('copySml');
-  const copyObs = document.getElementById('copyObs');
-  const smlBlock = document.getElementById('smlouvaBlock');
-  const status = document.getElementById('status');
+  const copySml   = document.getElementById('copySml');
+  const copyObs   = document.getElementById('copyObs');
+  const nadpisEl  = document.getElementById('nadpisBlock');  // NADPIS
+  const obsahEl   = document.getElementById('smlouvaBlock'); // OBSAH (smlouva)
+  const status    = document.getElementById('status');
 
   async function copyText(text) {
     if (!text) return false;
@@ -81,42 +84,59 @@
     } catch (err) { return false; }
   }
 
+  // Kopirovat NADPIS
   copySml.addEventListener('click', async (e) => {
     e.stopPropagation();
     copySml.disabled = true;
     status.textContent = 'Kopíruji nadpis…';
-    const ok = await copyText(smlBlock.textContent.trim());
+    const ok = await copyText(nadpisEl.textContent.trim());
     status.textContent = ok ? 'Hotovo — nadpis zkopírován do schránky.' : 'Kopírování selhalo — označ text a stiskni Ctrl/Cmd+C.';
     copySml.disabled = false;
   });
 
-  // 1) Načtení z URL parametrů (má prioritu)
+  // Kopirovat OBSAH
+  copyObs.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    copyObs.disabled = true;
+    status.textContent = 'Kopíruji obsah…';
+    const ok = await copyText(obsahEl.textContent.trim());
+    status.textContent = ok ? 'Hotovo — obsah zkopírován do schránky.' : 'Kopírování selhalo — označ text a stiskni Ctrl/Cmd+C.';
+    copyObs.disabled = false;
+  });
+
+  // 1) Nacteni z URL paramu (priorita)
   (function loadFromQuery(){
     const p = new URLSearchParams(location.search);
-    const s = p.get('smlouva');  // text smlouvy
+    const n = p.get('nadpis');             // volitelny parametr pro nadpis
+    const o = p.get('obsah') || p.get('smlouva'); // volitelny parametr pro obsah (podporuju i ?smlouva=)
     const logoText = p.get('logo');
 
-    if (s) smlBlock.textContent = decodeURIComponent(s.replace(/\+/g,' '));
-    if (o) obsBlock.textContent = decodeURIComponent(o.replace(/\+/g,' '));
-    if (logoText) document.getElementById('logo').textContent = decodeURIComponent(logoText.replace(/\+/g,' ')).slice(0,6);
+    if (n) nadpisEl.textContent = decodeURIComponent(n.replace(/\+/g,' '));
+    if (o) obsahEl.textContent  = decodeURIComponent(o.replace(/\+/g,' '));
+    if (logoText) document.getElementById('logo').textContent =
+      decodeURIComponent(logoText.replace(/\+/g,' ')).slice(0,6);
   })();
 
-  // 2) Pokud URL parametry nic nedodaly, načti soubory (bez koncového lomítka!)
+  // 2) Pokud URL nic nedoda, nacti obsah ze souboru (bez koncoveho lomitka!)
   async function maybeFetchFiles() {
-    const hadSml = smlBlock.textContent.trim() && smlBlock.textContent.indexOf('Inferno Arena - [doplňte') === -1 ? true : false;
-
-    try {
-      if (!hadSml) {
-        const r1 = await fetch('./smlouvy/zapasnik.txt');
-        if (r1.ok) smlBlock.textContent = await r1.text();
-      }
-    } catch (e) {
-      // ponech status, ať to neruší UX
-    }
+    const obsahIsDefault = obsahEl.textContent.trim() === 'Zde by se měl načíst obsah!';
+    if (obshaIsDefault) return; // NOTE: typo fix below
   }
-  maybeFetchFiles();
+  // FIX: správně test a fetch
+  (async () => {
+    const obsahIsDefault = obsahEl.textContent.trim() === 'Zde by se měl načíst obsah!';
+    if (obsahIsDefault) {
+      try {
+        const r = await fetch('./smlouvy/zapasnik.txt'); // <-- umisti soubor sem
+        if (!r.ok) throw new Error('Soubor nebyl nalezen');
+        obsahEl.textContent = await r.text();
+      } catch (e) {
+        status.textContent = 'Nepodařilo se načíst obsah: ' + e.message;
+      }
+    }
+  })();
 
-  // Jednorázové auto-kopírování po prvním kliknutí mimo tlačítka (volitelné)
+  // Volitelne: jednorazove auto-kopirovani po prvnim kliku mimo tlacitka
   let autoCopied = false;
   document.addEventListener('click', function handler(e){
     if (e.target.closest('button')) return;
@@ -124,7 +144,7 @@
     autoCopied = true;
     document.removeEventListener('click', handler);
     status.textContent = 'Provádí se kopírování po prvním kliknutí…';
-    copyText(obsBlock.textContent.trim()).then(ok=>{
+    copyText(obsahEl.textContent.trim()).then(ok=>{
       status.textContent = ok ? 'Hotovo — text zkopírován do schránky (po tvém kliknutí).' : 'Automatické kopírování selhalo — použij tlačítko Kopírovat.';
     });
   });
