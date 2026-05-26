@@ -75,13 +75,13 @@
     <h1>Servisní hlášení</h1>
 
     <label>Číslo v excelu</label>
-    <input type="text" id="cislo_excel">
+    <input type="text" id="cislo_excel" placeholder="Např. 2026-1542">
 
     <label>Jméno zákazníka</label>
-    <input type="text" id="zakaznik">
+    <input type="text" id="zakaznik" placeholder="Jan Novák">
 
     <label>E-mail</label>
-    <input type="email" id="email">
+    <input type="email" id="email" placeholder="jan.novak@email.cz">
 
     <label>Telefon</label>
 
@@ -100,28 +100,28 @@
     </div>
 
     <label>Ulice a číslo</label>
-    <input type="text" id="ulice">
+    <input type="text" id="ulice" placeholder="Dlouhá 125/14">
 
     <label>Město</label>
-    <input type="text" id="mesto">
+    <input type="text" id="mesto" placeholder="Praha">
 
     <label>PSČ</label>
-    <input type="text" id="psc">
+    <input type="text" id="psc" placeholder="11000">
 
     <label>Stát</label>
-    <input type="text" id="stat" value="Česká republika">
+    <input type="text" id="stat" value="Česká republika" placeholder="Česká republika">
 
     <label>Číslo faktury</label>
-    <input type="text" id="faktura">
+    <input type="text" id="faktura" placeholder="FA-2026-00125">
 
     <label>Značka a model</label>
-    <input type="text" id="model">
+    <input type="text" id="model" placeholder="Toyota Corolla 2.0 Hybrid">
 
     <label>Sériové číslo</label>
-    <input type="text" id="seriove">
+    <input type="text" id="seriove" placeholder="SN-458796325">
 
     <label>Celkový nájezd (km)</label>
-    <input type="number" id="najezd">
+    <input type="number" id="najezd" placeholder="125000">
 
     <label>Typ opravy</label>
     <select id="oprava">
@@ -130,10 +130,10 @@
     </select>
 
     <label>Popis závady</label>
-    <textarea id="zavada"></textarea>
+    <textarea id="zavada" placeholder="Např. Vozidlo nejde nastartovat, svítí kontrolka motoru..."></textarea>
 
     <label>Poznámky</label>
-    <textarea id="poznamky"></textarea>
+    <textarea id="poznamky" placeholder="Dodatečné informace, stav vozidla, příslušenství..."></textarea>
 
     <button onclick="vygenerovatDOCX()">
         Vygenerovat DOCX
