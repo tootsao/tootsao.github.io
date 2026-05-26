@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servisní hlášení</title>
+    <title>Protokol o provedené úpravě</title>
     <link rel="icon" type="image/png" href="favicon.png">
 
     <script src="https://unpkg.com/pizzip@3.1.4/dist/pizzip.js"></script>
@@ -75,7 +75,7 @@
 
 <div class="container">
 
-    <h1>Servisní hlášení</h1>
+    <h1>Protokol o provedené úpravě</h1>
 
     <form id="formular">
 
@@ -302,19 +302,12 @@
     <label>Sériové číslo</label>
     <input type="text" id="seriove" placeholder="TDE1FMA25L9999">
 
-    <label>Číslo faktury</label>
-    <input type="text" id="faktura" placeholder="20261234">
-
-    <label>Celkový nájezd (km)</label>
-    <input type="number" id="najezd" placeholder="128">
-
-    <label>Typ opravy</label>
-
-    <select id="oprava" required>
-        <option>Záruční</option>
-        <option>Placená</option>
-        <option>Kombinovaná</option>
-    </select>
+    <label>Popis závady</label>
+    <textarea
+        id="zavada"
+        placeholder="Např. Koloběžka nejde nastartovat..."
+        required
+    ></textarea>
 
     <label>Popis závady</label>
 
