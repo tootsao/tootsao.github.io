@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Group P.Z.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #222;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 40px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .wide-card {
+      width: 100%;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .card h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .card p {
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      position: relative;
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: transparent;
+      border: 2px solid #d9d9d9;
+      color: #2a2a2a;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #2a2a2a;
+      border-color: #2a2a2a;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: scale(0.96);
+    }
+
+    .courier-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+
+    .courier-buttons .btn {
+      flex: 1;
+      text-align: center;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .courier-logo {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .info-box {
+      margin-top: 40px;
+      background: white;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .info-box h2 {
+      margin-bottom: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f4f6f9;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .copy-btn {
+      background: #28a745;
+      border: none;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .copy-btn:hover {
+      background: #1f8a38;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #777;
+    }
+
+    body.dark-mode {
+      background: #121212;
+      color: #f1f1f1;
+    }
+
+    body.dark-mode .card,
+    body.dark-mode .info-box {
+      background: #1e1e1e;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    }
+
+    body.dark-mode .card p,
+    body.dark-mode .subtitle,
+    body.dark-mode footer {
+      color: #bdbdbd;
+    }
+
+    body.dark-mode .info-item {
+      background: #2b2b2b;
+    }
+
+    body.dark-mode .btn {
+      border-color: #4a4a4a;
+      color: #f1f1f1;
+    }
+
+    body.dark-mode .btn:hover {
+      background: #f1f1f1;
+      border-color: #f1f1f1;
+      color: #121212;
+      transform: translateY(-2px);
+    }
+
+    body.dark-mode .btn:active {
+      transform: scale(0.96);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border: 1px solid #d9d9d9;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #121212;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      transition: 0.25s;
+      z-index: 999;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(180deg) scale(1.08);
+      background: #e9e9e9;
+    }
+
+    .theme-toggle:active {
+      transform: scale(0.88);
+    }
+
+    body.dark-mode .theme-toggle {
+      background: #1f1f1f;
+      color: white;
+      border: 1px solid #3a3a3a;
+    }
+
+    body.dark-mode .theme-toggle:hover {
+      transform: rotate(180deg) scale(1.08);
+      background: #2c2c2c;
+    }
+
+    body.dark-mode .theme-toggle:active {
+      transform: scale(0.88);
+    }
+
+    @media(max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width: 700px) {
+      .courier-buttons {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media(max-width: 600px) {
+      h1 {
+        font-size: 30px;
+      }
+
+      .card h2 {
+        font-size: 20px;
+      }
+
+      .theme-toggle {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Group P.Z.</h1>
+    <div style="height: 40px;"></div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Formuláře</h2>
+        <p>
+          Rychlý přístup ke všem servisním formulářům.
+        </p>
+
+        <div class="courier-buttons">
+          <a href="servis.html" class="btn">Servisní hlášení</a>
+          <a href="protokol.html" class="btn">Protokol o provedené opravě</a>
+        </div>
+      </div>
+
+      <div class="card wide-card">
+        <h2>Kurýrní služby</h2>
+        <p>
+          Přehled odkazů na dopravce a kurýrní společnosti.
+        </p>
+
+        <div class="courier-buttons">
+          <a href="https://www.mygls.cz" target="_blank" class="btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/GLS_Logo_2021.svg/1280px-GLS_Logo_2021.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" class="courier-logo" alt="GLS">
+            GLS
+          </a>
+
+          <a href="https://www.dhl.cz" target="_blank" class="btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/DHL_Logo.svg/3840px-DHL_Logo.svg.png" class="courier-logo" alt="DHL">
+            DHL
+          </a>
+
+          <a href="https://www.wedo.com/" target="_blank" class="btn">
+            <img src="https://portal.wedo.cz/static/assets/images/one_by_allegro_logo.png?v=1772460710" class="courier-logo" alt="WEDO">
+            WEDO
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h2>Kontaktní informace</h2>
+
+      <div class="info-item">
+        <div>
+          <strong>Email:</strong><br>
+          sales@grouppz.cz
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div>
+          <strong>Telefon:</strong><br>
+          +420 737 755 543
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div>
+          <strong>Adresa:</strong><br>
+          Daliborova 432/3, 709 00 Ostrava
+        </div>
+
+      </div>
+
+      <div class="info-item">
+        <div>
+          <strong>IČO:</strong><br>
+          08864471
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      © 2026 sao
+    </footer>
+  </div>
+
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+    🌙
+  </button>
+
+  <script>
+    function copyText(text) {
+      navigator.clipboard.writeText(text);
+      alert('Zkopírováno: ' + text);
+    }
+
+    function setTheme(isDark) {
+      const btn = document.getElementById('themeBtn');
+
+      if(isDark) {
+        document.body.classList.add('dark-mode');
+        btn.innerHTML = '☀️';
+      } else {
+        document.body.classList.remove('dark-mode');
+        btn.innerHTML = '🌙';
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.body.classList.contains('dark-mode');
+      const newTheme = !isDark;
+
+      setTheme(newTheme);
+      localStorage.setItem('themeOverride', newTheme ? 'dark' : 'light');
+    }
+
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('themeOverride');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if(savedTheme === 'dark') {
+        setTheme(true);
+      } else if(savedTheme === 'light') {
+        setTheme(false);
+      } else {
+        setTheme(systemDark);
+      }
+
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const override = localStorage.getItem('themeOverride');
+
+        if(!override) {
+          setTheme(e.matches);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
