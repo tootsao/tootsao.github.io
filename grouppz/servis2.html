@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servisní hlášení</title>
+
+    <script src="https://unpkg.com/pizzip@3.1.4/dist/pizzip.js"></script>
+    <script src="https://unpkg.com/docxtemplater@3.37.11/build/docxtemplater.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f3f3;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 120px;
+        }
+
+        button {
+            margin-top: 30px;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Servisní hlášení</h1>
+
+    <label>Číslo v excelu</label>
+    <input type="text" id="cislo_excel">
+
+    <label>Jméno zákazníka</label>
+    <input type="text" id="zakaznik">
+
+    <label>E-mail</label>
+    <input type="email" id="email">
+
+    <label>Telefon</label>
+
+    <div style="display:flex; gap:10px; align-items:center;">
+
+        <select id="predvolba" style="max-width:140px;">
+            <option value="+420">🇨🇿 +420</option>
+            <option value="+421">🇸🇰 +421</option>
+            <option value="+49">🇩🇪 +49</option>
+            <option value="+43">🇦🇹 +43</option>
+            <option value="+48">🇵🇱 +48</option>
+        </select>
+
+        <input type="text" id="telefon" placeholder="123 456 789">
+
+    </div>
+
+    <label>Ulice a číslo</label>
+    <input type="text" id="ulice">
+
+    <label>Město</label>
+    <input type="text" id="mesto">
+
+    <label>PSČ</label>
+    <input type="text" id="psc">
+
+    <label>Stát</label>
+    <input type="text" id="stat" value="Česká republika">
+
+    <label>Číslo faktury</label>
+    <input type="text" id="faktura">
+
+    <label>Značka a model</label>
+    <input type="text" id="model">
+
+    <label>Sériové číslo</label>
+    <input type="text" id="seriove">
+
+    <label>Celkový nájezd (km)</label>
+    <input type="number" id="najezd">
+
+    <label>Typ opravy</label>
+    <select id="oprava">
+        <option>Záruční</option>
+        <option>Placená</option>
+    </select>
+
+    <label>Popis závady</label>
+    <textarea id="zavada"></textarea>
+
+    <label>Poznámky</label>
+    <textarea id="poznamky"></textarea>
+
+    <button onclick="vygenerovatDOCX()">
+        Vygenerovat DOCX
+    </button>
+
+</div>
+
+<script>
+async function vygenerovatDOCX() {
+
+    try {
+
+        const response = await fetch('servis.docx');
+
+        if (!response.ok) {
+            alert('Nepodařilo se načíst VZOR.docx');
+            return;
+        }
+
+        const arrayBuffer = await response.arrayBuffer();
+
+        const zip = new PizZip(arrayBuffer);
+
+        const doc = new window.docxtemplater(zip, {
+            paragraphLoop: true,
+            linebreaks: true
+        });
+
+        doc.render({
+            cislo_excel: document.getElementById('cislo_excel').value,
+            zakaznik: document.getElementById('zakaznik').value,
+            email: document.getElementById('email').value,
+            telefon: document.getElementById('predvolba').value + ' ' + document.getElementById('telefon').value,
+            ulice: document.getElementById('ulice').value,
+            mesto: document.getElementById('mesto').value,
+            psc: document.getElementById('psc').value,
+            stat: document.getElementById('stat').value,
+            faktura: document.getElementById('faktura').value,
+            model: document.getElementById('model').value,
+            seriove: document.getElementById('seriove').value,
+            najezd: document.getElementById('najezd').value,
+            oprava: document.getElementById('oprava').value,
+            zavada: document.getElementById('zavada').value,
+            poznamky: document.getElementById('poznamky').value
+        });
+
+        const output = doc.getZip().generate({
+            type: 'blob',
+            mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        });
+
+        const cislo = document.getElementById('cislo_excel').value || 'bez-cisla';
+
+        const zakaznik = document.getElementById('zakaznik').value || 'zakaznik';
+
+        const filename = `${cislo} - ${zakaznik}.docx`;
+
+        saveAs(output, filename);
+
+    } catch (error) {
+
+        console.error(error);
+        alert('Chyba při generování DOCX.');
+
+    }
+}
+</script>
+
+</body>
+</html>
