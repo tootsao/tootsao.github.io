@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+</div>
+
+<script>
+async function vygenerovatDOCX() {
+
+    try {
+
+        const response = await fetch('servis.docx');
+
+        if (!response.ok) {
+            alert('Nepodařilo se načíst VZOR.docx');
+            return;
+        }
+
+        const arrayBuffer = await response.arrayBuffer();
+
+        const zip = new PizZip(arrayBuffer);
+
+        const doc = new window.docxtemplater(zip, {
+            paragraphLoop: true,
+            linebreaks: true
+        });
+
+        doc.render({
+            cislo_excel: document.getElementById('cislo_excel').value,
+            zakaznik: document.getElementById('zakaznik').value,
+            email: document.getElementById('email').value,
+            telefon: document.getElementById('telefon').value,
+            ulice: document.getElementById('ulice').value,
+            mesto: document.getElementById('mesto').value,
+            psc: document.getElementById('psc').value,
+            stat: document.getElementById('stat').value,
+            faktura: document.getElementById('faktura').value,
+            model: document.getElementById('model').value,
+            seriove: document.getElementById('seriove').value,
+            najezd: document.getElementById('najezd').value,
+            oprava: document.getElementById('oprava').value,
+            zavada: document.getElementById('zavada').value,
+            poznamky: document.getElementById('poznamky').value
+        });
+
+        const output = doc.getZip().generate({
+            type: 'blob',
+            mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        });
+
+        saveAs(output, 'servisni_hlaseni.docx');
+
+    } catch (error) {
+
+        console.error(error);
+        alert('Chyba při generování DOCX.');
+
+    }
+}
+</script>
+
+</body>
+</html>
