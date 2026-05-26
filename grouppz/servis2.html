@@ -75,16 +75,16 @@
     <h1>Servisní hlášení</h1>
 
     <label>Číslo v excelu</label>
-    <input type="text" id="cislo_excel" placeholder="69">
+    <input type="text" id="cislo_excel" placeholder="69" required>
 
     <label>Jméno zákazníka</label>
-    <input type="text" id="zakaznik" placeholder="Jan Novák">
+    <input type="text" id="zakaznik" placeholder="Jan Novák" required>
 
     <label>E-mail</label>
-    <input type="email" id="email" placeholder="novak@gmail.com">
+    <input type="email" id="email" placeholder="novak@gmail.com" required>
 
     <label>Telefon</label>
-    <div style="display:flex; gap:10px; align-items:center;">
+    <div style="display:flex; gap:10px; align-items:center;" required>
         <select id="predvolba" style="max-width:140px;">
             <option value="+30">🇬🇷 +30</option>
             <option value="+31">🇳🇱 +31</option>
@@ -113,7 +113,7 @@
             <option value="+420" selected>🇨🇿 +420</option>
             <option value="+421">🇸🇰 +421</option>
         </select>
-        <input type="text" id="telefon" placeholder="123 456 789">
+        <input type="text" id="telefon" placeholder="123 456 789" required>
     </div>
 
     <label>Ulice a číslo</label>
@@ -158,7 +158,7 @@
     <input type="text" id="faktura" placeholder="20261234">
 
     <label>Značka a model</label>
-    <input type="text" id="model" placeholder="Teverun Blade Mini Ultra">
+    <input type="text" id="model" placeholder="Teverun Blade Mini Ultra" required>
 
     <label>Sériové číslo</label>
     <input type="text" id="seriove" placeholder="TDE1FMA25L9999">
@@ -167,14 +167,14 @@
     <input type="number" id="najezd" placeholder="128">
 
     <label>Typ opravy</label>
-    <select id="oprava">
+    <select id="oprava" required>
         <option>Záruční</option>
         <option>Placená</option>
         <option>Kombinovaná</option>
     </select>
 
     <label>Popis závady</label>
-    <textarea id="zavada" placeholder="Např. Kolobežka nejde nastartovat, svítí kontrolka motoru..."></textarea>
+    <textarea id="zavada" placeholder="Např. Kolobežka nejde nastartovat, svítí kontrolka motoru..." required></textarea>
 
     <label>Poznámky</label>
     <textarea id="poznamky" placeholder="Dodatečné informace, ,dodané příslušenství..."></textarea>
