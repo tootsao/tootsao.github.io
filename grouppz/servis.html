@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
     <style>
+
         body {
             font-family: Arial, sans-serif;
             background: #f3f3f3;
@@ -66,6 +67,7 @@
         button:hover {
             background: #0056b3;
         }
+
     </style>
 </head>
 <body>
@@ -176,14 +178,129 @@
 
     </div>
 
-    <label>Číslo faktury</label>
-    <input type="text" id="faktura" placeholder="20261234">
+    <div
+        style="
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-top:20px;
+        "
+    >
 
-    <label>Značka a model</label>
-    <input type="text" id="model" placeholder="Teverun Blade Mini Ultra" required>
+        <span style="font-weight:bold;">
+            Značka a model
+        </span>
+
+        <label
+            style="
+                display:flex;
+                align-items:center;
+                gap:8px;
+                margin:0;
+                cursor:pointer;
+                font-weight:normal;
+
+                border:1px solid #dcdcdc;
+                border-radius:10px;
+
+                padding:8px 12px;
+
+                background:#fafafa;
+            "
+        >
+
+            <input
+                type="checkbox"
+                id="ostatni-model"
+                onchange="toggleModelInput()"
+                style="
+                    width:auto;
+                    margin:0;
+                "
+            >
+
+            Ostatní
+
+        </label>
+
+    </div>
+
+    <div id="model-select-blok">
+
+        <select id="model" required>
+
+            <option value="" disabled selected>
+                Vyberte model
+            </option>
+
+            <option disabled>--- Teverun ---</option>
+            <option>Teverun Blade Q Pro</option>
+            <option>Teverun Blade Mini Single</option>
+            <option>Teverun Blade Mini</option>
+            <option>Teverun Blade Mini Pro</option>
+            <option>Teverun Blade Mini Ultra</option>
+            <option>Teverun Blade GT Single</option>
+            <option>Teverun Blade GT</option>
+            <option>Teverun Blade GT+</option>
+            <option>Teverun Blade GT II</option>
+            <option>Teverun Blade GT II+</option>
+            <option>Teverun Fighter Q</option>
+            <option>Teverun Fighter Mini</option>
+            <option>Teverun Fighter Mini Eco</option>
+            <option>Teverun Fighter Mini Std</option>
+            <option>Teverun Fighter Mini Pro</option>
+            <option>Teverun Fighter Eleven</option>
+            <option>Teverun Fighter Eleven+</option>
+            <option>Teverun Fighter Supreme Ultra</option>
+            <option>Teverun Fighter Supreme 7260R</option>
+            <option>Teverun Space Lite</option>
+            <option>Teverun Space Std</option>
+
+            <option disabled>--- Vsett ---</option>
+            <option>Vsett Mini</option>
+            <option>Vsett 8</option>
+            <option>Vsett 8+</option>
+            <option>Vsett 9</option>
+            <option>Vsett 9+</option>
+            <option>Vsett 10</option>
+            <option>Vsett 10+</option>
+            <option>Vsett 11+</option>
+            <option>Vsett 8 Apex</option>
+            <option>Vsett 9 Apex</option>
+            <option>Vsett 10 Apex</option>
+
+            <option disabled>--- Techlife ---</option>
+            <option>Techlife X5</option>
+            <option>Techlife X5S</option>
+            <option>Techlife X6</option>
+            <option>Techlife L5</option>
+            <option>Techlife L5T</option>
+            <option>Techlife X7</option>
+            <option>Techlife X7S</option>
+            <option>Techlife X7 Lite</option>
+            <option>Techlife X8</option>
+            <option>Techlife X8S</option>
+            <option>Techlife X9</option>
+
+        </select>
+
+    </div>
+
+    <div id="model-input-blok" style="display:none;">
+
+        <input
+            type="text"
+            id="model-input"
+            placeholder="Např. Vsett 10+"
+        >
+
+    </div>
 
     <label>Sériové číslo</label>
     <input type="text" id="seriove" placeholder="TDE1FMA25L9999">
+
+    <label>Číslo faktury</label>
+    <input type="text" id="faktura" placeholder="20261234">
 
     <label>Celkový nájezd (km)</label>
     <input type="number" id="najezd" placeholder="128">
@@ -200,7 +317,7 @@
 
     <textarea
         id="zavada"
-        placeholder="Např. Koloběžka nejde nastartovat, svítí kontrolka motoru..."
+        placeholder="Např. Koloběžka nejde nastartovat..."
         required
     ></textarea>
 
@@ -208,7 +325,7 @@
 
     <textarea
         id="poznamky"
-        placeholder="Dodatečné informace, dodané příslušenství..."
+        placeholder="Dodatečné informace..."
     ></textarea>
 
     <button type="button" onclick="vygenerovatDOCX()">
@@ -228,6 +345,33 @@ function toggleOsobne() {
         adresaBlok.style.display = 'none';
     } else {
         adresaBlok.style.display = 'block';
+    }
+}
+
+function toggleModelInput() {
+
+    const checkbox = document.getElementById('ostatni-model');
+
+    const selectBlok = document.getElementById('model-select-blok');
+
+    const inputBlok = document.getElementById('model-input-blok');
+
+    if (checkbox.checked) {
+
+        selectBlok.style.display = 'none';
+        inputBlok.style.display = 'block';
+
+        document.getElementById('model').required = false;
+        document.getElementById('model-input').required = true;
+
+    } else {
+
+        selectBlok.style.display = 'block';
+        inputBlok.style.display = 'none';
+
+        document.getElementById('model').required = true;
+        document.getElementById('model-input').required = false;
+
     }
 }
 
@@ -256,7 +400,9 @@ async function vygenerovatDOCX() {
         doc.render({
 
             cislo_excel: document.getElementById('cislo_excel').value,
+
             zakaznik: document.getElementById('zakaznik').value,
+
             email: document.getElementById('email').value,
 
             telefon:
@@ -280,12 +426,24 @@ async function vygenerovatDOCX() {
                 ? ''
                 : document.getElementById('stat').value,
 
-            faktura: document.getElementById('faktura').value,
-            model: document.getElementById('model').value,
+            model:
+
+                document.getElementById('model-select-blok').style.display === 'none'
+
+                    ? document.getElementById('model-input').value
+
+                    : document.getElementById('model').value,
+
             seriove: document.getElementById('seriove').value,
+
+            faktura: document.getElementById('faktura').value,
+
             najezd: document.getElementById('najezd').value,
+
             oprava: document.getElementById('oprava').value,
+
             zavada: document.getElementById('zavada').value,
+
             poznamky: document.getElementById('poznamky').value
 
         });
