@@ -415,17 +415,12 @@ async function vygenerovatDOCX() {
                 ? 'Osobně - Prodejna'
                 : document.getElementById('ulice').value,
 
-            mesto: osobne
-                ? ''
-                : document.getElementById('mesto').value,
-
-            psc: osobne
-                ? ''
-                : document.getElementById('psc').value,
-
-            stat: osobne
-                ? ''
-                : document.getElementById('stat').value,
+            adresa: osobne
+            ? 'Osobně - Prodejna'
+            : `${document.getElementById('ulice').value},
+               ${document.getElementById('mesto').value},
+               ${document.getElementById('psc').value},
+               ${document.getElementById('stat').value}`,
 
             model:
 
