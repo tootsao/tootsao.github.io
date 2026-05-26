@@ -77,6 +77,8 @@
 
     <h1>Servisní hlášení</h1>
 
+    <form id="formular">
+
     <label>Číslo v excelu</label>
     <input type="text" id="cislo_excel" placeholder="69" required>
 
@@ -92,32 +94,32 @@
 
         <select id="predvolba" style="max-width:220px;">
 
-            <option value="+30">🇬🇷 Řecko (+30)</option>
-            <option value="+31">🇳🇱 Nizozemsko (+31)</option>
-            <option value="+32">🇧🇪 Belgie (+32)</option>
-            <option value="+33">🇫🇷 Francie (+33)</option>
-            <option value="+34">🇪🇸 Španělsko (+34)</option>
-            <option value="+36">🇭🇺 Maďarsko (+36)</option>
-            <option value="+39">🇮🇹 Itálie (+39)</option>
-            <option value="+40">🇷🇴 Rumunsko (+40)</option>
-            <option value="+41">🇨🇭 Švýcarsko (+41)</option>
-            <option value="+43">🇦🇹 Rakousko (+43)</option>
-            <option value="+45">🇩🇰 Dánsko (+45)</option>
-            <option value="+46">🇸🇪 Švédsko (+46)</option>
-            <option value="+47">🇳🇴 Norsko (+47)</option>
-            <option value="+48">🇵🇱 Polsko (+48)</option>
-            <option value="+49">🇩🇪 Německo (+49)</option>
-            <option value="+351">🇵🇹 Portugalsko (+351)</option>
-            <option value="+352">🇱🇺 Lucembursko (+352)</option>
-            <option value="+354">🇮🇸 Island (+354)</option>
-            <option value="+358">🇫🇮 Finsko (+358)</option>
-            <option value="+359">🇧🇬 Bulharsko (+359)</option>
-            <option value="+370">🇱🇹 Litva (+370)</option>
-            <option value="+372">🇪🇪 Estonsko (+372)</option>
-            <option value="+385">🇭🇷 Chorvatsko (+385)</option>
-            <option value="+386">🇸🇮 Slovinsko (+386)</option>
-            <option value="+420" selected>🇨🇿 Česká republika (+420)</option>
-            <option value="+421">🇸🇰 Slovensko (+421)</option>
+            <option value="+30">🇬🇷 +30</option>
+            <option value="+31">🇳🇱 +31</option>
+            <option value="+32">🇧🇪 +32</option>
+            <option value="+33">🇫🇷 +33</option>
+            <option value="+34">🇪🇸 +34</option>
+            <option value="+36">🇭🇺 +36</option>
+            <option value="+39">🇮🇹 +39</option>
+            <option value="+40">🇷🇴 +40</option>
+            <option value="+41">🇨🇭 +41</option>
+            <option value="+43">🇦🇹 +43</option>
+            <option value="+45">🇩🇰 +45</option>
+            <option value="+46">🇸🇪 +46</option>
+            <option value="+47">🇳🇴 +47</option>
+            <option value="+48">🇵🇱 +48</option>
+            <option value="+49">🇩🇪 +49</option>
+            <option value="+351">🇵🇹 +351</option>
+            <option value="+352">🇱🇺 +352</option>
+            <option value="+354">🇮🇸 +354</option>
+            <option value="+358">🇫🇮 +358</option>
+            <option value="+359">🇧🇬 +359</option>
+            <option value="+370">🇱🇹 +370</option>
+            <option value="+372">🇪🇪 +372</option>
+            <option value="+385">🇭🇷 +385</option>
+            <option value="+386">🇸🇮 +386</option>
+            <option value="+420" selected>🇨🇿 +420</option>
+            <option value="+421">🇸🇰 +421</option>
 
         </select>
 
@@ -329,7 +331,7 @@
         placeholder="Dodatečné informace..."
     ></textarea>
 
-    <button type="button" onclick="vygenerovatDOCX()">
+    <button type="submit">
         Stáhnout dokument
     </button>
 
