@@ -75,60 +75,162 @@
     <h1>Servisní hlášení</h1>
 
     <label>Číslo v excelu</label>
-    <input type="text" id="cislo_excel">
+    <input type="text" id="cislo_excel" placeholder="69" required>
 
     <label>Jméno zákazníka</label>
-    <input type="text" id="zakaznik">
+    <input type="text" id="zakaznik" placeholder="Jan Novák" required>
 
     <label>E-mail</label>
-    <input type="email" id="email">
+    <input type="email" id="email" placeholder="novak@gmail.com" required>
 
     <label>Telefon</label>
-    <input type="text" id="telefon">
 
-    <label>Ulice a číslo</label>
-    <input type="text" id="ulice">
+    <div style="display:flex; gap:10px; align-items:center;">
 
-    <label>Město</label>
-    <input type="text" id="mesto">
+        <select id="predvolba" style="max-width:220px;">
 
-    <label>PSČ</label>
-    <input type="text" id="psc">
+            <option value="+30">🇬🇷 Řecko (+30)</option>
+            <option value="+31">🇳🇱 Nizozemsko (+31)</option>
+            <option value="+32">🇧🇪 Belgie (+32)</option>
+            <option value="+33">🇫🇷 Francie (+33)</option>
+            <option value="+34">🇪🇸 Španělsko (+34)</option>
+            <option value="+36">🇭🇺 Maďarsko (+36)</option>
+            <option value="+39">🇮🇹 Itálie (+39)</option>
+            <option value="+40">🇷🇴 Rumunsko (+40)</option>
+            <option value="+41">🇨🇭 Švýcarsko (+41)</option>
+            <option value="+43">🇦🇹 Rakousko (+43)</option>
+            <option value="+45">🇩🇰 Dánsko (+45)</option>
+            <option value="+46">🇸🇪 Švédsko (+46)</option>
+            <option value="+47">🇳🇴 Norsko (+47)</option>
+            <option value="+48">🇵🇱 Polsko (+48)</option>
+            <option value="+49">🇩🇪 Německo (+49)</option>
+            <option value="+351">🇵🇹 Portugalsko (+351)</option>
+            <option value="+352">🇱🇺 Lucembursko (+352)</option>
+            <option value="+354">🇮🇸 Island (+354)</option>
+            <option value="+358">🇫🇮 Finsko (+358)</option>
+            <option value="+359">🇧🇬 Bulharsko (+359)</option>
+            <option value="+370">🇱🇹 Litva (+370)</option>
+            <option value="+372">🇪🇪 Estonsko (+372)</option>
+            <option value="+385">🇭🇷 Chorvatsko (+385)</option>
+            <option value="+386">🇸🇮 Slovinsko (+386)</option>
+            <option value="+420" selected>🇨🇿 Česká republika (+420)</option>
+            <option value="+421">🇸🇰 Slovensko (+421)</option>
 
-    <label>Stát</label>
-    <input type="text" id="stat" value="Česká republika">
+        </select>
+
+        <input type="text" id="telefon" placeholder="123 456 789" required>
+
+    </div>
+
+    <div style="margin-top:15px;">
+
+        <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+            <input type="checkbox" id="osobne" onchange="toggleOsobne()" style="width:auto; margin:0;">
+            Osobně - Prodejna
+        </label>
+
+    </div>
+
+    <div id="adresa-blok">
+
+        <label>Ulice a číslo</label>
+        <input type="text" id="ulice" placeholder="Daliborova 432/3">
+
+        <label>Město</label>
+        <input type="text" id="mesto" placeholder="Ostrava">
+
+        <label>PSČ</label>
+        <input type="text" id="psc" placeholder="12345">
+
+        <label>Stát</label>
+
+        <select id="stat">
+
+            <option>Belgie</option>
+            <option>Bulharsko</option>
+            <option selected>Česká republika</option>
+            <option>Dánsko</option>
+            <option>Estonsko</option>
+            <option>Finsko</option>
+            <option>Francie</option>
+            <option>Chorvatsko</option>
+            <option>Island</option>
+            <option>Itálie</option>
+            <option>Litva</option>
+            <option>Lucembursko</option>
+            <option>Maďarsko</option>
+            <option>Německo</option>
+            <option>Norsko</option>
+            <option>Polsko</option>
+            <option>Portugalsko</option>
+            <option>Rakousko</option>
+            <option>Rumunsko</option>
+            <option>Řecko</option>
+            <option>Slovensko</option>
+            <option>Slovinsko</option>
+            <option>Španělsko</option>
+            <option>Švédsko</option>
+            <option>Švýcarsko</option>
+
+        </select>
+
+    </div>
 
     <label>Číslo faktury</label>
-    <input type="text" id="faktura">
+    <input type="text" id="faktura" placeholder="20261234">
 
     <label>Značka a model</label>
-    <input type="text" id="model">
+    <input type="text" id="model" placeholder="Teverun Blade Mini Ultra" required>
 
     <label>Sériové číslo</label>
-    <input type="text" id="seriove">
+    <input type="text" id="seriove" placeholder="TDE1FMA25L9999">
 
     <label>Celkový nájezd (km)</label>
-    <input type="number" id="najezd">
+    <input type="number" id="najezd" placeholder="128">
 
     <label>Typ opravy</label>
-    <select id="oprava">
+
+    <select id="oprava" required>
         <option>Záruční</option>
         <option>Placená</option>
+        <option>Kombinovaná</option>
     </select>
 
     <label>Popis závady</label>
-    <textarea id="zavada"></textarea>
+
+    <textarea
+        id="zavada"
+        placeholder="Např. Koloběžka nejde nastartovat, svítí kontrolka motoru..."
+        required
+    ></textarea>
 
     <label>Poznámky</label>
-    <textarea id="poznamky"></textarea>
 
-    <button onclick="vygenerovatDOCX()">
-        Vygenerovat DOCX
+    <textarea
+        id="poznamky"
+        placeholder="Dodatečné informace, dodané příslušenství..."
+    ></textarea>
+
+    <button type="button" onclick="vygenerovatDOCX()">
+        Stáhnout dokument
     </button>
 
 </div>
 
 <script>
+
+function toggleOsobne() {
+
+    const checkbox = document.getElementById('osobne');
+    const adresaBlok = document.getElementById('adresa-blok');
+
+    if (checkbox.checked) {
+        adresaBlok.style.display = 'none';
+    } else {
+        adresaBlok.style.display = 'block';
+    }
+}
+
 async function vygenerovatDOCX() {
 
     try {
@@ -136,7 +238,7 @@ async function vygenerovatDOCX() {
         const response = await fetch('servis.docx');
 
         if (!response.ok) {
-            alert('Nepodařilo se načíst VZOR.docx');
+            alert('Nepodařilo se načíst servis.docx');
             return;
         }
 
@@ -149,15 +251,35 @@ async function vygenerovatDOCX() {
             linebreaks: true
         });
 
+        const osobne = document.getElementById('osobne').checked;
+
         doc.render({
+
             cislo_excel: document.getElementById('cislo_excel').value,
             zakaznik: document.getElementById('zakaznik').value,
             email: document.getElementById('email').value,
-            telefon: document.getElementById('telefon').value,
-            ulice: document.getElementById('ulice').value,
-            mesto: document.getElementById('mesto').value,
-            psc: document.getElementById('psc').value,
-            stat: document.getElementById('stat').value,
+
+            telefon:
+                document.getElementById('predvolba').value +
+                ' ' +
+                document.getElementById('telefon').value,
+
+            ulice: osobne
+                ? 'Osobně - Prodejna'
+                : document.getElementById('ulice').value,
+
+            mesto: osobne
+                ? ''
+                : document.getElementById('mesto').value,
+
+            psc: osobne
+                ? ''
+                : document.getElementById('psc').value,
+
+            stat: osobne
+                ? ''
+                : document.getElementById('stat').value,
+
             faktura: document.getElementById('faktura').value,
             model: document.getElementById('model').value,
             seriove: document.getElementById('seriove').value,
@@ -165,22 +287,36 @@ async function vygenerovatDOCX() {
             oprava: document.getElementById('oprava').value,
             zavada: document.getElementById('zavada').value,
             poznamky: document.getElementById('poznamky').value
+
         });
 
         const output = doc.getZip().generate({
+
             type: 'blob',
-            mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+
+            mimeType:
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+
         });
 
-        saveAs(output, 'servisni_hlaseni.docx');
+        const cislo =
+            document.getElementById('cislo_excel').value || 'bez-cisla';
+
+        const zakaznik =
+            document.getElementById('zakaznik').value || 'zakaznik';
+
+        const filename = `${cislo} - ${zakaznik}.docx`;
+
+        saveAs(output, filename);
 
     } catch (error) {
 
         console.error(error);
-        alert('Chyba při generování DOCX.');
+        alert('Chyba při generování dokumentu.');
 
     }
 }
+
 </script>
 
 </body>
