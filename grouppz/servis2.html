@@ -75,24 +75,24 @@
     <h1>Servisní hlášení</h1>
 
     <label>Číslo v excelu</label>
-    <input type="text" id="cislo_excel" placeholder="Např. 2026-1542">
+    <input type="text" id="cislo_excel" placeholder="69">
 
     <label>Jméno zákazníka</label>
     <input type="text" id="zakaznik" placeholder="Jan Novák">
 
     <label>E-mail</label>
-    <input type="email" id="email" placeholder="jan.novak@email.cz">
+    <input type="email" id="email" placeholder="novak@gmail.com">
 
     <label>Telefon</label>
 
     <div style="display:flex; gap:10px; align-items:center;">
 
         <select id="predvolba" style="max-width:140px;">
-            <option value="+420">🇨🇿 +420</option>
-            <option value="+421">🇸🇰 +421</option>
-            <option value="+49">🇩🇪 +49</option>
-            <option value="+43">🇦🇹 +43</option>
-            <option value="+48">🇵🇱 +48</option>
+            <option value="+420">+420</option>
+            <option value="+421">+421</option>
+            <option value="+49">+49</option>
+            <option value="+43">+43</option>
+            <option value="+48">+48</option>
         </select>
 
         <input type="text" id="telefon" placeholder="123 456 789">
@@ -100,25 +100,30 @@
     </div>
 
     <label>Ulice a číslo</label>
-    <input type="text" id="ulice" placeholder="Dlouhá 125/14">
+    <input type="text" id="ulice" placeholder="Daliborova 432/3">
 
     <label>Město</label>
-    <input type="text" id="mesto" placeholder="Praha">
+    <input type="text" id="mesto" placeholder="Ostrava">
 
     <label>PSČ</label>
-    <input type="text" id="psc" placeholder="11000">
+    <input type="text" id="psc" placeholder="12345">
 
     <label>Stát</label>
-    <input type="text" id="stat" value="Česká republika" placeholder="Česká republika">
+    <select id="stat">
+        <option>Česká republika</option>
+        <option>Slovensko</option>
+        <option>Německo</option>
+        <option>Rakousko</option>
+    </select>
 
     <label>Číslo faktury</label>
-    <input type="text" id="faktura" placeholder="FA-2026-00125">
+    <input type="text" id="faktura" placeholder="20261234">
 
     <label>Značka a model</label>
-    <input type="text" id="model" placeholder="Toyota Corolla 2.0 Hybrid">
+    <input type="text" id="model" placeholder="Teverun Blade Mini Ultra">
 
     <label>Sériové číslo</label>
-    <input type="text" id="seriove" placeholder="SN-458796325">
+    <input type="text" id="seriove" placeholder="TDE1FMA25L9999">
 
     <label>Celkový nájezd (km)</label>
     <input type="number" id="najezd" placeholder="125000">
@@ -127,16 +132,17 @@
     <select id="oprava">
         <option>Záruční</option>
         <option>Placená</option>
+        <option>Kombinovaná</option>
     </select>
 
     <label>Popis závady</label>
-    <textarea id="zavada" placeholder="Např. Vozidlo nejde nastartovat, svítí kontrolka motoru..."></textarea>
+    <textarea id="zavada" placeholder="Např. Kolobežka nejde nastartovat, svítí kontrolka motoru..."></textarea>
 
     <label>Poznámky</label>
-    <textarea id="poznamky" placeholder="Dodatečné informace, stav vozidla, příslušenství..."></textarea>
+    <textarea id="poznamky" placeholder="Dodatečné informace, ,dodané příslušenství..."></textarea>
 
     <button onclick="vygenerovatDOCX()">
-        Vygenerovat DOCX
+        Stáhnout dokument
     </button>
 
 </div>
@@ -149,7 +155,7 @@ async function vygenerovatDOCX() {
         const response = await fetch('servis.docx');
 
         if (!response.ok) {
-            alert('Nepodařilo se načíst VZOR.docx');
+            alert('Nepodařilo se načíst servis.docx');
             return;
         }
 
@@ -196,7 +202,7 @@ async function vygenerovatDOCX() {
     } catch (error) {
 
         console.error(error);
-        alert('Chyba při generování DOCX.');
+        alert('Chyba při generování dokumentu.');
 
     }
 }
