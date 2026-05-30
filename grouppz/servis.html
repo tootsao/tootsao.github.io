@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servisní hlášení</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+<html lang="cs"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Servisní hlášení</title>
+        <link rel="icon" type="image/png" href="favicon.png">
 
-    <script src="https://unpkg.com/pizzip@3.1.4/dist/pizzip.js"></script>
-    <script src="https://unpkg.com/docxtemplater@3.37.11/build/docxtemplater.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+        <script src="https://unpkg.com/pizzip@3.1.4/dist/pizzip.js"></script>
+        <script
+            src="https://unpkg.com/docxtemplater@3.37.11/build/docxtemplater.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
-    <style>
+        <style>
 
         body {
             font-family: Arial, sans-serif;
@@ -58,288 +59,352 @@
             margin-top: 30px;
             width: 100%;
             padding: 16px;
-            border: none;
             border-radius: 10px;
-            background: #007bff;
-            color: white;
+            background: white;
+            border:1px solid #d9d9d9;
+            color: #111;
             font-size: 16px;
             cursor: pointer;
         }
 
         button:hover {
-            background: #0056b3;
+            filter: brightness(0.96);
         }
 
+        .theme-toggle{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border:1px solid #d0d0d0;
+    background:white;
+    color:#111;
+    cursor:pointer;
+    z-index:999;
+    transition:.25s;
+}
+
+.theme-toggle:hover{
+    transform:rotate(180deg);
+}
+
+.theme-toggle:active{
+    transform:scale(.9);
+}
+
+body.dark-mode{
+    background:#121212;
+    color:#fff;
+}
+
+body.dark-mode .container{
+    background:#1e1e1e;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select{
+    background:#2a2a2a;
+    color:white;
+    border-color:#444;
+}
+
+body.dark-mode button{
+    background:#2a2a2a;
+    color:white;
+    border-color:#444;
+}
+
+body.dark-mode button:hover{
+    background:#333;
+    color:white;
+    filter:none;
+}
+
+.ostatni-model-label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:0;
+    cursor:pointer;
+    font-weight:normal;
+    border:1px solid #dcdcdc;
+    border-radius:10px;
+    padding:8px 12px;
+    background:#fafafa;
+}
+
+body.dark-mode .ostatni-model-label{
+    background:#2a2a2a;
+    border-color:#444;
+    color:white;
+}
+
+body.dark-mode .theme-toggle{
+    background:#2a2a2a;
+    border-color:#444;
+    color:white;
+}
+
+body.dark-mode .theme-toggle:hover{
+    background:#333;
+}
+
+
     </style>
-</head>
-<body>
+    </head>
+    <body class="dark-mode">
 
-<div class="container">
+        <div class="container">
 
-    <h1>Servisní hlášení</h1>
+            <h1>Servisní hlášení</h1>
 
-    <form id="formular">
+            <form id="formular">
 
-    <label>Číslo v excelu</label>
-    <input type="text" id="cislo_excel" placeholder="69" required>
+                <label>Číslo v excelu</label>
+                <input type="text" id="cislo_excel" placeholder="69" required>
 
-    <label>Jméno zákazníka</label>
-    <input type="text" id="zakaznik" placeholder="Jan Novák" required>
+                <label>Jméno zákazníka</label>
+                <input type="text" id="zakaznik" placeholder="Jan Novák"
+                    required>
 
-    <label>E-mail</label>
-    <input type="email" id="email" placeholder="novak@gmail.com" required>
+                <label>E-mail</label>
+                <input type="email" id="email" placeholder="novak@gmail.com"
+                    required>
 
-    <label>Telefon</label>
+                <label>Telefon</label>
 
-    <div style="display:flex; gap:10px; align-items:center;">
+                <div style="display:flex; gap:10px; align-items:center;">
 
-        <select id="predvolba" style="max-width:220px;">
+                    <select id="predvolba" style="max-width:220px;">
 
-            <option value="+30">🇬🇷 +30</option>
-            <option value="+31">🇳🇱 +31</option>
-            <option value="+32">🇧🇪 +32</option>
-            <option value="+33">🇫🇷 +33</option>
-            <option value="+34">🇪🇸 +34</option>
-            <option value="+36">🇭🇺 +36</option>
-            <option value="+39">🇮🇹 +39</option>
-            <option value="+40">🇷🇴 +40</option>
-            <option value="+41">🇨🇭 +41</option>
-            <option value="+43">🇦🇹 +43</option>
-            <option value="+45">🇩🇰 +45</option>
-            <option value="+46">🇸🇪 +46</option>
-            <option value="+47">🇳🇴 +47</option>
-            <option value="+48">🇵🇱 +48</option>
-            <option value="+49">🇩🇪 +49</option>
-            <option value="+351">🇵🇹 +351</option>
-            <option value="+352">🇱🇺 +352</option>
-            <option value="+354">🇮🇸 +354</option>
-            <option value="+358">🇫🇮 +358</option>
-            <option value="+359">🇧🇬 +359</option>
-            <option value="+370">🇱🇹 +370</option>
-            <option value="+372">🇪🇪 +372</option>
-            <option value="+385">🇭🇷 +385</option>
-            <option value="+386">🇸🇮 +386</option>
-            <option value="+420" selected>🇨🇿 +420</option>
-            <option value="+421">🇸🇰 +421</option>
+                        <option value="+30">🇬🇷 +30</option>
+                        <option value="+31">🇳🇱 +31</option>
+                        <option value="+32">🇧🇪 +32</option>
+                        <option value="+33">🇫🇷 +33</option>
+                        <option value="+34">🇪🇸 +34</option>
+                        <option value="+36">🇭🇺 +36</option>
+                        <option value="+39">🇮🇹 +39</option>
+                        <option value="+40">🇷🇴 +40</option>
+                        <option value="+41">🇨🇭 +41</option>
+                        <option value="+43">🇦🇹 +43</option>
+                        <option value="+45">🇩🇰 +45</option>
+                        <option value="+46">🇸🇪 +46</option>
+                        <option value="+47">🇳🇴 +47</option>
+                        <option value="+48">🇵🇱 +48</option>
+                        <option value="+49">🇩🇪 +49</option>
+                        <option value="+351">🇵🇹 +351</option>
+                        <option value="+352">🇱🇺 +352</option>
+                        <option value="+354">🇮🇸 +354</option>
+                        <option value="+358">🇫🇮 +358</option>
+                        <option value="+359">🇧🇬 +359</option>
+                        <option value="+370">🇱🇹 +370</option>
+                        <option value="+372">🇪🇪 +372</option>
+                        <option value="+385">🇭🇷 +385</option>
+                        <option value="+386">🇸🇮 +386</option>
+                        <option value="+420" selected>🇨🇿 +420</option>
+                        <option value="+421">🇸🇰 +421</option>
 
-        </select>
+                    </select>
 
-        <input type="text" id="telefon" placeholder="123 456 789" required>
+                    <input type="text" id="telefon" placeholder="123 456 789"
+                        required>
 
-    </div>
+                </div>
 
-    <div style="margin-top:15px;">
+                <div style="margin-top:15px;">
 
-        <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
-            <input type="checkbox" id="osobne" onchange="toggleOsobne()" style="width:auto; margin:0;">
-            Osobně - Prodejna
-        </label>
+                    <label
+                        style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+                        <input type="checkbox" id="osobne"
+                            onchange="toggleOsobne()"
+                            style="width:auto; margin:0;">
+                        Osobně - Prodejna
+                    </label>
 
-    </div>
+                </div>
 
-    <div id="adresa-blok">
+                <div id="adresa-blok">
 
-        <label>Ulice a číslo</label >
-        <input type="text" id="ulice" placeholder="Daliborova 432/3" required>
+                    <label>Ulice a číslo</label>
+                    <input type="text" id="ulice" placeholder="Daliborova 432/3"
+                        required>
 
-        <label>Město</label>
-        <input type="text" id="mesto" placeholder="Ostrava" required>
+                    <label>Město</label>
+                    <input type="text" id="mesto" placeholder="Ostrava"
+                        required>
 
-        <label>PSČ</label>
-        <input type="text" id="psc" placeholder="12345" required>
+                    <label>PSČ</label>
+                    <input type="text" id="psc" placeholder="12345" required>
 
-        <label>Stát</label>
+                    <label>Stát</label>
 
-        <select id="stat" required>
+                    <select id="stat" required>
 
-            <option>Belgie</option>
-            <option>Bulharsko</option>
-            <option selected>Česká republika</option>
-            <option>Dánsko</option>
-            <option>Estonsko</option>
-            <option>Finsko</option>
-            <option>Francie</option>
-            <option>Chorvatsko</option>
-            <option>Island</option>
-            <option>Itálie</option>
-            <option>Litva</option>
-            <option>Lucembursko</option>
-            <option>Maďarsko</option>
-            <option>Německo</option>
-            <option>Norsko</option>
-            <option>Polsko</option>
-            <option>Portugalsko</option>
-            <option>Rakousko</option>
-            <option>Rumunsko</option>
-            <option>Řecko</option>
-            <option>Slovensko</option>
-            <option>Slovinsko</option>
-            <option>Španělsko</option>
-            <option>Švédsko</option>
-            <option>Švýcarsko</option>
+                        <option>Belgie</option>
+                        <option>Bulharsko</option>
+                        <option selected>Česká republika</option>
+                        <option>Dánsko</option>
+                        <option>Estonsko</option>
+                        <option>Finsko</option>
+                        <option>Francie</option>
+                        <option>Chorvatsko</option>
+                        <option>Island</option>
+                        <option>Itálie</option>
+                        <option>Litva</option>
+                        <option>Lucembursko</option>
+                        <option>Maďarsko</option>
+                        <option>Německo</option>
+                        <option>Norsko</option>
+                        <option>Polsko</option>
+                        <option>Portugalsko</option>
+                        <option>Rakousko</option>
+                        <option>Rumunsko</option>
+                        <option>Řecko</option>
+                        <option>Slovensko</option>
+                        <option>Slovinsko</option>
+                        <option>Španělsko</option>
+                        <option>Švédsko</option>
+                        <option>Švýcarsko</option>
 
-        </select>
+                    </select>
 
-    </div>
+                </div>
 
-    <div
-        style="
+                <div style="
             display:flex;
             justify-content:space-between;
             align-items:center;
             margin-top:20px;
-        "
-    >
+        ">
 
-        <span style="font-weight:bold;">
-            Značka a model
-        </span>
+                    <span style="font-weight:bold;">
+                        Značka a model
+                    </span>
 
-        <label
-            style="
-                display:flex;
-                align-items:center;
-                gap:8px;
-                margin:0;
-                cursor:pointer;
-                font-weight:normal;
+                    <label class="ostatni-model-label">
 
-                border:1px solid #dcdcdc;
-                border-radius:10px;
-
-                padding:8px 12px;
-
-                background:#fafafa;
-            "
-        >
-
-            <input
-                type="checkbox"
-                id="ostatni-model"
-                onchange="toggleModelInput()"
-                style="
+                        <input type="checkbox" id="ostatni-model"
+                            onchange="toggleModelInput()" style="
                     width:auto;
                     margin:0;
-                "
-            >
+                ">
 
-            Ostatní
+                        Ostatní
 
-        </label>
+                    </label>
 
-    </div>
+                </div>
 
-    <div id="model-select-blok">
+                <div id="model-select-blok">
 
-        <select id="model" required>
+                    <select id="model" required>
 
-            <option value="" disabled selected>
-                Vyberte model
-            </option>
+                        <option value disabled selected>
+                            Vyberte model
+                        </option>
 
-            <option disabled>--- Teverun ---</option>
-            <option>Teverun Blade Q Pro</option>
-            <option>Teverun Blade Mini Single</option>
-            <option>Teverun Blade Mini</option>
-            <option>Teverun Blade Mini Pro</option>
-            <option>Teverun Blade Mini Ultra</option>
-            <option>Teverun Blade GT Single</option>
-            <option>Teverun Blade GT</option>
-            <option>Teverun Blade GT+</option>
-            <option>Teverun Blade GT II</option>
-            <option>Teverun Blade GT II+</option>
-            <option>Teverun Fighter Q</option>
-            <option>Teverun Fighter Mini</option>
-            <option>Teverun Fighter Mini Eco</option>
-            <option>Teverun Fighter Mini Std</option>
-            <option>Teverun Fighter Mini Pro</option>
-            <option>Teverun Fighter Eleven</option>
-            <option>Teverun Fighter Eleven+</option>
-            <option>Teverun Fighter Supreme Ultra</option>
-            <option>Teverun Fighter Supreme 7260R</option>
-            <option>Teverun Space Lite</option>
-            <option>Teverun Space Std</option>
+                        <option disabled>--- Teverun ---</option>
+                        <option>Teverun Blade Q Pro</option>
+                        <option>Teverun Blade Mini Single</option>
+                        <option>Teverun Blade Mini</option>
+                        <option>Teverun Blade Mini Pro</option>
+                        <option>Teverun Blade Mini Ultra</option>
+                        <option>Teverun Blade GT Single</option>
+                        <option>Teverun Blade GT</option>
+                        <option>Teverun Blade GT+</option>
+                        <option>Teverun Blade GT II</option>
+                        <option>Teverun Blade GT II+</option>
+                        <option>Teverun Fighter Q</option>
+                        <option>Teverun Fighter Mini</option>
+                        <option>Teverun Fighter Mini Eco</option>
+                        <option>Teverun Fighter Mini Std</option>
+                        <option>Teverun Fighter Mini Pro</option>
+                        <option>Teverun Fighter Eleven</option>
+                        <option>Teverun Fighter Eleven+</option>
+                        <option>Teverun Fighter Supreme Ultra</option>
+                        <option>Teverun Fighter Supreme 7260R</option>
+                        <option>Teverun Space Lite</option>
+                        <option>Teverun Space Std</option>
 
-            <option disabled>--- Vsett ---</option>
-            <option>Vsett Mini</option>
-            <option>Vsett 8</option>
-            <option>Vsett 8+</option>
-            <option>Vsett 9</option>
-            <option>Vsett 9+</option>
-            <option>Vsett 10</option>
-            <option>Vsett 10+</option>
-            <option>Vsett 11+</option>
-            <option>Vsett 8 Apex</option>
-            <option>Vsett 9 Apex</option>
-            <option>Vsett 10 Apex</option>
+                        <option disabled>--- Vsett ---</option>
+                        <option>Vsett Mini</option>
+                        <option>Vsett 8</option>
+                        <option>Vsett 8+</option>
+                        <option>Vsett 9</option>
+                        <option>Vsett 9+</option>
+                        <option>Vsett 10</option>
+                        <option>Vsett 10+</option>
+                        <option>Vsett 11+</option>
+                        <option>Vsett 8 Apex</option>
+                        <option>Vsett 9 Apex</option>
+                        <option>Vsett 10 Apex</option>
 
-            <option disabled>--- Techlife ---</option>
-            <option>Techlife X5</option>
-            <option>Techlife X5S</option>
-            <option>Techlife X6</option>
-            <option>Techlife L5</option>
-            <option>Techlife L5T</option>
-            <option>Techlife X7</option>
-            <option>Techlife X7S</option>
-            <option>Techlife X7 Lite</option>
-            <option>Techlife X8</option>
-            <option>Techlife X8S</option>
-            <option>Techlife X9</option>
+                        <option disabled>--- Techlife ---</option>
+                        <option>Techlife X5</option>
+                        <option>Techlife X5S</option>
+                        <option>Techlife X6</option>
+                        <option>Techlife L5</option>
+                        <option>Techlife L5T</option>
+                        <option>Techlife X7</option>
+                        <option>Techlife X7S</option>
+                        <option>Techlife X7 Lite</option>
+                        <option>Techlife X8</option>
+                        <option>Techlife X8S</option>
+                        <option>Techlife X9</option>
 
-        </select>
+                    </select>
 
-    </div>
+                </div>
 
-    <div id="model-input-blok" style="display:none;">
+                <div id="model-input-blok" style="display:none;">
 
-        <input
-            type="text"
-            id="model-input"
-            placeholder="Např. Vsett 10+"
-        >
+                    <input type="text" id="model-input"
+                        placeholder="Např. Vsett 10+">
 
-    </div>
+                </div>
 
-    <label>Sériové číslo</label>
-    <input type="text" id="seriove" placeholder="TDE1FMA25L9999">
+                <label>Sériové číslo</label>
+                <input type="text" id="seriove" placeholder="TDE1FMA25L9999">
 
-    <label>Číslo faktury</label>
-    <input type="text" id="faktura" placeholder="20261234">
+                <label>Číslo faktury</label>
+                <input type="text" id="faktura" placeholder="20261234">
 
-    <label>Celkový nájezd (km)</label>
-    <input type="number" id="najezd" placeholder="128">
+                <label>Celkový nájezd (km)</label>
+                <input type="number" id="najezd" placeholder="128">
 
-    <label>Typ opravy</label>
+                <label>Typ opravy</label>
 
-    <select id="oprava" required>
-        <option value="" disabled selected>Vyberte typ opravy</option>
-        <option>Záruční</option>
-        <option>Placená</option>
-        <option>Kombinovaná</option>
-    </select>
+                <select id="oprava" required>
+                    <option value disabled selected>Vyberte typ opravy</option>
+                    <option>Záruční</option>
+                    <option>Placená</option>
+                    <option>Kombinovaná</option>
+                </select>
 
-    <label>Popis závady</label>
+                <label>Popis závady</label>
 
-    <textarea
-        id="zavada"
-        placeholder="Např. Koloběžka nejde nastartovat..."
-        required
-    ></textarea>
+                <textarea id="zavada"
+                    placeholder="Např. Koloběžka nejde nastartovat..."
+                    required></textarea>
 
-    <label>Poznámky</label>
+                <label>Poznámky</label>
 
-    <textarea
-        id="poznamky"
-        placeholder="Dodatečné informace..."
-    ></textarea>
+                <textarea id="poznamky"
+                    placeholder="Dodatečné informace..."></textarea>
 
-    <button type="submit">
-        Stáhnout dokument
-    </button>
+                <button type="button" onclick="vygenerovatDOCX()">
+                    Stáhnout dokument
+                </button>
 
-</div>
+            </form>
+        </div>
 
-<script>
+        <button id="themeToggle" class="theme-toggle">☀️</button>
+
+        <script>
 
 function toggleOsobne() {
 
@@ -422,18 +487,42 @@ async function vygenerovatDOCX() {
 
         const osobne = document.getElementById('osobne').checked;
 
+
+        const excelCislo =
+            document.getElementById('cislo_excel').value || 'XXX';
+
+        const zakaznik =
+            document.getElementById('zakaznik').value || 'XXX';
+
+        const ostatniModel =
+            document.getElementById('ostatni-model').checked;
+
+        const vybranyModel =
+            document.getElementById('model').value || '';
+
+        const jeTeverun =
+            vybranyModel.startsWith('Teverun');
+
+        const cislo =
+            (ostatniModel || (!jeTeverun && vybranyModel !== ''))
+                ? `Ostatní - ${excelCislo}`
+                : excelCislo;
+
+        const filename =
+            cislo.startsWith('Ostatní')
+                ? `O${excelCislo} - ${zakaznik}.docx`
+                : `${excelCislo} - ${zakaznik}.docx`;
+
         doc.render({
 
-            cislo_excel: document.getElementById('cislo_excel').value,
+            cislo_excel: cislo,
 
             zakaznik: document.getElementById('zakaznik').value,
 
             email: document.getElementById('email').value,
 
             telefon:
-                document.getElementById('predvolba').value +
-                ' ' +
-                document.getElementById('telefon').value,
+                document.getElementById('predvolba').value + ' ' + document.getElementById('telefon').value,
 
             ulice: osobne
                 ? 'Osobně - Prodejna'
@@ -441,10 +530,7 @@ async function vygenerovatDOCX() {
 
             adresa: osobne
             ? 'Osobně - Prodejna'
-            : `${document.getElementById('ulice').value},
-               ${document.getElementById('mesto').value},
-               ${document.getElementById('psc').value},
-               ${document.getElementById('stat').value}`,
+            : `${document.getElementById('ulice').value}, ${document.getElementById('mesto').value}, ${document.getElementById('psc').value}, ${document.getElementById('stat').value}`,
 
             model:
 
@@ -454,11 +540,11 @@ async function vygenerovatDOCX() {
 
                     : document.getElementById('model').value,
 
-            seriove: document.getElementById('seriove').value,
+            seriove: document.getElementById('seriove').value || 'Nevím',
 
-            faktura: document.getElementById('faktura').value,
+            faktura: document.getElementById('faktura').value || 'Nevím',
 
-            najezd: document.getElementById('najezd').value,
+            najezd: document.getElementById('najezd').value  + ' km' || 'Nevím',
 
             oprava: document.getElementById('oprava').value,
 
@@ -477,14 +563,6 @@ async function vygenerovatDOCX() {
 
         });
 
-        const cislo =
-            document.getElementById('cislo_excel').value || 'bez-cisla';
-
-        const zakaznik =
-            document.getElementById('zakaznik').value || 'zakaznik';
-
-        const filename = `${cislo} - ${zakaznik}.docx`;
-
         saveAs(output, filename);
 
     } catch (error) {
@@ -495,7 +573,59 @@ async function vygenerovatDOCX() {
     }
 }
 
+const themeToggle =
+    document.getElementById('themeToggle');
+
+function setTheme(theme){
+
+    document.body.classList.toggle(
+        'dark-mode',
+        theme === 'dark'
+    );
+
+    themeToggle.textContent =
+        theme === 'dark'
+            ? '☀️'
+            : '🌙';
+}
+
+const savedTheme =
+    localStorage.getItem('theme');
+
+if(savedTheme){
+
+    setTheme(savedTheme);
+
+}else{
+
+    setTheme(
+        window.matchMedia(
+            '(prefers-color-scheme: dark)'
+        ).matches
+            ? 'dark'
+            : 'light'
+    );
+}
+
+themeToggle.addEventListener('click',()=>{
+
+    const dark =
+        document.body.classList.contains(
+            'dark-mode'
+        );
+
+    const newTheme =
+        dark ? 'light' : 'dark';
+
+    setTheme(newTheme);
+
+    localStorage.setItem(
+        'theme',
+        newTheme
+    );
+
+});
+
 </script>
 
-</body>
-</html>
+    </body></html>
