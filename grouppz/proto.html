@@ -159,11 +159,11 @@ body.dark-mode .theme-toggle:hover{
 
         <div class="container">
 
-            <h1>Servisní hlášení</h1>
+            <h1>Protokol o provedené úpravě</h1>
 
             <form id="formular">
 
-                <label>Číslo v excelu</label>
+                <label>Číslo protokolu</label>
                 <input type="text" id="cislo_excel" placeholder="69" required>
 
                 <label>Jméno zákazníka</label>
@@ -175,7 +175,6 @@ body.dark-mode .theme-toggle:hover{
                     required>
 
                 <label>Telefon</label>
-
                 <div style="display:flex; gap:10px; align-items:center;">
 
                     <select id="predvolba" style="max-width:220px;">
@@ -214,89 +213,12 @@ body.dark-mode .theme-toggle:hover{
 
                 </div>
 
-                <div style="margin-top:15px;">
+                <label>Datum předání do servisu</label>
+                <input type="date" id="datum_predani" required>
 
-                    <label
-                        style="display:flex; align-items:center; gap:10px; cursor:pointer;">
-                        <input type="checkbox" id="osobne"
-                            onchange="toggleOsobne()"
-                            style="width:auto; margin:0;">
-                        Osobně - Prodejna
-                    </label>
-
-                </div>
-
-                <div id="adresa-blok">
-
-                    <label>Ulice a číslo</label>
-                    <input type="text" id="ulice" placeholder="Daliborova 432/3"
-                        required>
-
-                    <label>Město</label>
-                    <input type="text" id="mesto" placeholder="Ostrava"
-                        required>
-
-                    <label>PSČ</label>
-                    <input type="text" id="psc" placeholder="12345" required>
-
-                    <label>Stát</label>
-
-                    <select id="stat" required>
-
-                        <option>Belgie</option>
-                        <option>Bulharsko</option>
-                        <option selected>Česká republika</option>
-                        <option>Dánsko</option>
-                        <option>Estonsko</option>
-                        <option>Finsko</option>
-                        <option>Francie</option>
-                        <option>Chorvatsko</option>
-                        <option>Island</option>
-                        <option>Itálie</option>
-                        <option>Litva</option>
-                        <option>Lucembursko</option>
-                        <option>Maďarsko</option>
-                        <option>Německo</option>
-                        <option>Norsko</option>
-                        <option>Polsko</option>
-                        <option>Portugalsko</option>
-                        <option>Rakousko</option>
-                        <option>Rumunsko</option>
-                        <option>Řecko</option>
-                        <option>Slovensko</option>
-                        <option>Slovinsko</option>
-                        <option>Španělsko</option>
-                        <option>Švédsko</option>
-                        <option>Švýcarsko</option>
-
-                    </select>
-
-                </div>
-
-                <div style="
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            margin-top:20px;
-        ">
-
-                    <span style="font-weight:bold;">
-                        Značka a model
-                    </span>
-
-                    <label class="ostatni-model-label">
-
-                        <input type="checkbox" id="ostatni-model"
-                            onchange="toggleModelInput()" style="
-                    width:auto;
-                    margin:0;
-                ">
-
-                        Ostatní
-
-                    </label>
-
-                </div>
+                <label>Datum vyzvednutí kurýrem</label>
+                <input type="date" id="datum_vyzvednuti"
+                    placeholder="DD.MM.RRRR" required>
 
                 <label>Značka a model</label>
                 <div id="model-select-blok">
@@ -370,20 +292,8 @@ body.dark-mode .theme-toggle:hover{
                 <label>Sériové číslo</label>
                 <input type="text" id="seriove" placeholder="TDE1FMA25L9999">
 
-                <label>Číslo faktury</label>
-                <input type="text" id="faktura" placeholder="20261234">
-
                 <label>Celkový nájezd (km)</label>
                 <input type="number" id="najezd" placeholder="128">
-
-                <label>Typ opravy</label>
-
-                <select id="oprava" required>
-                    <option value disabled selected>Vyberte typ opravy</option>
-                    <option>Záruční</option>
-                    <option>Placená</option>
-                    <option>Kombinovaná</option>
-                </select>
 
                 <label>Popis závady</label>
 
@@ -391,8 +301,13 @@ body.dark-mode .theme-toggle:hover{
                     placeholder="Např. Koloběžka nejde nastartovat..."
                     required></textarea>
 
-                <label>Poznámky</label>
+                <label>Provedená oprava</label>
+                <div id="opravy"></div>
 
+                <label>Použité náhradní díly</label>
+                <div id="dily"></div>
+
+                <label>Poznámky</label>
                 <textarea id="poznamky"
                     placeholder="Dodatečné informace..."></textarea>
 
@@ -404,6 +319,7 @@ body.dark-mode .theme-toggle:hover{
         </div>
 
         <button id="themeToggle" class="theme-toggle">☀️</button>
+        <button id="returnButton" class="return-button">←</button>
 
         <script>
 
@@ -465,6 +381,35 @@ function toggleModelInput() {
 
     }
 }
+
+
+function createDynamicList(containerId, className, placeholder){
+
+    const container = document.getElementById(containerId);
+
+    function addRow(){
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.className = className;
+        input.placeholder = placeholder;
+
+        input.addEventListener('input', () => {
+            const inputs = container.querySelectorAll('input');
+            if(input === inputs[inputs.length - 1] && input.value.trim() !== ''){
+                addRow();
+            }
+        });
+
+        container.appendChild(input);
+    }
+
+    addRow();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    createDynamicList('opravy','oprava-item','Např. Výměna displeje');
+    createDynamicList('dily','dil-item','Např. TFT displej');
+});
 
 async function vygenerovatDOCX() {
 
