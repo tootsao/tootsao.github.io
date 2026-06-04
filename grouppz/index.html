@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Group P.Z.</title>
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group P.Z.</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://kit.fontawesome.com/e37490e1d7.js"
+      crossorigin="anonymous"></script>
+    <style>
     * {
       margin: 0;
       padding: 0;
@@ -266,93 +269,103 @@
       }
     }
   </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Group P.Z.</h1>
-    <div style="height: 40px;"></div>
+  </head>
+  <body>
+    <div class="container">
+      <h1>- Group P.Z. -</h1>
+      <div style="height: 40px;"></div>
 
-    <div class="grid">
-      <div class="card">
-        <h2>Formuláře</h2>
-        <p>
-          Rychlý přístup ke všem servisním formulářům.
-        </p>
+      <div class="grid">
+        <div class="card">
+          <h2>Formuláře</h2>
+          <p>
+            Rychlý přístup ke všem servisním formulářům.
+          </p>
 
-        <div class="courier-buttons">
-          <a href="servis.html" class="btn">Servisní hlášení</a>
-          <a href="protokol.html" class="btn">Protokol o provedené opravě</a>
+          <div class="courier-buttons">
+            <a href="servis.html" class="btn"><i
+                class="fa-solid fa-headset"></i> Servisní hlášení</a>
+            <a href="protokol.html" class="btn"><i
+                class="fa-solid fa-clipboard-list"></i> Protokol o provedené
+              opravě</a>
+          </div>
+        </div>
+
+        <div class="card wide-card">
+          <h2>Kurýrní služby</h2>
+          <p>
+            Přehled odkazů na dopravce a kurýrní společnosti.
+          </p>
+
+          <div class="courier-buttons">
+            <a href="https://mygls.cz/Account/Login" target="_blank"
+              class="btn">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/GLS_Logo_2021.svg/1280px-GLS_Logo_2021.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
+                class="courier-logo" alt="GLS">
+              GLS
+            </a>
+
+            <a href="https://webapp.cz.dhl.com/wa/" target="_blank" class="btn">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/DHL_Logo.svg/3840px-DHL_Logo.svg.png"
+                class="courier-logo" alt="DHL">
+              DHL
+            </a>
+
+            <a href="https://portal.wedo.cz/cs/" target="_blank" class="btn">
+              <img
+                src="https://portal.wedo.cz/static/assets/images/one_by_allegro_logo.png?v=1772460710"
+                class="courier-logo" alt="WEDO">
+              WEDO
+            </a>
+          </div>
         </div>
       </div>
 
-      <div class="card wide-card">
-        <h2>Kurýrní služby</h2>
-        <p>
-          Přehled odkazů na dopravce a kurýrní společnosti.
-        </p>
+      <div class="info-box">
+        <h2>Kontaktní informace</h2>
 
-        <div class="courier-buttons">
-          <a href="https://mygls.cz/Account/Login" target="_blank" class="btn">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/GLS_Logo_2021.svg/1280px-GLS_Logo_2021.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" class="courier-logo" alt="GLS">
-            GLS
-          </a>
+        <div class="info-item">
+          <div>
+            <strong>Email:</strong><br>
+            sales@grouppz.cz
+          </div>
+        </div>
 
-          <a href="https://webapp.cz.dhl.com/wa/" target="_blank" class="btn">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/DHL_Logo.svg/3840px-DHL_Logo.svg.png" class="courier-logo" alt="DHL">
-            DHL
-          </a>
+        <div class="info-item">
+          <div>
+            <strong>Telefon:</strong><br>
+            +420 737 755 543 / +420 736 697 251
+          </div>
+        </div>
 
-          <a href="https://portal.wedo.cz/cs/" target="_blank" class="btn">
-            <img src="https://portal.wedo.cz/static/assets/images/one_by_allegro_logo.png?v=1772460710" class="courier-logo" alt="WEDO">
-            WEDO
-          </a>
+        <div class="info-item">
+          <div>
+            <strong>Adresa:</strong><br>
+            Daliborova 432/3, 709 00 Ostrava
+          </div>
+
+        </div>
+
+        <div class="info-item">
+          <div>
+            <strong>IČO:</strong><br>
+            08864471
+          </div>
         </div>
       </div>
+
+      <footer>
+        © 2026 sao
+      </footer>
     </div>
 
-    <div class="info-box">
-      <h2>Kontaktní informace</h2>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+      🌙
+    </button>
 
-      <div class="info-item">
-        <div>
-          <strong>Email:</strong><br>
-          sales@grouppz.cz
-        </div>
-      </div>
-
-      <div class="info-item">
-        <div>
-          <strong>Telefon:</strong><br>
-          +420 737 755 543
-        </div>
-      </div>
-
-      <div class="info-item">
-        <div>
-          <strong>Adresa:</strong><br>
-          Daliborova 432/3, 709 00 Ostrava
-        </div>
-
-      </div>
-
-      <div class="info-item">
-        <div>
-          <strong>IČO:</strong><br>
-          08864471
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      © 2026 sao
-    </footer>
-  </div>
-
-  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
-    🌙
-  </button>
-
-  <script>
+    <script>
     function copyText(text) {
       navigator.clipboard.writeText(text);
       alert('Zkopírováno: ' + text);
@@ -399,5 +412,5 @@
       });
     }
   </script>
-</body>
+  </body>
 </html>

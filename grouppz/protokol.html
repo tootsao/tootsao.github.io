@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protokol o provedené úpravě</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-
-    <script src="https://unpkg.com/pizzip@3.1.4/dist/pizzip.js"></script>
-    <script src="https://unpkg.com/docxtemplater@3.37.11/build/docxtemplater.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-
-    <style>
+<html lang="cs"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Protokol o provedené úpravě</title>
+        <link rel="icon" type="image/png" href="favicon.png">
+        <script src="https://kit.fontawesome.com/e37490e1d7.js"
+            crossorigin="anonymous"></script>
+        <style>
 
         body {
             font-family: Arial, sans-serif;
@@ -58,290 +54,386 @@
             margin-top: 30px;
             width: 100%;
             padding: 16px;
-            border: none;
             border-radius: 10px;
-            background: #007bff;
-            color: white;
+            background: white;
+            border:1px solid #d9d9d9;
+            color: #111;
             font-size: 16px;
             cursor: pointer;
         }
 
         button:hover {
-            background: #0056b3;
+            filter: brightness(0.96);
         }
 
-    </style>
-</head>
-<body>
+        .theme-toggle{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border:1px solid #d0d0d0;
+    background:white;
+    color:#111;
+    cursor:pointer;
+    z-index:999;
+    transition:.25s;
+}
 
-<div class="container">
+.theme-toggle:hover{
+    transform:rotate(180deg);
+}
 
-    <h1>Protokol o provedené úpravě</h1>
+.theme-toggle:active{
+    transform:scale(.9);
+}
 
-    <form id="formular">
+body.dark-mode{
+    background:#121212;
+    color:#fff;
+}
 
-    <label>Číslo v excelu</label>
-    <input type="text" id="cislo_excel" placeholder="69" required>
+body.dark-mode .container{
+    background:#1e1e1e;
+}
 
-    <label>Jméno zákazníka</label>
-    <input type="text" id="zakaznik" placeholder="Jan Novák" required>
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select{
+    background:#2a2a2a;
+    color:white;
+    border-color:#444;
+}
 
-    <label>E-mail</label>
-    <input type="email" id="email" placeholder="novak@gmail.com" required>
+body.dark-mode button{
+    background:#2a2a2a;
+    color:white;
+    border-color:#444;
+}
 
-    <label>Telefon</label>
+body.dark-mode button:hover{
+    background:#333;
+    color:white;
+    filter:none;
+}
 
-    <div style="display:flex; gap:10px; align-items:center;">
+.ostatni-model-label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:0;
+    cursor:pointer;
+    font-weight:normal;
+    border:1px solid #dcdcdc;
+    border-radius:10px;
+    padding:8px 12px;
+    background:#fafafa;
+}
 
-        <select id="predvolba" style="max-width:220px;">
+body.dark-mode .ostatni-model-label{
+    background:#2a2a2a;
+    border-color:#444;
+    color:white;
+}
 
-            <option value="+30">🇬🇷 +30</option>
-            <option value="+31">🇳🇱 +31</option>
-            <option value="+32">🇧🇪 +32</option>
-            <option value="+33">🇫🇷 +33</option>
-            <option value="+34">🇪🇸 +34</option>
-            <option value="+36">🇭🇺 +36</option>
-            <option value="+39">🇮🇹 +39</option>
-            <option value="+40">🇷🇴 +40</option>
-            <option value="+41">🇨🇭 +41</option>
-            <option value="+43">🇦🇹 +43</option>
-            <option value="+45">🇩🇰 +45</option>
-            <option value="+46">🇸🇪 +46</option>
-            <option value="+47">🇳🇴 +47</option>
-            <option value="+48">🇵🇱 +48</option>
-            <option value="+49">🇩🇪 +49</option>
-            <option value="+351">🇵🇹 +351</option>
-            <option value="+352">🇱🇺 +352</option>
-            <option value="+354">🇮🇸 +354</option>
-            <option value="+358">🇫🇮 +358</option>
-            <option value="+359">🇧🇬 +359</option>
-            <option value="+370">🇱🇹 +370</option>
-            <option value="+372">🇪🇪 +372</option>
-            <option value="+385">🇭🇷 +385</option>
-            <option value="+386">🇸🇮 +386</option>
-            <option value="+420" selected>🇨🇿 +420</option>
-            <option value="+421">🇸🇰 +421</option>
+body.dark-mode .theme-toggle{
+    background:#2a2a2a;
+    border-color:#444;
+    color:white;
+}
 
-        </select>
+body.dark-mode .theme-toggle:hover{
+    background:#333;
+}
 
-        <input type="text" id="telefon" placeholder="123 456 789" required>
 
-    </div>
+    
+.return-button{
+    position:fixed;
+    top:20px;
+    left:20px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border:1px solid #d0d0d0;
+    background:white;
+    color:#111;
+    cursor:pointer;
+    z-index:999;
+    transition:.25s;
+    margin:0;
+    padding:0;
+    font-size:24px;
+}
 
-    <div style="margin-top:15px;">
+.return-button:hover{
+    transform:translateX(-3px);
+}
 
-        <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
-            <input type="checkbox" id="osobne" onchange="toggleOsobne()" style="width:auto; margin:0;">
-            Osobně - Prodejna
-        </label>
+.return-button:active{
+    transform:scale(.9);
+}
 
-    </div>
+body.dark-mode .return-button{
+    background:#2a2a2a;
+    border-color:#444;
+    color:white;
+}
 
-    <div id="adresa-blok">
+body.dark-mode .return-button:hover{
+    background:#333;
+}
 
-        <label>Ulice a číslo</label>
-        <input type="text" id="ulice" placeholder="Daliborova 432/3">
+footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #777;
+    }
 
-        <label>Město</label>
-        <input type="text" id="mesto" placeholder="Ostrava">
+</style>
+    </head>
+    <body class="dark-mode">
 
-        <label>PSČ</label>
-        <input type="text" id="psc" placeholder="12345">
+        <div class="container">
 
-        <label>Stát</label>
+            <h1>Protokol o provedené úpravě</h1>
 
-        <select id="stat">
+            <form id="formular">
 
-            <option>Belgie</option>
-            <option>Bulharsko</option>
-            <option selected>Česká republika</option>
-            <option>Dánsko</option>
-            <option>Estonsko</option>
-            <option>Finsko</option>
-            <option>Francie</option>
-            <option>Chorvatsko</option>
-            <option>Island</option>
-            <option>Itálie</option>
-            <option>Litva</option>
-            <option>Lucembursko</option>
-            <option>Maďarsko</option>
-            <option>Německo</option>
-            <option>Norsko</option>
-            <option>Polsko</option>
-            <option>Portugalsko</option>
-            <option>Rakousko</option>
-            <option>Rumunsko</option>
-            <option>Řecko</option>
-            <option>Slovensko</option>
-            <option>Slovinsko</option>
-            <option>Španělsko</option>
-            <option>Švédsko</option>
-            <option>Švýcarsko</option>
+                <label>Číslo protokolu</label>
+                <input type="text" id="cislo_excel" placeholder="69" required>
 
-        </select>
+                <label>Jméno zákazníka</label>
+                <input type="text" id="zakaznik" placeholder="Jan Novák"
+                    required>
 
-    </div>
+                <label>E-mail</label>
+                <input type="email" id="email" placeholder="novak@gmail.com"
+                    required>
 
-    <div
-        style="
+                <label>Telefon</label>
+                <div style="display:flex; gap:10px; align-items:center;">
+
+                    <select id="predvolba" style="max-width:220px;">
+
+                        <option value="+30">🇬🇷 +30</option>
+                        <option value="+31">🇳🇱 +31</option>
+                        <option value="+32">🇧🇪 +32</option>
+                        <option value="+33">🇫🇷 +33</option>
+                        <option value="+34">🇪🇸 +34</option>
+                        <option value="+36">🇭🇺 +36</option>
+                        <option value="+39">🇮🇹 +39</option>
+                        <option value="+40">🇷🇴 +40</option>
+                        <option value="+41">🇨🇭 +41</option>
+                        <option value="+43">🇦🇹 +43</option>
+                        <option value="+45">🇩🇰 +45</option>
+                        <option value="+46">🇸🇪 +46</option>
+                        <option value="+47">🇳🇴 +47</option>
+                        <option value="+48">🇵🇱 +48</option>
+                        <option value="+49">🇩🇪 +49</option>
+                        <option value="+351">🇵🇹 +351</option>
+                        <option value="+352">🇱🇺 +352</option>
+                        <option value="+354">🇮🇸 +354</option>
+                        <option value="+358">🇫🇮 +358</option>
+                        <option value="+359">🇧🇬 +359</option>
+                        <option value="+370">🇱🇹 +370</option>
+                        <option value="+372">🇪🇪 +372</option>
+                        <option value="+385">🇭🇷 +385</option>
+                        <option value="+386">🇸🇮 +386</option>
+                        <option value="+420" selected>🇨🇿 +420</option>
+                        <option value="+421">🇸🇰 +421</option>
+
+                    </select>
+
+                    <input type="text" id="telefon" placeholder="123 456 789"
+                        required>
+
+                </div>
+
+                <div style="margin-top:15px;">
+
+                    <label
+                        style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+                        <input type="checkbox" id="osobne"
+                            onchange="toggleOsobne()"
+                            style="width:auto; margin:0;">
+                        Osobně - Prodejna
+                    </label>
+
+                </div>
+
+                <div id="osobne-blok" style="display:none;">
+                <label>Datum předání do servisu</label>
+                <input type="date" id="datum_predani">
+</div>
+
+<div id="kuryr-blok">
+                <label>Datum převzetí od kurýra</label>
+                <input type="date" id="datum_prevzeti" required>
+
+                <label>Datum vyzvednutí kurýrem</label>
+                <input type="date" id="datum_vyzvednuti" required>
+</div>
+
+<div style="
             display:flex;
             justify-content:space-between;
             align-items:center;
             margin-top:20px;
-        "
-    >
+        ">
 
-        <span style="font-weight:bold;">
-            Značka a model
-        </span>
+                    <span style="font-weight:bold;">
 
-        <label
-            style="
-                display:flex;
-                align-items:center;
-                gap:8px;
-                margin:0;
-                cursor:pointer;
-                font-weight:normal;
+                    </span>
 
-                border:1px solid #dcdcdc;
-                border-radius:10px;
+                    <label class="ostatni-model-label">
 
-                padding:8px 12px;
-
-                background:#fafafa;
-            "
-        >
-
-            <input
-                type="checkbox"
-                id="ostatni-model"
-                onchange="toggleModelInput()"
-                style="
+                        <input type="checkbox" id="ostatni-model"
+                            onchange="toggleModelInput()" style="
                     width:auto;
                     margin:0;
-                "
-            >
+                ">
 
-            Ostatní
+                        Ostatní
 
-        </label>
+                    </label>
 
-    </div>
+                </div>
 
-    <div id="model-select-blok">
+                <label>Značka a model</label>
+                <div id="model-select-blok">
 
-        <select id="model" required>
+                    <select id="model" required>
 
-            <option value="" disabled selected>
-                Vyberte model
-            </option>
+                        <option value disabled selected>
+                            Vyberte model
+                        </option>
 
-            <option disabled>--- Teverun ---</option>
-            <option>Teverun Blade Q Pro</option>
-            <option>Teverun Blade Mini Single</option>
-            <option>Teverun Blade Mini</option>
-            <option>Teverun Blade Mini Pro</option>
-            <option>Teverun Blade Mini Ultra</option>
-            <option>Teverun Blade GT Single</option>
-            <option>Teverun Blade GT</option>
-            <option>Teverun Blade GT+</option>
-            <option>Teverun Blade GT II</option>
-            <option>Teverun Blade GT II+</option>
-            <option>Teverun Fighter Q</option>
-            <option>Teverun Fighter Mini</option>
-            <option>Teverun Fighter Mini Eco</option>
-            <option>Teverun Fighter Mini Std</option>
-            <option>Teverun Fighter Mini Pro</option>
-            <option>Teverun Fighter Eleven</option>
-            <option>Teverun Fighter Eleven+</option>
-            <option>Teverun Fighter Supreme Ultra</option>
-            <option>Teverun Fighter Supreme 7260R</option>
-            <option>Teverun Space Lite</option>
-            <option>Teverun Space Std</option>
+                        <option disabled>--- Teverun ---</option>
+                        <option>Teverun Blade Q Pro</option>
+                        <option>Teverun Blade Mini Single</option>
+                        <option>Teverun Blade Mini</option>
+                        <option>Teverun Blade Mini Pro</option>
+                        <option>Teverun Blade Mini Ultra</option>
+                        <option>Teverun Blade GT Single</option>
+                        <option>Teverun Blade GT</option>
+                        <option>Teverun Blade GT+</option>
+                        <option>Teverun Blade GT II</option>
+                        <option>Teverun Blade GT II+</option>
+                        <option>Teverun Fighter Q</option>
+                        <option>Teverun Fighter Mini</option>
+                        <option>Teverun Fighter Mini Eco</option>
+                        <option>Teverun Fighter Mini Std</option>
+                        <option>Teverun Fighter Mini Pro</option>
+                        <option>Teverun Fighter Eleven</option>
+                        <option>Teverun Fighter Eleven+</option>
+                        <option>Teverun Fighter Supreme Ultra</option>
+                        <option>Teverun Fighter Supreme 7260R</option>
+                        <option>Teverun Space Lite</option>
+                        <option>Teverun Space Std</option>
 
-            <option disabled>--- Vsett ---</option>
-            <option>Vsett Mini</option>
-            <option>Vsett 8</option>
-            <option>Vsett 8+</option>
-            <option>Vsett 9</option>
-            <option>Vsett 9+</option>
-            <option>Vsett 10</option>
-            <option>Vsett 10+</option>
-            <option>Vsett 11+</option>
-            <option>Vsett 8 Apex</option>
-            <option>Vsett 9 Apex</option>
-            <option>Vsett 10 Apex</option>
+                        <option disabled>--- Vsett ---</option>
+                        <option>Vsett Mini</option>
+                        <option>Vsett 8</option>
+                        <option>Vsett 8+</option>
+                        <option>Vsett 9</option>
+                        <option>Vsett 9+</option>
+                        <option>Vsett 10</option>
+                        <option>Vsett 10+</option>
+                        <option>Vsett 11+</option>
+                        <option>Vsett 8 Apex</option>
+                        <option>Vsett 9 Apex</option>
+                        <option>Vsett 10 Apex</option>
 
-            <option disabled>--- Techlife ---</option>
-            <option>Techlife X5</option>
-            <option>Techlife X5S</option>
-            <option>Techlife X6</option>
-            <option>Techlife L5</option>
-            <option>Techlife L5T</option>
-            <option>Techlife X7</option>
-            <option>Techlife X7S</option>
-            <option>Techlife X7 Lite</option>
-            <option>Techlife X8</option>
-            <option>Techlife X8S</option>
-            <option>Techlife X9</option>
+                        <option disabled>--- Techlife ---</option>
+                        <option>Techlife X5</option>
+                        <option>Techlife X5S</option>
+                        <option>Techlife X6</option>
+                        <option>Techlife L5</option>
+                        <option>Techlife L5T</option>
+                        <option>Techlife X7</option>
+                        <option>Techlife X7S</option>
+                        <option>Techlife X7 Lite</option>
+                        <option>Techlife X8</option>
+                        <option>Techlife X8S</option>
+                        <option>Techlife X9</option>
 
-        </select>
+                    </select>
 
-    </div>
+                </div>
 
-    <div id="model-input-blok" style="display:none;">
+                <div id="model-input-blok" style="display:none;">
 
-        <input
-            type="text"
-            id="model-input"
-            placeholder="Např. Vsett 10+"
-        >
+                    <input type="text" id="model-input"
+                        placeholder="Např. Ninebot Max G2">
 
-    </div>
+                </div>
 
-    <label>Sériové číslo</label>
-    <input type="text" id="seriove" placeholder="TDE1FMA25L9999">
+                <label>Sériové číslo</label>
+                <input type="text" id="seriove" placeholder="TDE1FMA25L9999">
 
-    <label>Popis závady</label>
-    <textarea
-        id="zavada"
-        placeholder="Např. Koloběžka nejde nastartovat..."
-        required
-    ></textarea>
+                <label>Popis závady</label>
+                <textarea id="zavada"
+                    placeholder="Např. Koloběžka nejde nastartovat..."
+                    required></textarea>
 
-    <label>Popis závady</label>
+                <label>Provedená oprava</label>
+                <div id="opravy"></div>
 
-    <textarea
-        id="zavada"
-        placeholder="Např. Koloběžka nejde nastartovat..."
-        required
-    ></textarea>
+                <label>Použité náhradní díly</label>
+                <div id="dily"></div>
 
-    <label>Poznámky</label>
+                <label>Poznámky</label>
+                <textarea id="poznamky"
+                    placeholder="Dodatečné informace..."></textarea>
 
-    <textarea
-        id="poznamky"
-        placeholder="Dodatečné informace..."
-    ></textarea>
+                <button type="button" onclick="vygenerovatDOCX()">
+                    Stáhnout dokument
+                </button>
 
-    <button type="submit">
-        Stáhnout dokument
-    </button>
+            </form>
+        </div>
 
-</div>
+        <button id="themeToggle" class="theme-toggle">☀️</button>
+        <button id="returnButton" class="return-button"><i
+                class="fa-solid fa-house"></i></button>
+
+        <footer>
+            © 2026 sao
+        </footer>
+
+        
+<script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip.min.js"></script>
+<script>
+console.log("PizZip test:", window.PizZip);
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.43.0/docxtemplater.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
 <script>
 
 function toggleOsobne() {
 
-    const checkbox = document.getElementById('osobne');
-    const adresaBlok = document.getElementById('adresa-blok');
+    const osobne = document.getElementById('osobne').checked;
 
-    if (checkbox.checked) {
-        adresaBlok.style.display = 'none';
-    } else {
-        adresaBlok.style.display = 'block';
+    const osobneBlok = document.getElementById('osobne-blok');
+    const kuryrBlok = document.getElementById('kuryr-blok');
+
+    if(osobne){
+        osobneBlok.style.display = 'block';
+        kuryrBlok.style.display = 'none';
+
+        document.getElementById('datum_predani').required = true;
+        document.getElementById('datum_prevzeti').required = false;
+        document.getElementById('datum_vyzvednuti').required = false;
+    }else{
+        osobneBlok.style.display = 'none';
+        kuryrBlok.style.display = 'block';
+
+        document.getElementById('datum_predani').required = false;
+        document.getElementById('datum_prevzeti').required = true;
+        document.getElementById('datum_vyzvednuti').required = true;
     }
 }
 
@@ -372,18 +464,73 @@ function toggleModelInput() {
     }
 }
 
+
+function createDynamicList(containerId, className, placeholder){
+
+    const container = document.getElementById(containerId);
+
+    function ensureLastEmpty(){
+        const inputs = [...container.querySelectorAll('input')];
+
+        if(inputs.length === 0 || inputs[inputs.length-1].value.trim() !== ''){
+            addRow('');
+        }
+
+        const all = [...container.querySelectorAll('input')];
+
+        all.forEach((inp,index)=>{
+            if(inp.value.trim()==='' && index !== all.length-1){
+                inp.remove();
+            }
+        });
+    }
+
+    function addRow(value=''){
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.className = className;
+        input.placeholder = placeholder;
+        input.value = value;
+
+        input.addEventListener('input', () => {
+            ensureLastEmpty();
+        });
+
+        container.appendChild(input);
+    }
+
+    addRow('');
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    createDynamicList('opravy','oprava-item','Např. Výměna displeje');
+    createDynamicList('dily','dil-item','Např. TFT displej');
+    toggleOsobne();
+});
+
+function formatDatum(datum) {
+    if (!datum) return '';
+
+    const d = new Date(datum);
+
+    return `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`;
+}
+
 async function vygenerovatDOCX() {
 
     try {
 
-        const response = await fetch('servis.docx');
+        const response = await fetch('protokol.docx');
 
         if (!response.ok) {
-            alert('Nepodařilo se načíst servis.docx');
+            alert('Nepodařilo se načíst protokol.docx');
             return;
         }
 
         const arrayBuffer = await response.arrayBuffer();
+
+        console.log("PizZip =", window.PizZip);
+console.log("docxtemplater =", window.docxtemplater);
 
         const zip = new PizZip(arrayBuffer);
 
@@ -394,30 +541,52 @@ async function vygenerovatDOCX() {
 
         const osobne = document.getElementById('osobne').checked;
 
+
+        const excelCislo =
+            document.getElementById('cislo_excel').value || 'XXX';
+
+        const zakaznik =
+            document.getElementById('zakaznik').value || 'XXX';
+
+        const ostatniModel =
+            document.getElementById('ostatni-model').checked;
+
+        const vybranyModel =
+            document.getElementById('model').value || '';
+
+        const jeTeverun =
+            vybranyModel.startsWith('Teverun');
+
+        const cislo =
+            (ostatniModel || (!jeTeverun && vybranyModel !== ''))
+                ? `Ostatní - ${excelCislo}`
+                : excelCislo;
+
+        const filename =
+            cislo.startsWith('Ostatní')
+                ? `O${excelCislo} - ${zakaznik}.docx`
+                : `${excelCislo} - ${zakaznik}.docx`;
+
+        const opravy = [...document.querySelectorAll('.oprava-item')]
+    .map(x => ({text:x.value.trim()}))
+    .filter(x => x.text);
+
+        const dily = [...document.querySelectorAll('.dil-item')]
+    .map(x => ({text:x.value.trim()}))
+    .filter(x => x.text);
+
         doc.render({
 
-            cislo_excel: document.getElementById('cislo_excel').value,
+            cislo: cislo,
 
             zakaznik: document.getElementById('zakaznik').value,
 
             email: document.getElementById('email').value,
 
             telefon:
-                document.getElementById('predvolba').value +
-                ' ' +
-                document.getElementById('telefon').value,
+                document.getElementById('predvolba').value + ' ' + document.getElementById('telefon').value,
 
-            ulice: osobne
-                ? 'Osobně - Prodejna'
-                : document.getElementById('ulice').value,
-
-            adresa: osobne
-            ? 'Osobně - Prodejna'
-            : `${document.getElementById('ulice').value},
-               ${document.getElementById('mesto').value},
-               ${document.getElementById('psc').value},
-               ${document.getElementById('stat').value}`,
-
+            
             model:
 
                 document.getElementById('model-select-blok').style.display === 'none'
@@ -426,17 +595,20 @@ async function vygenerovatDOCX() {
 
                     : document.getElementById('model').value,
 
-            seriove: document.getElementById('seriove').value,
+            seriove: document.getElementById('seriove').value || 'Nevím',
 
-            faktura: document.getElementById('faktura').value,
-
-            najezd: document.getElementById('najezd').value,
-
-            oprava: document.getElementById('oprava').value,
-
+            
+            
+            
             zavada: document.getElementById('zavada').value,
 
-            poznamky: document.getElementById('poznamky').value
+            poznamky: document.getElementById('poznamky').value,
+            osobne: osobne,
+            datum_predani: formatDatum(document.getElementById('datum_predani')?.value),
+            datum_prevzeti: formatDatum(document.getElementById('datum_prevzeti')?.value),
+            datum_vyzvednuti: formatDatum(document.getElementById('datum_vyzvednuti')?.value),
+            opravy: opravy,
+            dily: dily
 
         });
 
@@ -449,14 +621,6 @@ async function vygenerovatDOCX() {
 
         });
 
-        const cislo =
-            document.getElementById('cislo_excel').value || 'bez-cisla';
-
-        const zakaznik =
-            document.getElementById('zakaznik').value || 'zakaznik';
-
-        const filename = `${cislo} - ${zakaznik}.docx`;
-
         saveAs(output, filename);
 
     } catch (error) {
@@ -467,7 +631,64 @@ async function vygenerovatDOCX() {
     }
 }
 
+const themeToggle =
+    document.getElementById('themeToggle');
+
+function setTheme(theme){
+
+    document.body.classList.toggle(
+        'dark-mode',
+        theme === 'dark'
+    );
+
+    themeToggle.textContent =
+        theme === 'dark'
+            ? '☀️'
+            : '🌙';
+}
+
+const savedTheme =
+    localStorage.getItem('theme');
+
+if(savedTheme){
+
+    setTheme(savedTheme);
+
+}else{
+
+    setTheme(
+        window.matchMedia(
+            '(prefers-color-scheme: dark)'
+        ).matches
+            ? 'dark'
+            : 'light'
+    );
+}
+
+themeToggle.addEventListener('click',()=>{
+
+    const dark =
+        document.body.classList.contains(
+            'dark-mode'
+        );
+
+    const newTheme =
+        dark ? 'light' : 'dark';
+
+    setTheme(newTheme);
+
+    localStorage.setItem(
+        'theme',
+        newTheme
+    );
+
+});
+
+
+const returnButton = document.getElementById('returnButton');
+if(returnButton){
+    returnButton.addEventListener('click', () => window.location.href='index.html');
+}
 </script>
 
-</body>
-</html>
+    </body></html>
